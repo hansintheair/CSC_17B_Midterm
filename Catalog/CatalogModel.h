@@ -13,9 +13,6 @@
 #ifndef CATALOGMODEL_H
 #define CATALOGMODEL_H
 
-#include <string>
-using namespace std;
-
 #include "CatalogItem.h"
 
 const short unsigned int MAXDB = 1000;
@@ -24,8 +21,9 @@ class CatalogModel {
 private:
     string catalogDB;
     CatalogItem catalog[MAXDB];
+    unsigned short int numItems;
 public:
-    CatalogModel();
+    CatalogModel(string);
     CatalogModel(const CatalogModel& orig);
     virtual ~CatalogModel();
 };
