@@ -34,8 +34,9 @@ int main(int argc, char** argv) {
         cout << "B - Display catalog\n";
         cout << "C - Display specific catalog item\n";
         cout << "D - Add catalog item\n";
-        cout << "E - Delete catalog item\n";
-        cout << "F - Save catalog\n";
+        cout << "E - Replace catalog item\n";
+        cout << "F - Delete catalog item\n";
+        cout << "G - Save catalog\n";
         cout << "Q = Quit\n";
         
         cout << ">> ";
@@ -45,47 +46,74 @@ int main(int argc, char** argv) {
         string temp_input;
         CatalogItem temp_item;
         switch(input){
-            case 'a':
+            case 'a':  //Display count
+                cout << "\n";
                 cout << "Number of items in catalog: " << catalog.getSize() << ".\n";
                 cout << "\n";
                 break;
-            case 'b':
+            case 'b':  //Display all
+                cout << "\n";
                 catalog.display();
+                break;
+            case 'c':  //Display specific
+                cout << "\n";
+                cout << "Enter name of item to display: ";
+                cin.ignore();
+                getline(cin, temp_input);
+                cout << "\n";
+                catalog.display(temp_input);
                 cout << "\n";
                 break;
-            case 'c':
-                cout << "CHOICE C\n";
+            case 'd':  //Add item
                 cout << "\n";
-                break;
-            case 'd':
                 cin.ignore();
                 cout << "Item name: ";
                 getline(cin, temp_input);
                 strncpy(temp_item.name, temp_input.c_str(), MAXNAME -1 );
-//                temp_item.name[MAXNAME - 1] = '\0';
                 cout << "Item description: ";
-//                cin.ignore();
                 getline(cin, temp_input);
                 strncpy(temp_item.desc, temp_input.c_str(), MAXDESC - 1);
-//                temp_item.name[MAXDESC - 1] = '\0';
                 cout << "Item price: ";
                 cin >> temp_item.price;
                 cout << "Item quantity: ";
                 cin >> temp_item.quant;
-                cout << "\n";
                 catalog.addItem(temp_item);
+                cout << "\n\n";
                 break;
-            case 'e':
+            case 'e': //Edit item
+                cout << "\n";
+                cout << "Enter new values for item:\n";
+                cin.ignore();
+                cout << "Item name: ";
+                getline(cin, temp_input);
+                strncpy(temp_item.name, temp_input.c_str(), MAXNAME -1 );
+                cout << "Item description: ";
+                getline(cin, temp_input);
+                strncpy(temp_item.desc, temp_input.c_str(), MAXDESC - 1);
+                cout << "Item price: ";
+                cin >> temp_item.price;
+                cout << "Item quantity: ";
+                cin >> temp_item.quant;
+                cout << "Enter name of item to replace with new item: ";
+                cin.ignore();
+                getline(cin, temp_input);
+                catalog.repItem(temp_input, temp_item);
+                cout << "\n";
+                break;
+            case 'f':  //Delete item
+                cout << "\n";
                 cout << "Name of item to delete: ";
                 cin >> temp_input;
                 catalog.delItem(temp_input);
                 cout << "\n";
                 break;
-            case 'f':
+            case 'g':  //Save
+                cout << "\n";
                 cout << "Saving\n";
                 catalog.save();
+                cout << "\n";
                 break;
-            case 'q':
+            case 'q':  //Quit
                 cout << "\n";
                 quit=true;
                 break;
