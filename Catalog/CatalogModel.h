@@ -19,12 +19,13 @@ const short unsigned int MAXDB = 1000;
 
 class CatalogModel {
 private:
-    string catalogDB;
+    string catalog_db;
     CatalogItem catalog[MAXDB];
-    unsigned short int numItems;
+    unsigned short int num_items;
 public:
     CatalogModel(string);
     CatalogModel(const CatalogModel& orig);
+    static void createDB(string);
     virtual ~CatalogModel();
 };
 
