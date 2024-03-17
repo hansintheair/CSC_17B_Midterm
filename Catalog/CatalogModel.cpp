@@ -13,30 +13,31 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 #include "CatalogModel.h"
 
-CatalogModel::CatalogModel(string catalogDB) {
+CatalogModel::CatalogModel(string catalog_db) {
 
     // open file
     fstream file;
-    file.open(catalogDB, ios::in | ios::binary);
+    file.open(catalog_db, ios::in | ios::binary);
     if (!file) {
-        cout << "Error opening file";
+        cout << "Error opening file\n";
         return;
     }
 
     // get size of catalog database
-    file.read(reinterpret_cast<char*> (&numItems), sizeof (numItems));
+    file.read(reinterpret_cast<char*> (&num_items), sizeof (num_items));
 
-    CatalogItem tempItem;
-    for (int i = 0; i < numItems; i++) {
-        file.read(reinterpret_cast<char*> (&tempItem), sizeof (CatalogItem));
-        catalog[i].name = tempItem.name;
-        catalog[i].desc = tempItem.desc;
-        catalog[i].quant = tempItem.quant;
-        catalog[i].price = tempItem.price;
+    CatalogItem temp_item;
+    for (int i = 0; i < num_items; i++) {
+        file.read(reinterpret_cast<char*> (&temp_item), sizeof (CatalogItem));
+        strncpy(catalog[i].name, temp_item.name, MAXNAME - 1);
+        strncpy(catalog[i].desc, temp_item.desc, MAXDESC - 1);
+        catalog[i].quant = temp_item.quant;
+        catalog[i].price = temp_item.price;
     }
 }
 
@@ -44,5 +45,21 @@ CatalogModel::CatalogModel(const CatalogModel& orig) {
 }
 
 CatalogModel::~CatalogModel() {
+}
+
+void CatalogModel::createDB(string catalog_db) {
+
+    fstream file;
+
+    // check file existence
+    file.open(catalog_db, ios::in | ios::binary);
+    if (!file) {
+        file.open(catalog_db, ios::out | ios::binary);
+        short unsigned int num_items = 0;
+        file.write(reinterpret_cast<char*> (&num_items), sizeof (num_items));
+    }
+    else {
+        cout << "File " << catalog_db << " already exists.\n";
+    }
 }
 
