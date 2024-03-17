@@ -22,11 +22,19 @@ private:
     string catalog_db;
     CatalogItem catalog[MAXDB];
     unsigned short int num_items;
+    short unsigned int findItem(string);
 public:
     CatalogModel(string);
-    CatalogModel(const CatalogModel& orig);
+//    CatalogModel(const CatalogModel& orig);
+    void display();
+    void display(string);
+    short unsigned int getSize();
+    void addItem(const CatalogItem&);
+    void delItem(string);
+
+    void save();
     static void createDB(string);
-    virtual ~CatalogModel();
+//    virtual ~CatalogModel();
 };
 
 #endif /* CATALOGMODEL_H */
