@@ -13,6 +13,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 #include <cstring>
 using namespace std;
 
@@ -39,12 +40,100 @@ CatalogModel::CatalogModel(string catalog_db) {
         catalog[i].quant = temp_item.quant;
         catalog[i].price = temp_item.price;
     }
+    
+    this->catalog_db = catalog_db;
 }
 
-CatalogModel::CatalogModel(const CatalogModel& orig) {
+//CatalogModel::CatalogModel(const CatalogModel& orig) {
+//}
+//
+//CatalogModel::~CatalogModel() {
+//}
+
+// Search for a catalog item and return its index position.
+
+short unsigned int CatalogModel::findItem(string s_name) {
+    short unsigned int i, pos = -1;
+
+    while (i < num_items) {
+        if (catalog[i].name == s_name) {
+            pos = i;
+            break; //item found
+        }
+        i++;
+    }
+    return pos;
 }
 
-CatalogModel::~CatalogModel() {
+short unsigned int CatalogModel::getSize() {
+    return num_items;
+}
+
+// Display all items in the catalog.
+
+void CatalogModel::display() {
+    for (int i = 0; i < num_items; i++) {
+        catalog[i].display();
+    }
+}
+// Display a specific item in the catalog.
+
+void CatalogModel::display(string name) {
+    catalog[findItem(name)].display();
+}
+
+// Add an item to the end of the catalog.
+
+void CatalogModel::addItem(const CatalogItem &item) {
+    catalog[num_items] = item;
+    num_items++;
+}
+
+void CatalogModel::delItem(string name) {
+    short unsigned int idel = findItem(name);
+    
+    if (idel > -1) { //item found
+        for (int i = idel; i < num_items; i++){
+            catalog[i] = catalog[i+1];
+        }
+        num_items--;
+    }
+    else {
+        cout << "Item " << name << " does not exist.\n";
+    }
+}
+
+void CatalogModel::save() {
+
+    fstream file;
+    
+    // check file existence
+    file.open(catalog_db, ios::in | ios::binary);
+    if (file) {
+        file.close();
+        file.open(catalog_db, ios::out | ios::binary);
+
+        // get size of catalog database
+        file.write(reinterpret_cast<char*> (&num_items), sizeof (num_items));
+        
+        CatalogItem temp_item;
+        for (int i = 0; i < num_items; i++) {
+            cout << "Write record " << i << endl;
+            strncpy(temp_item.name, catalog[i].name, MAXNAME - 1);
+            cout << "NAME: " << temp_item.name << endl;
+            strncpy(temp_item.desc, catalog[i].desc, MAXDESC - 1);
+            cout << "DESC: " << temp_item.desc << endl;
+            temp_item.price = catalog[i].price;
+            cout << "PRICE: " << temp_item.price << endl;
+            temp_item.quant = catalog[i].quant;
+            cout << "QUANT: " << temp_item.quant << endl;
+            file.write(reinterpret_cast<char*> (&temp_item), sizeof (CatalogItem));
+        }
+    } else {
+        cout << "Cannot save, file " << catalog_db << " does not exist.\n";
+    }
+
+    file.close();    
 }
 
 void CatalogModel::createDB(string catalog_db) {
@@ -54,12 +143,14 @@ void CatalogModel::createDB(string catalog_db) {
     // check file existence
     file.open(catalog_db, ios::in | ios::binary);
     if (!file) {
+        file.close();
         file.open(catalog_db, ios::out | ios::binary);
         short unsigned int num_items = 0;
         file.write(reinterpret_cast<char*> (&num_items), sizeof (num_items));
-    }
-    else {
+    } else {
         cout << "File " << catalog_db << " already exists.\n";
     }
+    
+    file.close();
 }
 
