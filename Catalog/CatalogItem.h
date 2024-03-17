@@ -25,7 +25,7 @@ struct CatalogItem{
     char name[MAXNAME];  // Name doubles as ID, must be unique.
     char desc[MAXDESC];
     float price;
-    short unsigned int quant;
+    unsigned int quant;
     
     void display() {
         cout << "Name: " << name << "\n";

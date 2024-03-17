@@ -40,7 +40,7 @@ CatalogModel::CatalogModel(string catalog_db) {
         catalog[i].quant = temp_item.quant;
         catalog[i].price = temp_item.price;
     }
-    
+
     this->catalog_db = catalog_db;
 }
 
@@ -52,11 +52,14 @@ CatalogModel::CatalogModel(string catalog_db) {
 
 // Search for a catalog item and return its index position.
 
-short unsigned int CatalogModel::findItem(string s_name) {
-    short unsigned int i, pos = -1;
+short int CatalogModel::findItem(string name) {
+    short unsigned int i = 0;
+    short int pos = -1;
+//    cout << "Searching for " << name << "\n";  //DEBUG
 
     while (i < num_items) {
-        if (catalog[i].name == s_name) {
+//        cout << "Searching catalog item #" << i << "\n";  //DEBUG
+        if (catalog[i].name == name) {
             pos = i;
             break; //item found
         }
@@ -74,12 +77,20 @@ short unsigned int CatalogModel::getSize() {
 void CatalogModel::display() {
     for (int i = 0; i < num_items; i++) {
         catalog[i].display();
+        cout << "\n";
     }
 }
 // Display a specific item in the catalog.
 
 void CatalogModel::display(string name) {
-    catalog[findItem(name)].display();
+    short int idis = findItem(name);
+//    cout << "index pos: " << idis << "\n"; //DEBUG
+    if (idis > -1) {//item found
+        catalog[idis].display();
+    }
+    else {
+        cout << "Item " << name << " does not exist.\n";
+    }
 }
 
 // Add an item to the end of the catalog.
@@ -89,16 +100,24 @@ void CatalogModel::addItem(const CatalogItem &item) {
     num_items++;
 }
 
+void CatalogModel::repItem(string name, const CatalogItem& new_item) {
+    short int irep = findItem(name);
+//    cout << "index: " << irep << "\n";  //DEBUG
+    if (irep > -1) { //item found
+        catalog[irep] = new_item;
+    } else {
+        cout << "Item " << name << " does not exist.\n";
+    }
+}
+
 void CatalogModel::delItem(string name) {
-    short unsigned int idel = findItem(name);
-    
+    short int idel = findItem(name);
     if (idel > -1) { //item found
-        for (int i = idel; i < num_items; i++){
-            catalog[i] = catalog[i+1];
+        for (int i = idel; i < num_items; i++) {
+            catalog[i] = catalog[i + 1];
         }
         num_items--;
-    }
-    else {
+    } else {
         cout << "Item " << name << " does not exist.\n";
     }
 }
@@ -106,7 +125,7 @@ void CatalogModel::delItem(string name) {
 void CatalogModel::save() {
 
     fstream file;
-    
+
     // check file existence
     file.open(catalog_db, ios::in | ios::binary);
     if (file) {
@@ -115,25 +134,25 @@ void CatalogModel::save() {
 
         // get size of catalog database
         file.write(reinterpret_cast<char*> (&num_items), sizeof (num_items));
-        
+
         CatalogItem temp_item;
         for (int i = 0; i < num_items; i++) {
-            cout << "Write record " << i << endl;
+            //            cout << "Write record " << i << endl;
             strncpy(temp_item.name, catalog[i].name, MAXNAME - 1);
-            cout << "NAME: " << temp_item.name << endl;
+            //            cout << "NAME: " << temp_item.name << endl;
             strncpy(temp_item.desc, catalog[i].desc, MAXDESC - 1);
-            cout << "DESC: " << temp_item.desc << endl;
+            //            cout << "DESC: " << temp_item.desc << endl;
             temp_item.price = catalog[i].price;
-            cout << "PRICE: " << temp_item.price << endl;
+            //            cout << "PRICE: " << temp_item.price << endl;
             temp_item.quant = catalog[i].quant;
-            cout << "QUANT: " << temp_item.quant << endl;
+            //            cout << "QUANT: " << temp_item.quant << endl;
             file.write(reinterpret_cast<char*> (&temp_item), sizeof (CatalogItem));
         }
     } else {
         cout << "Cannot save, file " << catalog_db << " does not exist.\n";
     }
 
-    file.close();    
+    file.close();
 }
 
 void CatalogModel::createDB(string catalog_db) {
@@ -150,7 +169,7 @@ void CatalogModel::createDB(string catalog_db) {
     } else {
         cout << "File " << catalog_db << " already exists.\n";
     }
-    
+
     file.close();
 }
 

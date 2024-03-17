@@ -22,7 +22,7 @@ private:
     string catalog_db;
     CatalogItem catalog[MAXDB];
     unsigned short int num_items;
-    short unsigned int findItem(string);
+    short int findItem(string);
 public:
     CatalogModel(string);
 //    CatalogModel(const CatalogModel& orig);
@@ -30,6 +30,7 @@ public:
     void display(string);
     short unsigned int getSize();
     void addItem(const CatalogItem&);
+    void repItem(string, const CatalogItem&);
     void delItem(string);
 
     void save();
