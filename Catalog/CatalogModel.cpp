@@ -81,7 +81,6 @@ void CatalogModel::display() {
     }
 }
 // Display a specific item in the catalog.
-
 void CatalogModel::display(string name) {
     short int idis = findItem(name);
 //    cout << "index pos: " << idis << "\n"; //DEBUG
