@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/HomeController.o \
+	${OBJECTDIR}/HomeView.o \
 	${OBJECTDIR}/UsrAccntsModel.o \
 	${OBJECTDIR}/main.o
 
@@ -62,6 +64,16 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/03_userlogin.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/03_userlogin ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/HomeController.o: HomeController.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HomeController.o HomeController.cpp
+
+${OBJECTDIR}/HomeView.o: HomeView.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HomeView.o HomeView.cpp
 
 ${OBJECTDIR}/UsrAccntsModel.o: UsrAccntsModel.cpp
 	${MKDIR} -p ${OBJECTDIR}

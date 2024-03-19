@@ -85,10 +85,11 @@ Account* UsrAccntsModel::getAcct(string name, string passw) {
 //    cout << "index pos: " << idis << "\n"; //DEBUG
     if (idis > -1) {//item found
         if (accounts[idis].passw == passw){
+            cout << "Login succeeded\n";
             return &accounts[idis];
         }
         else {
-            cout << "Password invalid";
+            cout << "Password invalid\n";
             return nullptr;
         }
     }

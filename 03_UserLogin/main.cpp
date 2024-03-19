@@ -33,7 +33,7 @@ int main() {
         cout << "Please choose an option:\n";
         cout << "A - Display count\n";
         cout << "B - Display user accounts\n";
-        cout << "C - Display specific user account\n";
+//        cout << "C - Display specific user account\n";
         cout << "D - Add account\n";
         cout << "E - Replace account\n";
         cout << "F - Delete account\n";
@@ -56,18 +56,18 @@ int main() {
                 cout << "\n";
                 users.display();
                 break;
-            case 'c':  //Display specific
-                cout << "\n";
-                cout << "Enter name of account display: ";
-                cin.ignore();
-                getline(cin, temp_input_a);
-                cout << "\n";
-                cout << "Enter password for the account: ";
-                getline(cin, temp_input_b);
-                cout << "\n";
-                users.getAcct(temp_input_a, temp_input_b)->display();
-                cout << "\n";
-                break;
+//            case 'c':  //Display specific
+//                cout << "\n";
+//                cout << "Enter name of account display: ";
+//                cin.ignore();
+//                getline(cin, temp_input_a);
+//                cout << "\n";
+//                cout << "Enter password for the account: ";
+//                getline(cin, temp_input_b);
+//                cout << "\n";
+//                users.getAcct(temp_input_a, temp_input_b)->display();
+//                cout << "\n";
+//                break;
             case 'd':  //Add account
                 cout << "\n";
                 cin.ignore();

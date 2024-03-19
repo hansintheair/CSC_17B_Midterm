@@ -13,6 +13,9 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
+#include <iostream>
+using namespace std;
+
 const short unsigned int MAXFLD = 81;
 
 struct Account {

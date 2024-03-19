@@ -5,6 +5,8 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Account.h</itemPath>
+      <itemPath>HomeController.h</itemPath>
+      <itemPath>HomeView.h</itemPath>
       <itemPath>UsrAccntsModel.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -14,6 +16,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>HomeController.cpp</itemPath>
+      <itemPath>HomeView.cpp</itemPath>
       <itemPath>UsrAccntsModel.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -40,6 +44,14 @@
       <compileType>
       </compileType>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HomeController.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HomeController.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HomeView.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HomeView.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="UsrAccntsModel.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -69,6 +81,14 @@
         </asmTool>
       </compileType>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HomeController.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HomeController.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HomeView.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HomeView.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="UsrAccntsModel.cpp" ex="false" tool="1" flavor2="0">
       </item>
