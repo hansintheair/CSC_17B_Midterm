@@ -1,5 +1,6 @@
 build/Debug/Cygwin-Windows/HomeController.o: HomeController.cpp \
- UsrAccntsModel.h Account.h HomeController.h
+ HomeController.h UsrAccntsModel.h Account.h HomeView.h
+HomeController.h:
 UsrAccntsModel.h:
 Account.h:
-HomeController.h:
+HomeView.h:

@@ -14,11 +14,31 @@
 #include <cstring>
 using namespace std;
 
-#include "UsrAccntsModel.h"
 #include "HomeController.h"
 
-HomeController::HomeController(UsrAccntsModel *accntsModel) {
+
+HomeController::HomeController(UsrAccntsModel *accntsModel, HomeView *homeView) {
     this->accntsModel = accntsModel;
+    this->homeView = homeView;
+}
+
+void HomeController::main(){
+    bool quit = false;
+    char input;
+    while (!quit) {
+        input = homeView->renderHome();
+        switch(input){
+            case 'a':
+                break;
+            case 'q':  //Quit
+                cout << "\n";
+                quit=true;
+                break;
+            default:
+                cout << "Unknown input, please try again\n";
+        };
+    }
+    cout << "QUITTING\n";
 }
 
 void HomeController::createUser(string username, string email, string passw){
@@ -33,6 +53,8 @@ void HomeController::createUser(string username, string email, string passw){
     accntsModel->addAcct(temp_acct);
 }
 
-void HomeController::loginUser(string username, string passw){
+void HomeController::loginUser(){
+    string username, passw;
+    homeView->userLogin(username, passw);
     accntsModel->getAcct(username, passw);
 }

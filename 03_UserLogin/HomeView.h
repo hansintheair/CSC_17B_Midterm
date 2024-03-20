@@ -15,9 +15,12 @@
 
 class HomeView {
 public:
-    HomeView();
-
+    char renderHome();
+    void userLogin(string&, string&);
+    void userCreate(string&, string&, string&);
+    
 private:
+    
 
 };
 

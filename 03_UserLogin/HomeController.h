@@ -13,15 +13,19 @@
 #ifndef HOMECONTROLLER_H
 #define HOMECONTROLLER_H
 
+#include "UsrAccntsModel.h"
+#include "HomeView.h"
 
 class HomeController {
 public:
-    HomeController(UsrAccntsModel*);
+    HomeController(UsrAccntsModel*, HomeView*);
+    void main();
     void createUser(string, string, string);
-    void loginUser(string, string);
+    void loginUser();
     
 private:
     UsrAccntsModel *accntsModel;
+    HomeView *homeView;
 };
 
 #endif /* HOMECONTROLLER_H */
