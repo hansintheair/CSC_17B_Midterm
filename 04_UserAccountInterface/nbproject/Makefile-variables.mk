@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=03_userlogin
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/03_userlogin
+CND_ARTIFACT_NAME_Debug=04_useraccountinterface
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/04_useraccountinterface
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=03userlogin.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/03userlogin.tar
+CND_PACKAGE_NAME_Debug=04useraccountinterface.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/04useraccountinterface.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=03_userlogin
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/03_userlogin
+CND_ARTIFACT_NAME_Release=04_useraccountinterface
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/04_useraccountinterface
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=03userlogin.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/03userlogin.tar
+CND_PACKAGE_NAME_Release=04useraccountinterface.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/04useraccountinterface.tar
 #
 # include compiler specific variables
 #

@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/CatalogModel.o \
 	${OBJECTDIR}/HomeController.o \
 	${OBJECTDIR}/HomeView.o \
 	${OBJECTDIR}/UsrAccntsModel.o \
@@ -59,11 +60,16 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/03_userlogin.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/04_useraccountinterface.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/03_userlogin.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/04_useraccountinterface.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/03_userlogin ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/04_useraccountinterface ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/CatalogModel.o: CatalogModel.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CatalogModel.o CatalogModel.cpp
 
 ${OBJECTDIR}/HomeController.o: HomeController.cpp
 	${MKDIR} -p ${OBJECTDIR}

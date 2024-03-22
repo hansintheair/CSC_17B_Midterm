@@ -5,6 +5,8 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Account.h</itemPath>
+      <itemPath>CatalogItem.h</itemPath>
+      <itemPath>CatalogModel.h</itemPath>
       <itemPath>HomeController.h</itemPath>
       <itemPath>HomeView.h</itemPath>
       <itemPath>UsrAccntsModel.h</itemPath>
@@ -16,6 +18,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>CatalogModel.cpp</itemPath>
       <itemPath>HomeController.cpp</itemPath>
       <itemPath>HomeView.cpp</itemPath>
       <itemPath>UsrAccntsModel.cpp</itemPath>
@@ -44,6 +47,12 @@
       <compileType>
       </compileType>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CatalogItem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CatalogModel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CatalogModel.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HomeController.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -81,6 +90,12 @@
         </asmTool>
       </compileType>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CatalogItem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CatalogModel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CatalogModel.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HomeController.cpp" ex="false" tool="1" flavor2="0">
       </item>
