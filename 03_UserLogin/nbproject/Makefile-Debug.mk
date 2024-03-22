@@ -23,7 +23,7 @@ AS=as
 # Macros
 CND_PLATFORM=Cygwin-Windows
 CND_DLIB_EXT=dll
-CND_CONF=Release
+CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 
@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/HomeController.o \
+	${OBJECTDIR}/HomeView.o \
 	${OBJECTDIR}/UsrAccntsModel.o \
 	${OBJECTDIR}/main.o
 
@@ -57,21 +59,31 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/02_useraccounts.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/03_userlogin.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/02_useraccounts.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/03_userlogin.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/02_useraccounts ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/03_userlogin ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/HomeController.o: HomeController.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HomeController.o HomeController.cpp
+
+${OBJECTDIR}/HomeView.o: HomeView.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HomeView.o HomeView.cpp
 
 ${OBJECTDIR}/UsrAccntsModel.o: UsrAccntsModel.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/UsrAccntsModel.o UsrAccntsModel.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/UsrAccntsModel.o UsrAccntsModel.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:
