@@ -20,9 +20,8 @@ class HomeController {
 public:
     HomeController(UsrAccntsModel*, HomeView*);
     void main();
-    void createUser(string, string, string);
+    void createUser();
     void loginUser();
-    
 private:
     UsrAccntsModel *accntsModel;
     HomeView *homeView;

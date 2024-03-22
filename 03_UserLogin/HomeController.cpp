@@ -27,8 +27,13 @@ void HomeController::main(){
     char input;
     while (!quit) {
         input = homeView->renderHome();
+        input = tolower(input);
         switch(input){
             case 'a':
+                loginUser();
+                break;
+            case 'b':
+                createUser();
                 break;
             case 'q':  //Quit
                 cout << "\n";
@@ -41,8 +46,10 @@ void HomeController::main(){
     cout << "QUITTING\n";
 }
 
-void HomeController::createUser(string username, string email, string passw){
+void HomeController::createUser(){
     
+    string username, email, passw;
+    homeView->userCreate(username, email, passw);
     Account temp_acct;
     strncpy(temp_acct.name, username.c_str(), MAXFLD -1 );
     strncpy(temp_acct.email, email.c_str(), MAXFLD - 1);

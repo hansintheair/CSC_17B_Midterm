@@ -28,8 +28,19 @@ char HomeView::renderHome() {
     return choice;
 }
 
+void HomeView::userCreate(string &username, string &email, string &passw) {
+    cout << "\n--Create user\n";
+    cout << "Username: ";
+    cin.ignore();
+    getline(cin, username);
+    cout << "e-mail address: ";
+    getline(cin, email);
+    cout << "password: ";
+    getline(cin, passw);
+}
+
 void HomeView::userLogin(string &username, string &passw) {
-    cout << "--Login\n";
+    cout << "\n--Login\n";
     cout << "Username: ";
     cin.ignore();
     getline(cin, username);
