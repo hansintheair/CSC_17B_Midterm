@@ -16,10 +16,10 @@ using namespace std;
 
 #include "HomeController.h"
 
-
-HomeController::HomeController(UsrAccntsModel *accntsModel, HomeView *homeView) {
+HomeController::HomeController(UsrAccntsModel *accntsModel, HomeView *homeView, CatalogModel *catlgModel) {
     this->accntsModel = accntsModel;
     this->homeView = homeView;
+    this->catlgModel = catlgModel;
 }
 
 void HomeController::main() {
@@ -43,36 +43,51 @@ void HomeController::main() {
                 cout << "Unknown input, please try again\n";
         };
     }
-    cout << "QUITTING\n";
+    cout << "Quitting\n";
 }
 
-void HomeController::createUser(){
-    
+void HomeController::createUser() {
+
     string username, email, passw;
     homeView->userCreate(username, email, passw);
     Account temp_acct;
-    strncpy(temp_acct.name, username.c_str(), MAXFLD -1 );
+    strncpy(temp_acct.name, username.c_str(), MAXFLD - 1);
     strncpy(temp_acct.email, email.c_str(), MAXFLD - 1);
-    strncpy(temp_acct.passw, passw.c_str(), MAXFLD -1 );
+    strncpy(temp_acct.passw, passw.c_str(), MAXFLD - 1);
     temp_acct.admin = false;
-    
+
     strncpy(temp_acct.cartdb, ("data/" + string(temp_acct.name) + ".bin").c_str(), MAXFLD - 1);
     CatalogModel::createDB(temp_acct.cartdb);
-    
+
     accntsModel->addAcct(temp_acct);
     accntsModel->save();
 }
 
-void HomeController::loginUser(){
+void HomeController::loginUser() {
     string username, passw;
     homeView->userLogin(username, passw);
-    accntsModel->getAcct(username, passw);
+
+//    cout << "\nAttempting login for " << username << "\n";  //DEBUG
+    Account *acct = nullptr;
+    acct = accntsModel->getAcct(username, passw);
     
-    
+    if (!(acct==nullptr)){
+//        cout << "cart database: " << acct->cartdb << "\n";  //DEBUG
+        CatalogModel cartModel = CatalogModel(acct->cartdb);
+        UsrAccntView userAcctView = UsrAccntView();
+
+        UsrAccntController(
+            acct,
+            accntsModel,
+            catlgModel,
+            &cartModel,
+            &userAcctView
+        ).main();
+    }
 }
 
-HomeController::~HomeController(){
-    delete homeView, accntsModel;
-    homeView = nullptr;
-    accntsModel = nullptr;
+HomeController::~HomeController() {
+//    delete homeView, accntsModel;
+//    homeView = nullptr;
+//    accntsModel = nullptr;
 }

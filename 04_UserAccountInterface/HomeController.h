@@ -14,12 +14,15 @@
 #define HOMECONTROLLER_H
 
 #include "UsrAccntsModel.h"
+#include "CatalogModel.h"
 #include "HomeView.h"
 #include "CatalogModel.h"
+#include "UsrAccntController.h"
+#include "UsrAccntView.h"
 
 class HomeController {
 public:
-    HomeController(UsrAccntsModel*, HomeView*);
+    HomeController(UsrAccntsModel*, HomeView*, CatalogModel*);
     void main();
     void createUser();
     void loginUser();
@@ -27,6 +30,7 @@ public:
 private:
     UsrAccntsModel *accntsModel;
     HomeView *homeView;
+    CatalogModel *catlgModel;
 };
 
 #endif /* HOMECONTROLLER_H */

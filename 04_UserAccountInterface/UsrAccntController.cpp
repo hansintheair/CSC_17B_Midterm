@@ -11,6 +11,7 @@
  */
 
 #include "UsrAccntController.h"
+#include "UsrAccntView.h"
 
 UsrAccntController::UsrAccntController(Account *userAcct, UsrAccntsModel *acctsModel, CatalogModel *catalogModel, CatalogModel *cartModel, UsrAccntView *usrAcctView) {
     this->userAcct = userAcct;
@@ -21,34 +22,32 @@ UsrAccntController::UsrAccntController(Account *userAcct, UsrAccntsModel *acctsM
 }
 
 void UsrAccntController::main() {
-//    bool quit = false;
+    cout << "\nMADE IT!\n";
+//    bool logout = false;
 //    char input;
-//    while (!quit) {
-//        input = homeView->mainMenu();
+//    while (!logout) {
+////        input = homeView->mainMenu();
 //        input = tolower(input);
 //        switch (input) {
 //            case 'a':
-//                loginUser();
 //                break;
 //            case 'b':
-//                createUser();
 //                break;
 //            case 'q': //Quit
-//                cout << "\n";
-//                quit = true;
+//                logout = true;
 //                break;
 //            default:
 //                cout << "Unknown input, please try again\n";
 //        };
 //    }
-//    cout << "QUITTING\n";
+    cout << "Logging out\n";
 }
 
 UsrAccntController::~UsrAccntController() {
-    delete userAcct, acctsModel, catalogModel, cartModel;
-    userAcct = nullptr;
-    acctsModel = nullptr;
-    catalogModel = nullptr;
-    cartModel = nullptr;
+//    delete userAcct, acctsModel, catalogModel, cartModel;
+//    userAcct = nullptr;
+//    acctsModel = nullptr;
+//    catalogModel = nullptr;
+//    cartModel = nullptr;
 }
 
