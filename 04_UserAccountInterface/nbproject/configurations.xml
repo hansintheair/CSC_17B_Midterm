@@ -9,6 +9,8 @@
       <itemPath>CatalogModel.h</itemPath>
       <itemPath>HomeController.h</itemPath>
       <itemPath>HomeView.h</itemPath>
+      <itemPath>UsrAccntController.h</itemPath>
+      <itemPath>UsrAccntView.h</itemPath>
       <itemPath>UsrAccntsModel.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -21,6 +23,8 @@
       <itemPath>CatalogModel.cpp</itemPath>
       <itemPath>HomeController.cpp</itemPath>
       <itemPath>HomeView.cpp</itemPath>
+      <itemPath>UsrAccntController.cpp</itemPath>
+      <itemPath>UsrAccntView.cpp</itemPath>
       <itemPath>UsrAccntsModel.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -61,6 +65,14 @@
       <item path="HomeView.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="HomeView.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="UsrAccntController.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="UsrAccntController.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="UsrAccntView.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="UsrAccntView.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="UsrAccntsModel.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -104,6 +116,14 @@
       <item path="HomeView.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="HomeView.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="UsrAccntController.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="UsrAccntController.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="UsrAccntView.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="UsrAccntView.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="UsrAccntsModel.cpp" ex="false" tool="1" flavor2="0">
       </item>

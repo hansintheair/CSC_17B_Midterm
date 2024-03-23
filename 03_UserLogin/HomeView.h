@@ -15,7 +15,7 @@
 
 class HomeView {
 public:
-    char renderHome();
+    char mainMenu();
     void userLogin(string&, string&);
     void userCreate(string&, string&, string&);
     

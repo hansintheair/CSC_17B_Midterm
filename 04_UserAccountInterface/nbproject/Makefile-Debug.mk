@@ -38,6 +38,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/CatalogModel.o \
 	${OBJECTDIR}/HomeController.o \
 	${OBJECTDIR}/HomeView.o \
+	${OBJECTDIR}/UsrAccntController.o \
+	${OBJECTDIR}/UsrAccntView.o \
 	${OBJECTDIR}/UsrAccntsModel.o \
 	${OBJECTDIR}/main.o
 
@@ -80,6 +82,16 @@ ${OBJECTDIR}/HomeView.o: HomeView.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HomeView.o HomeView.cpp
+
+${OBJECTDIR}/UsrAccntController.o: UsrAccntController.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/UsrAccntController.o UsrAccntController.cpp
+
+${OBJECTDIR}/UsrAccntView.o: UsrAccntView.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/UsrAccntView.o UsrAccntView.cpp
 
 ${OBJECTDIR}/UsrAccntsModel.o: UsrAccntsModel.cpp
 	${MKDIR} -p ${OBJECTDIR}

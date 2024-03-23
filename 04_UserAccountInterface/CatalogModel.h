@@ -15,12 +15,12 @@
 
 #include "CatalogItem.h"
 
-const short unsigned int MAXDB = 1000;
+const short unsigned int MAXITEMS = 1000;
 
 class CatalogModel {
 private:
     string catalog_db;
-    CatalogItem catalog[MAXDB];
+    CatalogItem catalog[MAXITEMS];
     unsigned short int num_items;
     short int findItem(string);
 public:

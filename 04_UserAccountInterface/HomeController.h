@@ -22,6 +22,7 @@ public:
     void main();
     void createUser();
     void loginUser();
+    ~HomeController();
 private:
     UsrAccntsModel *accntsModel;
     HomeView *homeView;

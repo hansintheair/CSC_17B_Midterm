@@ -15,12 +15,12 @@
 
 #include "Account.h"
 
-const short unsigned int MAXDB = 1000;
+const short unsigned int MAXACCTS = 1000;
 
 class UsrAccntsModel {
 private:
     string accts_db;
-    Account accounts[MAXDB];
+    Account accounts[MAXACCTS];
     unsigned short int num_accts;
     short int findAcct(string);
 public:

@@ -26,7 +26,7 @@ void HomeController::main(){
     bool quit = false;
     char input;
     while (!quit) {
-        input = homeView->renderHome();
+        input = homeView->mainMenu();
         input = tolower(input);
         switch(input){
             case 'a':

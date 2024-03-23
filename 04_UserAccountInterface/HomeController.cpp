@@ -22,22 +22,22 @@ HomeController::HomeController(UsrAccntsModel *accntsModel, HomeView *homeView) 
     this->homeView = homeView;
 }
 
-void HomeController::main(){
+void HomeController::main() {
     bool quit = false;
     char input;
     while (!quit) {
-        input = homeView->renderHome();
+        input = homeView->mainMenu();
         input = tolower(input);
-        switch(input){
+        switch (input) {
             case 'a':
                 loginUser();
                 break;
             case 'b':
                 createUser();
                 break;
-            case 'q':  //Quit
+            case 'q': //Quit
                 cout << "\n";
-                quit=true;
+                quit = true;
                 break;
             default:
                 cout << "Unknown input, please try again\n";
@@ -64,4 +64,10 @@ void HomeController::loginUser(){
     string username, passw;
     homeView->userLogin(username, passw);
     accntsModel->getAcct(username, passw);
+}
+
+HomeController::~HomeController(){
+    delete homeView, accntsModel;
+    homeView = nullptr;
+    accntsModel = nullptr;
 }
