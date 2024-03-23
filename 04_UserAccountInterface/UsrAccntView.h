@@ -13,9 +13,12 @@
 #ifndef USRACCNTVIEW_H
 #define USRACCNTVIEW_H
 
+#include "Account.h"
+
 class UsrAccntView {
 public:
-    char menu(const string&);
+    char mainMenu(const string&);
+    char profileMenu(const Account*);
 private:
 
 };

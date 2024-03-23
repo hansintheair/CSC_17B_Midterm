@@ -30,7 +30,8 @@ private:
 public:
     UsrAccntController(Account*, UsrAccntsModel*, CatalogModel*, CatalogModel*, UsrAccntView*);
     void main();
-    virtual ~UsrAccntController();
+    void profileMenu();
+    void changeEmail();
 
 
 };
