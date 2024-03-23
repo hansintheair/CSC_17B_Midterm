@@ -55,15 +55,20 @@ void HomeController::createUser(){
     strncpy(temp_acct.email, email.c_str(), MAXFLD - 1);
     strncpy(temp_acct.passw, passw.c_str(), MAXFLD -1 );
     temp_acct.admin = false;
-    strncpy(temp_acct.cartdb, ("data/" + string(temp_acct.name) + ".db").c_str(), MAXFLD - 1);
+    
+    strncpy(temp_acct.cartdb, ("data/" + string(temp_acct.name) + ".bin").c_str(), MAXFLD - 1);
+    CatalogModel::createDB(temp_acct.cartdb);
     
     accntsModel->addAcct(temp_acct);
+    accntsModel->save();
 }
 
 void HomeController::loginUser(){
     string username, passw;
     homeView->userLogin(username, passw);
     accntsModel->getAcct(username, passw);
+    
+    
 }
 
 HomeController::~HomeController(){

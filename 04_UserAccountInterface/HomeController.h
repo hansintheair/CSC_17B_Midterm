@@ -15,6 +15,7 @@
 
 #include "UsrAccntsModel.h"
 #include "HomeView.h"
+#include "CatalogModel.h"
 
 class HomeController {
 public:
