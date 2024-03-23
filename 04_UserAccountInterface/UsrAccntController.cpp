@@ -54,20 +54,19 @@ void UsrAccntController::profileMenu() {
         input = usrAcctView->profileMenu(userAcct);
         input = tolower(input);
         switch (input) {
-            case 'a':
+            case 'a':  //Change e-mail
                 changeEmail();
                 break;
-            case 'b':
+            case 'b':  //Change password
+                changePassw();
                 break;
-            case 'q': //Logout
-                cout << "\n";
+            case 'q': //Exit profile menu
                 back = true;
                 break;
             default:
                 cout << "Unknown input, please try again\n";
         };
     }
-    cout << "\n";
 }
 
 void UsrAccntController::changeEmail() {
@@ -87,8 +86,37 @@ void UsrAccntController::changeEmail() {
             usrAcctView->acctSaveErr();
         }
     }
+}
 
+void UsrAccntController::changePassw() {
+    
+    string oldPassw, newPassw;
+    
+    usrAcctView->getPassw(userAcct->name, oldPassw, "old");
+    if (!validatePassw(oldPassw)) {
+        usrAcctView->acctValidtErr();
+        return;
+    }
+    
+    usrAcctView->getPassw(userAcct->name, newPassw, "new");
+    
+    strncpy(userAcct->passw, newPassw.c_str(), MAXFLD - 1);
+    
+    short unsigned int code;
+    code = acctsModel->repAcct(userAcct->name, *userAcct);
+    if (code == 1) {
+        usrAcctView->acctDataCrrptErr();
+    } else {
+        code = acctsModel->save();
+        if (code == 1) {
+            usrAcctView->acctSaveErr();
+        }
+    }    
+}
 
-
-
+bool UsrAccntController::validatePassw(string& passw){
+    if (passw == userAcct->passw){
+        return true;
+    }
+    return false;
 }

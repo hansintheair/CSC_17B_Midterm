@@ -20,8 +20,10 @@ public:
     char mainMenu(const string&);
     char profileMenu(const Account*);
     void newEmail(string&);
+    void getPassw(const string&, string&, string);
     void acctDataCrrptErr();
     void acctSaveErr();
+    void acctValidtErr();
 private:
 
 };

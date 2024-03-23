@@ -130,7 +130,7 @@ void UsrAccntsModel::delAcct(string name){
 short unsigned int UsrAccntsModel::save(){
     fstream file;
     
-    cout << "DB: " << accts_db << "\n";
+//    cout << "DB: " << accts_db << "\n";
 
     // check file existence
     file.open(accts_db, ios::in | ios::binary);

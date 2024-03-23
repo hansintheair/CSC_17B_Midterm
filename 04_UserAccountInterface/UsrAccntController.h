@@ -32,6 +32,8 @@ public:
     void main();
     void profileMenu();
     void changeEmail();
+    void changePassw();
+    bool validatePassw(string&);
 
 
 };

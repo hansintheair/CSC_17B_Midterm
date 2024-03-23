@@ -53,6 +53,11 @@ void UsrAccntView::newEmail(string& email) {
     getline(cin, email);
 }
 
+void UsrAccntView::getPassw(const string& username, string& passw, string adj) {
+    cout << "Enter " << (adj.length()>0?(adj+" "):"") << "password for " << username << ": ";
+    getline(cin, passw);
+}
+
 void UsrAccntView::acctDataCrrptErr() {
     cout << "Error: Account data corruption.\n";
 }
@@ -61,5 +66,6 @@ void UsrAccntView::acctSaveErr() {
     cout << "Error: Failed to save profile data.\n";
 }
 
-
-
+void UsrAccntView::acctValidtErr() {
+    cout << "Error: Invalid password.\n";
+}
