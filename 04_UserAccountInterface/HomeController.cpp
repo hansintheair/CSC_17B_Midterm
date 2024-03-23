@@ -26,7 +26,7 @@ void HomeController::main() {
     bool quit = false;
     char input;
     while (!quit) {
-        input = homeView->mainMenu();
+        input = homeView->menu();
         input = tolower(input);
         switch (input) {
             case 'a':
@@ -43,7 +43,7 @@ void HomeController::main() {
                 cout << "Unknown input, please try again\n";
         };
     }
-    cout << "Quitting\n";
+    cout << "Exiting program\n";
 }
 
 void HomeController::createUser() {

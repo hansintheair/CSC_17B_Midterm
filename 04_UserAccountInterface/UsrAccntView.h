@@ -15,9 +15,7 @@
 
 class UsrAccntView {
 public:
-    UsrAccntView();
-    void mainMenu();
-    virtual ~UsrAccntView();
+    char menu(const string&);
 private:
 
 };

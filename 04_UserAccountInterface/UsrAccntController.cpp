@@ -23,23 +23,24 @@ UsrAccntController::UsrAccntController(Account *userAcct, UsrAccntsModel *acctsM
 
 void UsrAccntController::main() {
     cout << "\nMADE IT!\n";
-//    bool logout = false;
-//    char input;
-//    while (!logout) {
-////        input = homeView->mainMenu();
-//        input = tolower(input);
-//        switch (input) {
-//            case 'a':
-//                break;
-//            case 'b':
-//                break;
-//            case 'q': //Quit
-//                logout = true;
-//                break;
-//            default:
-//                cout << "Unknown input, please try again\n";
-//        };
-//    }
+    bool logout = false;
+    char input;
+    while (!logout) {
+        input = usrAcctView->menu(userAcct->name);
+        input = tolower(input);
+        switch (input) {
+            case 'a':
+                break;
+            case 'b':
+                break;
+            case 'q': //Logout
+                cout << "\n";
+                logout = true;
+                break;
+            default:
+                cout << "Unknown input, please try again\n";
+        };
+    }
     cout << "Logging out\n";
 }
 
