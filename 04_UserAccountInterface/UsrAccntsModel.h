@@ -31,10 +31,10 @@ public:
     Account* getAcct(string, string);
     short unsigned int getSize();
     void addAcct(const Account&);
-    void repAcct(string, const Account&);
+    short unsigned int repAcct(string, const Account&);
     void delAcct(string);
 
-    void save();
+    short unsigned int save();
     static void createDB(string);
 };
 

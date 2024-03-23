@@ -34,7 +34,7 @@ char UsrAccntView::profileMenu(const Account* usrAcct) {
     cout << "\n--Profile\n";
     cout << "Username: " << usrAcct->name << "\n";
     cout << "E-mail: " << usrAcct->email << "\n\n";
-    
+
     cout << "A - Change e-mail\n";
     cout << "B - Change password\n";
     cout << "C - Delete account\n";
@@ -45,6 +45,20 @@ char UsrAccntView::profileMenu(const Account* usrAcct) {
     cin.get(choice);
     cin.ignore();
     return choice;
+}
+
+void UsrAccntView::newEmail(string& email) {
+    cout << "\n--Change Email\n";
+    cout << "New e-mail: ";
+    getline(cin, email);
+}
+
+void UsrAccntView::acctDataCrrptErr() {
+    cout << "Error: Account data corruption.\n";
+}
+
+void UsrAccntView::acctSaveErr() {
+    cout << "Error: Failed to save profile data.\n";
 }
 
 

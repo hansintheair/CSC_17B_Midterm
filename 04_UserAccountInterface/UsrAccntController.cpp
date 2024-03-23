@@ -10,6 +10,9 @@
  * Created on March 21, 2024, 5:56 PM
  */
 
+#include <cstring>
+using namespace std;
+
 #include "UsrAccntController.h"
 #include "UsrAccntView.h"
 
@@ -44,7 +47,7 @@ void UsrAccntController::main() {
     cout << "Logging out\n";
 }
 
-void UsrAccntController::profileMenu(){
+void UsrAccntController::profileMenu() {
     bool back = false;
     char input;
     while (!back) {
@@ -52,6 +55,7 @@ void UsrAccntController::profileMenu(){
         input = tolower(input);
         switch (input) {
             case 'a':
+                changeEmail();
                 break;
             case 'b':
                 break;
@@ -67,5 +71,24 @@ void UsrAccntController::profileMenu(){
 }
 
 void UsrAccntController::changeEmail() {
-    
+
+    string newEmail;
+    usrAcctView->newEmail(newEmail);
+
+    strncpy(userAcct->email, newEmail.c_str(), MAXFLD - 1);
+
+    short unsigned int code;
+    code = acctsModel->repAcct(userAcct->name, *userAcct);
+    if (code == 1) {
+        usrAcctView->acctDataCrrptErr();
+    } else {
+        code = acctsModel->save();
+        if (code == 1) {
+            usrAcctView->acctSaveErr();
+        }
+    }
+
+
+
+
 }

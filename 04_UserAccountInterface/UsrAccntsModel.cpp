@@ -104,13 +104,14 @@ void UsrAccntsModel::addAcct(const Account& account) {
     num_accts++;
 }
 
-void UsrAccntsModel::repAcct(string name, const Account& new_acct){
+short unsigned int UsrAccntsModel::repAcct(string name, const Account& new_acct){
     short int irep = findAcct(name);
 //    cout << "index: " << irep << "\n";  //DEBUG
     if (irep > -1) { //item found
         accounts[irep] = new_acct;
+        return 0;  // Success
     } else {
-        cout << "Account " << name << " does not exist.\n";
+        return 1;  // Account not found
     }
 }
 
@@ -126,7 +127,7 @@ void UsrAccntsModel::delAcct(string name){
     }
 }
 
-void UsrAccntsModel::save(){
+short unsigned int UsrAccntsModel::save(){
     fstream file;
     
     cout << "DB: " << accts_db << "\n";
@@ -156,10 +157,11 @@ void UsrAccntsModel::save(){
             file.write(reinterpret_cast<char*> (&temp_acct), sizeof (Account));
         }
     } else {
-        cout << "Cannot save, file " << accts_db << " does not exist.\n";
+        return 1;
     }
 
     file.close();
+    return 0;
 }
 
 void UsrAccntsModel::createDB(string accts_db) {
