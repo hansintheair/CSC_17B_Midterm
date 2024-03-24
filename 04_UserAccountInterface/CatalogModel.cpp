@@ -74,21 +74,19 @@ short unsigned int CatalogModel::getSize() {
 
 // Display all items in the catalog.
 
-void CatalogModel::display() {
-    for (int i = 0; i < num_items; i++) {
-        catalog[i].display();
-        cout << "\n";
-    }
+CatalogItem* CatalogModel::getItems() {
+    return catalog;
 }
+
 // Display a specific item in the catalog.
-void CatalogModel::display(string name) {
+CatalogItem* CatalogModel::getItem(string name) {
     short int idis = findItem(name);
 //    cout << "index pos: " << idis << "\n"; //DEBUG
     if (idis > -1) {//item found
-        catalog[idis].display();
+        return &catalog[idis];
     }
     else {
-        cout << "Item " << name << " does not exist.\n";
+        return nullptr;
     }
 }
 

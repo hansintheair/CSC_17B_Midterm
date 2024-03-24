@@ -35,6 +35,7 @@ void UsrAccntController::main() {
                 profileMenu();
                 break;
             case 'b':
+                showCatalog();
                 break;
             case 'q': //Logout
                 cout << "\n";
@@ -54,10 +55,10 @@ void UsrAccntController::profileMenu() {
         input = usrAcctView->profileMenu(userAcct);
         input = tolower(input);
         switch (input) {
-            case 'a':  //Change e-mail
+            case 'a': //Change e-mail
                 changeEmail();
                 break;
-            case 'b':  //Change password
+            case 'b': //Change password
                 changePassw();
                 break;
             case 'q': //Exit profile menu
@@ -81,7 +82,7 @@ void UsrAccntController::changeEmail() {
     if (code == 1) {
         usrAcctView->acctDataCrrptErr();
         return;
-    } 
+    }
     code = acctsModel->save();
     if (code == 1) {
         usrAcctView->acctSaveErr();
@@ -91,19 +92,19 @@ void UsrAccntController::changeEmail() {
 }
 
 void UsrAccntController::changePassw() {
-    
+
     string oldPassw, newPassw;
-    
+
     usrAcctView->getPassw(userAcct->name, oldPassw, "old");
     if (!validatePassw(oldPassw)) {
         usrAcctView->acctValidtErr();
         return;
     }
-    
+
     usrAcctView->getPassw(userAcct->name, newPassw, "new");
-    
+
     strncpy(userAcct->passw, newPassw.c_str(), MAXFLD - 1);
-    
+
     short unsigned int code;
     code = acctsModel->repAcct(userAcct->name, *userAcct);
     if (code == 1) {
@@ -113,12 +114,16 @@ void UsrAccntController::changePassw() {
         if (code == 1) {
             usrAcctView->acctSaveErr();
         }
-    }    
+    }
 }
 
-bool UsrAccntController::validatePassw(string& passw){
-    if (passw == userAcct->passw){
+bool UsrAccntController::validatePassw(string& passw) {
+    if (passw == userAcct->passw) {
         return true;
     }
     return false;
+}
+
+void UsrAccntController::showCatalog() {
+    usrAcctView->viewCatalog(catalogModel->getItems(), catalogModel->getSize());
 }

@@ -14,6 +14,7 @@
 #define USRACCNTVIEW_H
 
 #include "Account.h"
+#include "CatalogItem.h"
 
 class UsrAccntView {
 public:
@@ -21,6 +22,7 @@ public:
     char profileMenu(const Account*);
     void newEmail(string&);
     void getPassw(const string&, string&, string);
+    void viewCatalog(const CatalogItem*, int);
     void chgPasswSuccess();
     void acctDataCrrptErr();
     void acctSaveErr();

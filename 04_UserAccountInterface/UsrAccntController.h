@@ -34,6 +34,7 @@ public:
     void changeEmail();
     void changePassw();
     bool validatePassw(string&);
+    void showCatalog();
 
 
 };

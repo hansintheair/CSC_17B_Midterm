@@ -26,8 +26,8 @@ private:
 public:
     CatalogModel(string);
 //    CatalogModel(const CatalogModel& orig);
-    void display();
-    void display(string);
+    CatalogItem* getItems();
+    CatalogItem* getItem(string);
     short unsigned int getSize();
     void addItem(const CatalogItem&);
     void repItem(string, const CatalogItem&);
