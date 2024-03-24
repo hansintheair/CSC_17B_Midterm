@@ -69,7 +69,6 @@ void UsrAccntView::viewCatalog(const CatalogItem* catalogItems, int size) {
         cout << "Price $" << fixed << setprecision(2) << catalogItems[i].price << "\n";
         cout << (catalogItems[i].quant>0?"In stock":"Out of stock") << "\n";
         if (i < size - 1){
-            cout << "HERE: " << i << "\n";
             cout << "\n";
         }
     }
