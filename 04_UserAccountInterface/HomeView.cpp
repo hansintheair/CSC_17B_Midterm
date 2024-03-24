@@ -17,7 +17,7 @@ using namespace std;
 
 char HomeView::mainMenu() {
 
-    cout << "\n--BIG4SHOPPING--\n\n";
+    cout << "\n--Big4Shopping--\n\n";
     cout << "A - Login\n";
     cout << "B - Create user\n";
     cout << "Q - Exit\n\n";
