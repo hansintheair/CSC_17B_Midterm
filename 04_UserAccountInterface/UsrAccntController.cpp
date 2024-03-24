@@ -133,6 +133,7 @@ void UsrAccntController::showCatalog() {
 
 void UsrAccntController::shopCatalog() {
     
+    // Search for catalog item
     string search;
     usrAcctView->getSearchName(search);
     
@@ -142,6 +143,7 @@ void UsrAccntController::shopCatalog() {
         return;
     }
     
+    // Get quantity to buy
     unsigned int quant;
     unsigned short int code;
     code = usrAcctView->getQuantity(quant);
@@ -152,22 +154,39 @@ void UsrAccntController::shopCatalog() {
         usrAcctView->invValErr();
     }
     
-//    cout << "QUANTITY: " << quant << "\n";  //DEBUG
-//    cout << "ALLOWED: " << item->quant << "\n";  //DEBUG
     if (item->quant < quant){
         usrAcctView->quantityErr(item->quant, search);
         return;
     }
     
+    // Prompt user to OK adding item to cart
+    bool cancel;
+    char input;
     CatalogItem tempItem = *item;
-    code = cartModel->addItem(tempItem);
-//    cout << "CART CODE: " << code << "\n";  //DEBUG
-    if (code > 0) {
-        usrAcctView->cartFullErr();
+    while (!cancel){
+        input = usrAcctView->addToCartPrmpt(item->name, quant, item->price);
+        input = tolower(input);
+        switch (input) {
+            case 'y':  //Add item to shopping cart
+                code = cartModel->addItem(tempItem);
+                if (code > 0) {
+                    usrAcctView->cartFullErr();
+                }
+                code = cartModel->save();
+                if (code == 1) {
+                    usrAcctView->itemSaveErr();
+                    return;
+                }
+                break;
+            case 'n':  //Cancel
+                cout << "\n";
+                cancel = true;
+                break;
+            default:
+                cout << "Unknown input, please try again\n";
+        };
     }
-    code = cartModel->save();
-    if (code == 1) {
-        usrAcctView->itemSaveErr();
-        return;
-    }
+    
+    
+
 }

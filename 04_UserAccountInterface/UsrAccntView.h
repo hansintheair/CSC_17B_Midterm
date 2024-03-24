@@ -24,6 +24,7 @@ public:
     void getPassw(const string&, string&, string);
     void getSearchName(string&);
     short unsigned int getQuantity(unsigned int&);
+    char addToCartPrmpt(const string&, const unsigned int, const float);
     void viewCatalog(const CatalogItem*, int);
     void chgPasswSuccess();
     void acctDataCrrptErr();

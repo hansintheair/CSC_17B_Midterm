@@ -13,6 +13,9 @@
 #ifndef CATALOGITEM_H
 #define CATALOGITEM_H
 
+#include <cstring>
+using namespace std;
+
 const short unsigned int MAXNAME = 81;
 const short unsigned int MAXDESC = 256;
 
@@ -21,6 +24,15 @@ struct CatalogItem{
     char desc[MAXDESC];
     float price;
     unsigned int quant;
+    
+    CatalogItem operator-(const CatalogItem& other) const {
+        CatalogItem temp_item;
+        strncpy(temp_item.name, name, MAXNAME - 1);
+        strncpy(temp_item.desc, desc, MAXDESC - 1);
+        temp_item.price = price;
+        temp_item.quant = quant;
+        return temp_item;
+    }
 };
 
 #endif /* CATALOGITEM_H */

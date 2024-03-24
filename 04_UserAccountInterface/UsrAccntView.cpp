@@ -80,16 +80,27 @@ unsigned short int UsrAccntView::getQuantity(unsigned int& quant) {
     try {
         tquant = stoul(squant);
         //        cout << "QUANT CONV: " << tquant << "\n";  //DEBUG
-    } catch (invalid_argument) {  //invalid value error
+    } catch (invalid_argument) { //invalid value error
         return 1;
-    } catch (out_of_range) {  //value out of allowable range error
+    } catch (out_of_range) { //value out of allowable range error
         return 2;
     }
-    if (tquant > 0U - 1) {  //value out of allowable range error
+    if (tquant > 0U - 1) { //value out of allowable range error
         return 2;
     }
     quant = tquant;
     return 0;
+}
+
+char UsrAccntView::addToCartPrmpt(const string& name, const unsigned int quant, const float unitPrice) {
+    cout << "Add item " << quant << " of item " << name << " to cart for total of $";
+    cout << setprecision(2) << fixed << unitPrice*quant << "?\n";
+    
+    char choice;
+    cout << ">> ";
+    cin.get(choice);
+    cin.ignore();
+    return choice;
 }
 
 void UsrAccntView::viewCatalog(const CatalogItem* catalogItems, int size) {
