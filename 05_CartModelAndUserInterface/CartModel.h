@@ -4,32 +4,32 @@
  */
 
 /* 
- * File:   CatalogModel.h
- * Author: hannes
+ * File:   CartModel.h
+ * Author: hanne
  *
- * Created on March 16, 2024, 3:40 PM
+ * Created on March 24, 2024, 4:01 PM
  */
 
-#ifndef CATALOGMODEL_H
-#define CATALOGMODEL_H
+#ifndef CARTMODEL_H
+#define CARTMODEL_H
 
-#include "CatalogItem.h"
-#include "Constants.h"
+#include "CartItem.h"
 
-class CatalogModel {
+
+class CartModel {
 private:
     string catalog_db;
-    CatalogItem catalog[MAXITEMS];
+    CartItem catalog[MAXITEMS];
     unsigned short int num_items;
     short int findItem(string);
 public:
-    CatalogModel(string);
+    CartModel(string);
 //    CatalogModel(const CatalogModel& orig);
-    CatalogItem* getItems();
-    CatalogItem* getItem(string);
+    CartItem* getItems();
+    CartItem* getItem(string);
     short unsigned int getSize();
-    short unsigned int addItem(const CatalogItem&);
-    void repItem(string, const CatalogItem&);
+    short unsigned int addItem(const CartItem&);
+    void repItem(string, const CartItem&);
     void delItem(string);
 
     short unsigned int save();
@@ -37,5 +37,5 @@ public:
 //    virtual ~CatalogModel();
 };
 
-#endif /* CATALOGMODEL_H */
+#endif /* CARTMODEL_H */
 

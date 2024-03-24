@@ -5,8 +5,11 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Account.h</itemPath>
+      <itemPath>CartItem.h</itemPath>
+      <itemPath>CartModel.h</itemPath>
       <itemPath>CatalogItem.h</itemPath>
       <itemPath>CatalogModel.h</itemPath>
+      <itemPath>Constants.h</itemPath>
       <itemPath>HomeController.h</itemPath>
       <itemPath>HomeView.h</itemPath>
       <itemPath>UsrAccntController.h</itemPath>
@@ -20,6 +23,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>CartModel.cpp</itemPath>
       <itemPath>CatalogModel.cpp</itemPath>
       <itemPath>HomeController.cpp</itemPath>
       <itemPath>HomeView.cpp</itemPath>
@@ -52,11 +56,19 @@
       </compileType>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CartItem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CartModel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CartModel.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CatalogItem.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CatalogModel.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CatalogModel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Constants.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HomeController.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -103,11 +115,19 @@
       </compileType>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CartItem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CartModel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CartModel.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CatalogItem.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CatalogModel.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CatalogModel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Constants.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HomeController.cpp" ex="false" tool="1" flavor2="0">
       </item>

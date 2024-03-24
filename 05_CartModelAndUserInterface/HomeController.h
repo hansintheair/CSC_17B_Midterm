@@ -19,6 +19,7 @@
 #include "CatalogModel.h"
 #include "UsrAccntController.h"
 #include "UsrAccntView.h"
+#include "CartModel.h"
 
 class HomeController {
 public:

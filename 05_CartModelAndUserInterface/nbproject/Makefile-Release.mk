@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/CartModel.o \
 	${OBJECTDIR}/CatalogModel.o \
 	${OBJECTDIR}/HomeController.o \
 	${OBJECTDIR}/HomeView.o \
@@ -62,11 +63,16 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/04_useraccountinterface.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/05_cartmodelanduserinterface.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/04_useraccountinterface.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/05_cartmodelanduserinterface.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/04_useraccountinterface ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/05_cartmodelanduserinterface ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/CartModel.o: CartModel.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CartModel.o CartModel.cpp
 
 ${OBJECTDIR}/CatalogModel.o: CatalogModel.cpp
 	${MKDIR} -p ${OBJECTDIR}

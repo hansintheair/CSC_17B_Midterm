@@ -19,16 +19,17 @@ using namespace std;
 #include "UsrAccntsModel.h"
 #include "UsrAccntView.h"
 #include "CatalogModel.h"
+#include "CartModel.h"
 
 class UsrAccntController {
 private:
     Account *userAcct;
     UsrAccntsModel *acctsModel;
     CatalogModel *catalogModel;
-    CatalogModel *cartModel;
+    CartModel *cartModel;
     UsrAccntView *usrAcctView;
 public:
-    UsrAccntController(Account*, UsrAccntsModel*, CatalogModel*, CatalogModel*, UsrAccntView*);
+    UsrAccntController(Account*, UsrAccntsModel*, CatalogModel*, CartModel*, UsrAccntView*);
     void main();
     void profileMenu();
     void changeEmail();

@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=04_UserAccountInterface
+PROJECTNAME=05_CartModelAndUserInterface
 
 # Active Configuration
 DEFAULTCONF=Debug

@@ -16,7 +16,7 @@ using namespace std;
 #include "UsrAccntController.h"
 #include "UsrAccntView.h"
 
-UsrAccntController::UsrAccntController(Account *userAcct, UsrAccntsModel *acctsModel, CatalogModel *catalogModel, CatalogModel *cartModel, UsrAccntView *usrAcctView) {
+UsrAccntController::UsrAccntController(Account *userAcct, UsrAccntsModel *acctsModel, CatalogModel *catalogModel, CartModel *cartModel, UsrAccntView *usrAcctView) {
     this->userAcct = userAcct;
     this->acctsModel = acctsModel;
     this->catalogModel = catalogModel;
@@ -162,13 +162,15 @@ void UsrAccntController::shopCatalog() {
     // Prompt user to OK adding item to cart
     bool cancel;
     char input;
-    CatalogItem tempItem = *item;
+    CartItem temp_item;
+    strncpy(temp_item.name, item->name, MAXNAME);
+    temp_item.quant = quant;
     while (!cancel){
-        input = usrAcctView->addToCartPrmpt(item->name, quant, item->price);
+        input = usrAcctView->addToCartPrmpt(item->name, temp_item.quant, item->price);
         input = tolower(input);
         switch (input) {
             case 'y':  //Add item to shopping cart
-                code = cartModel->addItem(tempItem);
+                code = cartModel->addItem(temp_item);
                 if (code > 0) {
                     usrAcctView->cartFullErr();
                 }
@@ -177,7 +179,7 @@ void UsrAccntController::shopCatalog() {
                     usrAcctView->itemSaveErr();
                     return;
                 }
-                break;
+                return;
             case 'n':  //Cancel
                 cout << "\n";
                 cancel = true;

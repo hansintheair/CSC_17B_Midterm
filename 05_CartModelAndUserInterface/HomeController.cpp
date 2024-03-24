@@ -57,7 +57,7 @@ void HomeController::createUser() {
     temp_acct.admin = false;
 
     strncpy(temp_acct.cartdb, ("data/" + string(temp_acct.name) + ".bin").c_str(), MAXFLD - 1);
-    CatalogModel::createDB(temp_acct.cartdb);
+    CartModel::createDB(temp_acct.cartdb);
 
     accntsModel->addAcct(temp_acct);
     accntsModel->save();
@@ -73,7 +73,7 @@ void HomeController::loginUser() {
     
     if (!(acct==nullptr)){
 //        cout << "cart database: " << acct->cartdb << "\n";  //DEBUG
-        CatalogModel cartModel = CatalogModel(acct->cartdb);
+        CartModel cartModel = CartModel(acct->cartdb);
         UsrAccntView userAcctView = UsrAccntView();
 
         UsrAccntController(

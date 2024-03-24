@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=04_useraccountinterface
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/04_useraccountinterface
+CND_ARTIFACT_NAME_Debug=05_cartmodelanduserinterface
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/05_cartmodelanduserinterface
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=04useraccountinterface.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/04useraccountinterface.tar
+CND_PACKAGE_NAME_Debug=05cartmodelanduserinterface.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/05cartmodelanduserinterface.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=04_useraccountinterface
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/04_useraccountinterface
+CND_ARTIFACT_NAME_Release=05_cartmodelanduserinterface
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/05_cartmodelanduserinterface
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=04useraccountinterface.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/04useraccountinterface.tar
+CND_PACKAGE_NAME_Release=05cartmodelanduserinterface.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/05cartmodelanduserinterface.tar
 #
 # include compiler specific variables
 #
