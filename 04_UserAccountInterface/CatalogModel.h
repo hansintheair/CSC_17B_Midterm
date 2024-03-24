@@ -29,11 +29,11 @@ public:
     CatalogItem* getItems();
     CatalogItem* getItem(string);
     short unsigned int getSize();
-    void addItem(const CatalogItem&);
+    short unsigned int addItem(const CatalogItem&);
     void repItem(string, const CatalogItem&);
     void delItem(string);
 
-    void save();
+    short unsigned int save();
     static void createDB(string);
 //    virtual ~CatalogModel();
 };

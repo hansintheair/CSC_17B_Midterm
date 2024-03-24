@@ -35,6 +35,7 @@ public:
     void changePassw();
     bool validatePassw(string&);
     void showCatalog();
+    void shopCatalog();
 
 
 };

@@ -92,9 +92,13 @@ CatalogItem* CatalogModel::getItem(string name) {
 
 // Add an item to the end of the catalog.
 
-void CatalogModel::addItem(const CatalogItem &item) {
-    catalog[num_items] = item;
-    num_items++;
+short unsigned int CatalogModel::addItem(const CatalogItem &item) {
+    if (num_items < MAXITEMS) {
+        catalog[num_items] = item;
+        num_items++;
+        return 0;
+    }
+    return 1;
 }
 
 void CatalogModel::repItem(string name, const CatalogItem& new_item) {
@@ -119,7 +123,7 @@ void CatalogModel::delItem(string name) {
     }
 }
 
-void CatalogModel::save() {
+short unsigned int CatalogModel::save() {
 
     fstream file;
 
@@ -146,10 +150,11 @@ void CatalogModel::save() {
             file.write(reinterpret_cast<char*> (&temp_item), sizeof (CatalogItem));
         }
     } else {
-        cout << "Cannot save, file " << catalog_db << " does not exist.\n";
+        return 1;
     }
-
+    
     file.close();
+    return 0;
 }
 
 void CatalogModel::createDB(string catalog_db) {

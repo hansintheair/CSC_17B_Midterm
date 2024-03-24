@@ -22,11 +22,20 @@ public:
     char profileMenu(const Account*);
     void newEmail(string&);
     void getPassw(const string&, string&, string);
+    void getSearchName(string&);
+    short unsigned int getQuantity(unsigned int&);
     void viewCatalog(const CatalogItem*, int);
     void chgPasswSuccess();
     void acctDataCrrptErr();
     void acctSaveErr();
     void acctValidtErr();
+    void itemExistErr();
+    void itemSaveErr();
+    void quantityErr(unsigned int, const string&);
+    void cartFullErr();
+    void outOfRangeErr();
+    void invValErr();
+    void blank();
 private:
 
 };

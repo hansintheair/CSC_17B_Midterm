@@ -37,6 +37,9 @@ void UsrAccntController::main() {
             case 'b':
                 showCatalog();
                 break;
+            case 'c':
+                shopCatalog();
+                break;
             case 'q': //Logout
                 cout << "\n";
                 logout = true;
@@ -126,4 +129,45 @@ bool UsrAccntController::validatePassw(string& passw) {
 
 void UsrAccntController::showCatalog() {
     usrAcctView->viewCatalog(catalogModel->getItems(), catalogModel->getSize());
+}
+
+void UsrAccntController::shopCatalog() {
+    
+    string search;
+    usrAcctView->getSearchName(search);
+    
+    CatalogItem* item = catalogModel->getItem(search);
+    if (item==nullptr) {
+        usrAcctView->itemExistErr();
+        return;
+    }
+    
+    unsigned int quant;
+    unsigned short int code;
+    code = usrAcctView->getQuantity(quant);
+    if (code==1) {
+        usrAcctView->outOfRangeErr();
+        return;
+    } else if (code==2) {
+        usrAcctView->invValErr();
+    }
+    
+//    cout << "QUANTITY: " << quant << "\n";  //DEBUG
+//    cout << "ALLOWED: " << item->quant << "\n";  //DEBUG
+    if (item->quant < quant){
+        usrAcctView->quantityErr(item->quant, search);
+        return;
+    }
+    
+    CatalogItem tempItem = *item;
+    code = cartModel->addItem(tempItem);
+//    cout << "CART CODE: " << code << "\n";  //DEBUG
+    if (code > 0) {
+        usrAcctView->cartFullErr();
+    }
+    code = cartModel->save();
+    if (code == 1) {
+        usrAcctView->itemSaveErr();
+        return;
+    }
 }
