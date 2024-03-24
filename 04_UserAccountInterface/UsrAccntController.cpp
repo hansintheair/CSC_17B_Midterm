@@ -80,12 +80,14 @@ void UsrAccntController::changeEmail() {
     code = acctsModel->repAcct(userAcct->name, *userAcct);
     if (code == 1) {
         usrAcctView->acctDataCrrptErr();
-    } else {
-        code = acctsModel->save();
-        if (code == 1) {
-            usrAcctView->acctSaveErr();
-        }
+        return;
+    } 
+    code = acctsModel->save();
+    if (code == 1) {
+        usrAcctView->acctSaveErr();
+        return;
     }
+    usrAcctView->chgPasswSuccess();
 }
 
 void UsrAccntController::changePassw() {

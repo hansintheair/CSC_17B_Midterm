@@ -21,6 +21,7 @@ public:
     char profileMenu(const Account*);
     void newEmail(string&);
     void getPassw(const string&, string&, string);
+    void chgPasswSuccess();
     void acctDataCrrptErr();
     void acctSaveErr();
     void acctValidtErr();

@@ -37,7 +37,6 @@ char UsrAccntView::profileMenu(const Account* usrAcct) {
 
     cout << "A - Change e-mail\n";
     cout << "B - Change password\n";
-    cout << "C - Delete account\n";
     cout << "Q - Exit menu\n\n";
 
     char choice;
@@ -54,8 +53,12 @@ void UsrAccntView::newEmail(string& email) {
 }
 
 void UsrAccntView::getPassw(const string& username, string& passw, string adj) {
-    cout << "Enter " << (adj.length()>0?(adj+" "):"") << "password for " << username << ": ";
+    cout << "Enter " << (adj.length() > 0 ? (adj + " ") : "") << "password for " << username << ": ";
     getline(cin, passw);
+}
+
+void UsrAccntView::chgPasswSuccess() {
+    cout << "Password change succeeded.\n";
 }
 
 void UsrAccntView::acctDataCrrptErr() {
