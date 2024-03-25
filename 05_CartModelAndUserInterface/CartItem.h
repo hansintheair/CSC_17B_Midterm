@@ -25,14 +25,14 @@ struct CartItem{
     CartItem operator-(const CartItem& other) const {
         CartItem temp_item;
         strncpy(temp_item.name, name, MAXNAME - 1);
-        temp_item.quant = quant;
+        temp_item.quant = quant - other.quant;
         return temp_item;
     }
     
     CartItem operator+(const CartItem& other) const {
         CartItem temp_item;
         strncpy(temp_item.name, name, MAXNAME - 1);
-        temp_item.quant = quant;
+        temp_item.quant = quant + other.quant;
         return temp_item;
     }
 };

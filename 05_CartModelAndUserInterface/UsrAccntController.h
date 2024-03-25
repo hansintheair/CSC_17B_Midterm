@@ -36,7 +36,9 @@ public:
     void changePassw();
     bool validatePassw(string&);
     void showCatalog();
+    void showCart();
     void shopCatalog();
+    void removeFrmCrt();
 
 
 };

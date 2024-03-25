@@ -15,6 +15,7 @@
 
 #include "Account.h"
 #include "CatalogItem.h"
+#include "CartItem.h"
 
 class UsrAccntView {
 public:
@@ -23,9 +24,12 @@ public:
     void newEmail(string&);
     void getPassw(const string&, string&, string);
     void getSearchName(string&);
+    void shopCtlgTitle();
+    void remCartItmTitle();
     short unsigned int getQuantity(unsigned int&);
     char addToCartPrmpt(const string&, const unsigned int, const float);
     void viewCatalog(const CatalogItem*, int);
+    void viewCartItem(const string&, const string&, const unsigned int, const float);
     void chgPasswSuccess();
     void acctDataCrrptErr();
     void acctSaveErr();

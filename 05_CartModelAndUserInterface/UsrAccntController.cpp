@@ -40,6 +40,12 @@ void UsrAccntController::main() {
             case 'c':
                 shopCatalog();
                 break;
+            case 'd':
+                showCart();
+                break;
+            case 'e':
+                removeFrmCrt();
+                break;
             case 'q': //Logout
                 cout << "\n";
                 logout = true;
@@ -131,56 +137,89 @@ void UsrAccntController::showCatalog() {
     usrAcctView->viewCatalog(catalogModel->getItems(), catalogModel->getSize());
 }
 
+void UsrAccntController::showCart() {
+    CartItem* items = cartModel->getItems();
+    unsigned int size = cartModel->getSize();
+    CatalogItem cat_item;
+    for (unsigned int i = 0; i < size; i++) {
+        cat_item = *catalogModel->getItem(items[i].name);
+        usrAcctView->viewCartItem(items[i].name, cat_item.desc, items[i].quant, items[i].quant * cat_item.price);
+        if (i < size - 1) {
+            usrAcctView->blank();
+        }
+    }
+}
+
 void UsrAccntController::shopCatalog() {
     
+    usrAcctView->shopCtlgTitle();
+
     // Search for catalog item
     string search;
     usrAcctView->getSearchName(search);
-    
+
     CatalogItem* item = catalogModel->getItem(search);
-    if (item==nullptr) {
+    if (item == nullptr) {
         usrAcctView->itemExistErr();
         return;
     }
-    
+
     // Get quantity to buy
     unsigned int quant;
     unsigned short int code;
     code = usrAcctView->getQuantity(quant);
-    if (code==1) {
+    if (code == 1) {
         usrAcctView->outOfRangeErr();
         return;
-    } else if (code==2) {
+    } else if (code == 2) {
         usrAcctView->invValErr();
     }
-    
-    if (item->quant < quant){
+
+    if (item->quant < quant) {
         usrAcctView->quantityErr(item->quant, search);
         return;
     }
-    
+
     // Prompt user to OK adding item to cart
     bool cancel;
     char input;
     CartItem temp_item;
+    CartItem* temp_cart_item = cartModel->getItem(item->name);
     strncpy(temp_item.name, item->name, MAXNAME);
     temp_item.quant = quant;
-    while (!cancel){
+    while (!cancel) {
         input = usrAcctView->addToCartPrmpt(item->name, temp_item.quant, item->price);
         input = tolower(input);
         switch (input) {
-            case 'y':  //Add item to shopping cart
-                code = cartModel->addItem(temp_item);
-                if (code > 0) {
-                    usrAcctView->cartFullErr();
+            case 'y': //Add item to shopping cart
+                
+                // Update existing cart item
+                if (!(temp_cart_item==nullptr)) {
+                    temp_item = temp_item + *temp_cart_item;
+//                    cout << "NAME: " << temp_item.name << "\n";  //DEBUG
+//                    cout << "QUANT: " << temp_item.quant << "\n";  //DEBUG
+                    code = cartModel->repItem(temp_item.name, temp_item);
+                    if (code > 0) {
+                        usrAcctView->cartFullErr();
+                        return;
+                    }
+                }
+                // Add new cart item
+                else {
+                    code = cartModel->addItem(temp_item);
+                    if (code > 0) {
+                        usrAcctView->cartFullErr();
+                        return;
+                    }
                 }
                 code = cartModel->save();
+                cout << code;
                 if (code == 1) {
                     usrAcctView->itemSaveErr();
                     return;
                 }
                 return;
-            case 'n':  //Cancel
+            case 'n': //Cancel
                 cout << "\n";
                 cancel = true;
                 break;
@@ -188,7 +227,18 @@ void UsrAccntController::shopCatalog() {
                 cout << "Unknown input, please try again\n";
         };
     }
-    
-    
+}
 
+void UsrAccntController::removeFrmCrt() {
+    
+    usrAcctView->remCartItmTitle();
+    
+    string search;
+    usrAcctView->getSearchName(search);
+    
+    short unsigned int code = cartModel->delItem(search);
+    if (code > 0) {
+        usrAcctView->itemExistErr();
+        return;
+    }    
 }

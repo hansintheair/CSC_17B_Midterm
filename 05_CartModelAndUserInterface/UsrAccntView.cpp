@@ -24,7 +24,8 @@ char UsrAccntView::mainMenu(const string& username) {
     cout << "B - View Catalog\n";
     cout << "C - Shop Catalog\n";
     cout << "D - View Cart\n";
-    cout << "E - Place order\n";
+    cout << "E - Remove from Cart\n";
+    cout << "F - Place order\n";
     cout << "Q - Logout\n\n";
 
     char choice;
@@ -62,8 +63,16 @@ void UsrAccntView::getPassw(const string& username, string& passw, string adj) {
     getline(cin, passw);
 }
 
-void UsrAccntView::getSearchName(string& searchName) {
+void UsrAccntView::shopCtlgTitle(){
     cout << "\n--Shop catalog\n";
+}
+
+void UsrAccntView::remCartItmTitle() {
+    cout << "\n--Remove item from cart\n";
+}
+
+
+void UsrAccntView::getSearchName(string& searchName) {
     cout << "Enter the name of an item: ";
     getline(cin, searchName);
 }
@@ -114,6 +123,13 @@ void UsrAccntView::viewCatalog(const CatalogItem* catalogItems, int size) {
             cout << "\n";
         }
     }
+}
+
+void UsrAccntView::viewCartItem(const string& name, const string& desc, const unsigned int quant, const float price){
+    cout << "Name: " << name << "\n";
+    cout << "Description: " << desc << "\n";
+    cout << "Quantity: " << quant << "\n";
+    cout << "Total $" << fixed << setprecision(2) << price << "\n";
 }
 
 void UsrAccntView::chgPasswSuccess() {

@@ -99,17 +99,18 @@ short unsigned int CartModel::addItem(const CartItem &item) {
     return 1;
 }
 
-void CartModel::repItem(string name, const CartItem& new_item) {
+short unsigned int CartModel::repItem(string name, const CartItem& new_item) {
     short int irep = findItem(name);
 //    cout << "index: " << irep << "\n";  //DEBUG
     if (irep > -1) { //item found
         catalog[irep] = new_item;
     } else {
-        cout << "Item " << name << " does not exist.\n";
+        return 1;
     }
+    return 0;
 }
 
-void CartModel::delItem(string name) {
+short unsigned int CartModel::delItem(string name) {
     short int idel = findItem(name);
     if (idel > -1) { //item found
         for (int i = idel; i < num_items; i++) {
@@ -117,12 +118,13 @@ void CartModel::delItem(string name) {
         }
         num_items--;
     } else {
-        cout << "Item " << name << " does not exist.\n";
+        return 1;
     }
+    return 0;
 }
 
 short unsigned int CartModel::save() {
-
+    
     fstream file;
 
     // check file existence
@@ -136,11 +138,11 @@ short unsigned int CartModel::save() {
 
         CartItem temp_item;
         for (int i = 0; i < num_items; i++) {
-            //            cout << "Write record " << i << endl;
+//            cout << "Write record " << i << endl;
             strncpy(temp_item.name, catalog[i].name, MAXNAME - 1);
-            //            cout << "NAME: " << temp_item.name << endl;
+//            cout << "NAME: " << temp_item.name << endl;
             temp_item.quant = catalog[i].quant;
-            //            cout << "QUANT: " << temp_item.quant << endl;
+//            cout << "QUANT: " << temp_item.quant << endl;
             file.write(reinterpret_cast<char*> (&temp_item), sizeof (CartItem));
         }
     } else {

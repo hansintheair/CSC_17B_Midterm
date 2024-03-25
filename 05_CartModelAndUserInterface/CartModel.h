@@ -22,6 +22,7 @@ private:
     CartItem catalog[MAXITEMS];
     unsigned short int num_items;
     short int findItem(string);
+
 public:
     CartModel(string);
 //    CatalogModel(const CatalogModel& orig);
@@ -29,8 +30,8 @@ public:
     CartItem* getItem(string);
     short unsigned int getSize();
     short unsigned int addItem(const CartItem&);
-    void repItem(string, const CartItem&);
-    void delItem(string);
+    short unsigned int repItem(string, const CartItem&);
+    short unsigned int delItem(string);
 
     short unsigned int save();
     static void createDB(string);
