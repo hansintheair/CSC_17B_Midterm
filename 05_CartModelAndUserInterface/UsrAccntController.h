@@ -39,6 +39,7 @@ public:
     void showCart();
     void shopCatalog();
     void removeFrmCrt();
+    void placeOrder();
 
 
 };

@@ -30,6 +30,7 @@ public:
     char addToCartPrmpt(const string&, const unsigned int, const float);
     void viewCatalog(const CatalogItem*, int);
     void viewCartItem(const string&, const string&, const unsigned int, const float);
+    void dispGrndTtl(float);
     void chgPasswSuccess();
     void acctDataCrrptErr();
     void acctSaveErr();

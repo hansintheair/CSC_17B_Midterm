@@ -63,14 +63,13 @@ void UsrAccntView::getPassw(const string& username, string& passw, string adj) {
     getline(cin, passw);
 }
 
-void UsrAccntView::shopCtlgTitle(){
+void UsrAccntView::shopCtlgTitle() {
     cout << "\n--Shop catalog\n";
 }
 
 void UsrAccntView::remCartItmTitle() {
     cout << "\n--Remove item from cart\n";
 }
-
 
 void UsrAccntView::getSearchName(string& searchName) {
     cout << "Enter the name of an item: ";
@@ -103,8 +102,8 @@ unsigned short int UsrAccntView::getQuantity(unsigned int& quant) {
 
 char UsrAccntView::addToCartPrmpt(const string& name, const unsigned int quant, const float unitPrice) {
     cout << "Add item " << quant << " of item " << name << " to cart for total of $";
-    cout << setprecision(2) << fixed << unitPrice*quant << "?\n";
-    
+    cout << setprecision(2) << fixed << unitPrice * quant << "?\n";
+
     char choice;
     cout << ">> ";
     cin.get(choice);
@@ -125,11 +124,15 @@ void UsrAccntView::viewCatalog(const CatalogItem* catalogItems, int size) {
     }
 }
 
-void UsrAccntView::viewCartItem(const string& name, const string& desc, const unsigned int quant, const float price){
+void UsrAccntView::viewCartItem(const string& name, const string& desc, const unsigned int quant, const float price) {
     cout << "Name: " << name << "\n";
     cout << "Description: " << desc << "\n";
     cout << "Quantity: " << quant << "\n";
     cout << "Total $" << fixed << setprecision(2) << price << "\n";
+}
+
+void UsrAccntView::dispGrndTtl(float amount) {
+    cout << "Order Total: $" << fixed << setprecision(2) << amount << "\n";
 }
 
 void UsrAccntView::chgPasswSuccess() {

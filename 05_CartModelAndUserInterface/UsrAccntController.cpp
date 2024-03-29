@@ -138,20 +138,25 @@ void UsrAccntController::showCatalog() {
 }
 
 void UsrAccntController::showCart() {
+    usrAcctView->blank();
     CartItem* items = cartModel->getItems();
     unsigned int size = cartModel->getSize();
+    float total = 0.0;
     CatalogItem cat_item;
     for (unsigned int i = 0; i < size; i++) {
         cat_item = *catalogModel->getItem(items[i].name);
         usrAcctView->viewCartItem(items[i].name, cat_item.desc, items[i].quant, items[i].quant * cat_item.price);
+        total += items[i].quant * cat_item.price;
         if (i < size - 1) {
             usrAcctView->blank();
         }
     }
+    usrAcctView->blank();
+    usrAcctView->dispGrndTtl(total);
 }
 
 void UsrAccntController::shopCatalog() {
-    
+
     usrAcctView->shopCtlgTitle();
 
     // Search for catalog item
@@ -192,19 +197,18 @@ void UsrAccntController::shopCatalog() {
         input = tolower(input);
         switch (input) {
             case 'y': //Add item to shopping cart
-                
+
                 // Update existing cart item
-                if (!(temp_cart_item==nullptr)) {
+                if (!(temp_cart_item == nullptr)) {
                     temp_item = temp_item + *temp_cart_item;
-//                    cout << "NAME: " << temp_item.name << "\n";  //DEBUG
-//                    cout << "QUANT: " << temp_item.quant << "\n";  //DEBUG
+                    //                    cout << "NAME: " << temp_item.name << "\n";  //DEBUG
+                    //                    cout << "QUANT: " << temp_item.quant << "\n";  //DEBUG
                     code = cartModel->repItem(temp_item.name, temp_item);
                     if (code > 0) {
                         usrAcctView->cartFullErr();
                         return;
                     }
-                }
-                // Add new cart item
+                }                    // Add new cart item
                 else {
                     code = cartModel->addItem(temp_item);
                     if (code > 0) {
@@ -230,15 +234,19 @@ void UsrAccntController::shopCatalog() {
 }
 
 void UsrAccntController::removeFrmCrt() {
-    
+
     usrAcctView->remCartItmTitle();
-    
+
     string search;
     usrAcctView->getSearchName(search);
-    
+
     short unsigned int code = cartModel->delItem(search);
     if (code > 0) {
         usrAcctView->itemExistErr();
         return;
-    }    
+    }
+}
+
+void UsrAccntController::placeOrder() {
+    
 }
