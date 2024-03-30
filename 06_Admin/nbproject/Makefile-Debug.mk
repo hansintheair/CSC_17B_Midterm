@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/AdminController.o \
+	${OBJECTDIR}/AdminView.o \
 	${OBJECTDIR}/CartModel.o \
 	${OBJECTDIR}/CatalogModel.o \
 	${OBJECTDIR}/HomeController.o \
@@ -63,11 +65,21 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/05_cartmodelanduserinterface.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/06_admin.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/05_cartmodelanduserinterface.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/06_admin.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/05_cartmodelanduserinterface ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/06_admin ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/AdminController.o: AdminController.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AdminController.o AdminController.cpp
+
+${OBJECTDIR}/AdminView.o: AdminView.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AdminView.o AdminView.cpp
 
 ${OBJECTDIR}/CartModel.o: CartModel.cpp
 	${MKDIR} -p ${OBJECTDIR}

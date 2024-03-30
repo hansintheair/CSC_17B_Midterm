@@ -64,30 +64,46 @@ void HomeController::createUser() {
 }
 
 void HomeController::loginUser() {
+    
+    accntsModel->display();
+    
     string username, passw;
     homeView->userLogin(username, passw);
 
-//    cout << "\nAttempting login for " << username << "\n";  //DEBUG
+    //    cout << "\nAttempting login for " << username << "\n";  //DEBUG
     Account *acct = nullptr;
     acct = accntsModel->getAcct(username, passw);
-    
-    if (!(acct==nullptr)){
-//        cout << "cart database: " << acct->cartdb << "\n";  //DEBUG
-        CartModel cartModel = CartModel(acct->cartdb);
-        UsrAccntView userAcctView = UsrAccntView();
 
-        UsrAccntController(
-            acct,
-            accntsModel,
-            catlgModel,
-            &cartModel,
-            &userAcctView
-        ).main();
+    if (!(acct == nullptr)) {
+        //        cout << "cart database: " << acct->cartdb << "\n";  //DEBUG
+        if (acct->admin) {
+            AdminView adminView = AdminView();
+            
+            AdminController(
+                acct,
+                accntsModel,
+                catlgModel,
+                &adminView
+            ).main();
+
+        } else {
+            CartModel cartModel = CartModel(acct->cartdb);
+            UsrAccntView userAcctView = UsrAccntView();
+
+            UsrAccntController(
+                acct,
+                accntsModel,
+                catlgModel,
+                &cartModel,
+                &userAcctView
+            ).main();
+        }
+
     }
 }
 
 HomeController::~HomeController() {
-//    delete homeView, accntsModel;
-//    homeView = nullptr;
-//    accntsModel = nullptr;
+    //    delete homeView, accntsModel;
+    //    homeView = nullptr;
+    //    accntsModel = nullptr;
 }

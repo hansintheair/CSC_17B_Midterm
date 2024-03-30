@@ -5,6 +5,8 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Account.h</itemPath>
+      <itemPath>AdminController.h</itemPath>
+      <itemPath>AdminView.h</itemPath>
       <itemPath>CartItem.h</itemPath>
       <itemPath>CartModel.h</itemPath>
       <itemPath>CatalogItem.h</itemPath>
@@ -23,6 +25,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>AdminController.cpp</itemPath>
+      <itemPath>AdminView.cpp</itemPath>
       <itemPath>CartModel.cpp</itemPath>
       <itemPath>CatalogModel.cpp</itemPath>
       <itemPath>HomeController.cpp</itemPath>
@@ -55,6 +59,14 @@
       <compileType>
       </compileType>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="AdminController.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="AdminController.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="AdminView.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="AdminView.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CartItem.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -114,6 +126,14 @@
         </asmTool>
       </compileType>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="AdminController.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="AdminController.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="AdminView.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="AdminView.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CartItem.h" ex="false" tool="3" flavor2="0">
       </item>

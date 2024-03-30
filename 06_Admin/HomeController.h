@@ -20,6 +20,8 @@
 #include "UsrAccntController.h"
 #include "UsrAccntView.h"
 #include "CartModel.h"
+#include "AdminController.h"
+#include "AdminView.h"
 
 class HomeController {
 public:

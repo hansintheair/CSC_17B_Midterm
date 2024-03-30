@@ -10,9 +10,7 @@
  * Created on March 18, 2024, 6:21 PM
  */
 
-#include <iostream>
-using namespace std;
-
+#include "Account.h"
 #include "HomeView.h"
 
 char HomeView::mainMenu() {
