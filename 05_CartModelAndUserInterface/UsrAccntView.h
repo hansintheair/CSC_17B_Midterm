@@ -26,11 +26,15 @@ public:
     void getSearchName(string&);
     void shopCtlgTitle();
     void remCartItmTitle();
+    void placeOrderTitle();
+    void viewCartTitle();
     short unsigned int getQuantity(unsigned int&);
     char addToCartPrmpt(const string&, const unsigned int, const float);
+    char placeOrdrPrmpt();
     void viewCatalog(const CatalogItem*, int);
     void viewCartItem(const string&, const string&, const unsigned int, const float);
     void dispGrndTtl(float);
+    void orderPlaced();
     void chgPasswSuccess();
     void acctDataCrrptErr();
     void acctSaveErr();
@@ -41,6 +45,8 @@ public:
     void cartFullErr();
     void outOfRangeErr();
     void invValErr();
+    void failToUpdtErr(const string&);
+    void failOrderErr();
     void blank();
 private:
 

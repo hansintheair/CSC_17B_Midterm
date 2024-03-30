@@ -101,17 +101,18 @@ short unsigned int CatalogModel::addItem(const CatalogItem &item) {
     return 1;
 }
 
-void CatalogModel::repItem(string name, const CatalogItem& new_item) {
+short unsigned int CatalogModel::repItem(string name, const CatalogItem& new_item) {
     short int irep = findItem(name);
 //    cout << "index: " << irep << "\n";  //DEBUG
     if (irep > -1) { //item found
         catalog[irep] = new_item;
     } else {
-        cout << "Item " << name << " does not exist.\n";
+        return 1;
     }
+    return 0;
 }
 
-void CatalogModel::delItem(string name) {
+short unsigned int CatalogModel::delItem(string name) {
     short int idel = findItem(name);
     if (idel > -1) { //item found
         for (int i = idel; i < num_items; i++) {
@@ -119,8 +120,9 @@ void CatalogModel::delItem(string name) {
         }
         num_items--;
     } else {
-        cout << "Item " << name << " does not exist.\n";
+        return 1;
     }
+    return 0;
 }
 
 short unsigned int CatalogModel::save() {

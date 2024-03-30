@@ -46,6 +46,9 @@ void UsrAccntController::main() {
             case 'e':
                 removeFrmCrt();
                 break;
+            case 'f':
+                placeOrder();
+                break;
             case 'q': //Logout
                 cout << "\n";
                 logout = true;
@@ -138,7 +141,7 @@ void UsrAccntController::showCatalog() {
 }
 
 void UsrAccntController::showCart() {
-    usrAcctView->blank();
+    usrAcctView->viewCartTitle();
     CartItem* items = cartModel->getItems();
     unsigned int size = cartModel->getSize();
     float total = 0.0;
@@ -179,7 +182,7 @@ void UsrAccntController::shopCatalog() {
     } else if (code == 2) {
         usrAcctView->invValErr();
     }
-
+    // Check if enough in stock
     if (item->quant < quant) {
         usrAcctView->quantityErr(item->quant, search);
         return;
@@ -205,7 +208,7 @@ void UsrAccntController::shopCatalog() {
                     //                    cout << "QUANT: " << temp_item.quant << "\n";  //DEBUG
                     code = cartModel->repItem(temp_item.name, temp_item);
                     if (code > 0) {
-                        usrAcctView->cartFullErr();
+                        usrAcctView->failToUpdtErr(temp_item.name);
                         return;
                     }
                 }                    // Add new cart item
@@ -224,7 +227,7 @@ void UsrAccntController::shopCatalog() {
                 }
                 return;
             case 'n': //Cancel
-                cout << "\n";
+                usrAcctView->blank();
                 cancel = true;
                 break;
             default:
@@ -249,4 +252,58 @@ void UsrAccntController::removeFrmCrt() {
 
 void UsrAccntController::placeOrder() {
     
+    usrAcctView->placeOrderTitle();
+    
+    CartItem* items = cartModel->getItems();
+    unsigned int size = cartModel->getSize();
+    
+    // Get & display order total
+    float total = 0.0;
+    CatalogItem cat_item;
+    for (unsigned int i = 0; i < size; i++) {
+        cat_item = *catalogModel->getItem(items[i].name);
+        if (cat_item.quant < items[i].quant) {
+            usrAcctView->quantityErr(cat_item.quant, cat_item.name);
+            return;
+        }
+        total += items[i].quant * cat_item.price;
+    }
+    usrAcctView->dispGrndTtl(total);
+    
+    // Place order prompt
+    bool back = false;
+    char input;
+    while (!back) {
+        input = usrAcctView->placeOrdrPrmpt();
+        input = tolower(input);
+        short unsigned int code;
+        switch (input) {
+            case 'y': //place order
+                for (unsigned int i = 0; i < size; i++) {
+                    cat_item = *catalogModel->getItem(items[i].name);
+                    cat_item.quant -= items[i].quant;
+                    code = catalogModel->repItem(cat_item.name, cat_item);
+                    if (code > 0) {
+                        usrAcctView->failToUpdtErr(cat_item.name);
+                        usrAcctView->failOrderErr();
+                        return;
+                    }
+                    code = catalogModel->save();
+                    if (code == 1) {
+                        usrAcctView->itemSaveErr();
+                        usrAcctView->failOrderErr();
+                        return;
+                    }
+                    cartModel->clear();
+                    cartModel->save();
+                }
+                usrAcctView->orderPlaced();
+                return;
+            case 'n': //Exit place order menu
+                back = true;
+                break;
+            default:
+                cout << "Unknown input, please try again\n";
+        };
+    }
 }

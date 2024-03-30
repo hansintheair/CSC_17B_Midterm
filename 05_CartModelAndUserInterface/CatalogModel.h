@@ -29,8 +29,8 @@ public:
     CatalogItem* getItem(string);
     short unsigned int getSize();
     short unsigned int addItem(const CatalogItem&);
-    void repItem(string, const CatalogItem&);
-    void delItem(string);
+    short unsigned int repItem(string, const CatalogItem&);
+    short unsigned int delItem(string);
 
     short unsigned int save();
     static void createDB(string);

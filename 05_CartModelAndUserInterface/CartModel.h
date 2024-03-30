@@ -32,6 +32,7 @@ public:
     short unsigned int addItem(const CartItem&);
     short unsigned int repItem(string, const CartItem&);
     short unsigned int delItem(string);
+    void clear();
 
     short unsigned int save();
     static void createDB(string);

@@ -71,6 +71,14 @@ void UsrAccntView::remCartItmTitle() {
     cout << "\n--Remove item from cart\n";
 }
 
+void UsrAccntView::placeOrderTitle() {
+    cout << "\n--Place order\n";
+}
+
+void UsrAccntView::viewCartTitle() {
+    cout << "\n--Shopping Cart\n\n";
+}
+
 void UsrAccntView::getSearchName(string& searchName) {
     cout << "Enter the name of an item: ";
     getline(cin, searchName);
@@ -102,13 +110,27 @@ unsigned short int UsrAccntView::getQuantity(unsigned int& quant) {
 
 char UsrAccntView::addToCartPrmpt(const string& name, const unsigned int quant, const float unitPrice) {
     cout << "Add item " << quant << " of item " << name << " to cart for total of $";
-    cout << setprecision(2) << fixed << unitPrice * quant << "?\n";
+    cout << setprecision(2) << fixed << unitPrice * quant << "? (Y/N)\n\n";
 
     char choice;
     cout << ">> ";
     cin.get(choice);
     cin.ignore();
     return choice;
+}
+
+char UsrAccntView::placeOrdrPrmpt() {
+    cout << "Place order? (Y/N)\n\n";
+
+    char choice;
+    cout << ">> ";
+    cin.get(choice);
+    cin.ignore();
+    return choice;
+}
+
+void UsrAccntView::orderPlaced() {
+    cout << "Order has been placed successfully.\n";
 }
 
 void UsrAccntView::viewCatalog(const CatalogItem* catalogItems, int size) {
@@ -165,6 +187,14 @@ void UsrAccntView::quantityErr(unsigned int quant, const string& itemName) {
 
 void UsrAccntView::cartFullErr() {
     cout << "Error: Cannot add item to cart. Cart is full.\n";
+}
+
+void UsrAccntView::failToUpdtErr(const string& name) {
+    cout << "Error: Failed to update the item " << name << ".\n";
+}
+
+void UsrAccntView::failOrderErr() {
+    cout << "Error: Failed to place order\n";
 }
 
 void UsrAccntView::outOfRangeErr() {

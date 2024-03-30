@@ -53,10 +53,10 @@ CartModel::CartModel(string catalog_db) {
 short int CartModel::findItem(string name) {
     short unsigned int i = 0;
     short int pos = -1;
-//    cout << "Searching for " << name << "\n";  //DEBUG
+    //    cout << "Searching for " << name << "\n";  //DEBUG
 
     while (i < num_items) {
-//        cout << "Searching catalog item #" << i << "\n";  //DEBUG
+        //        cout << "Searching catalog item #" << i << "\n";  //DEBUG
         if (catalog[i].name == name) {
             pos = i;
             break; //item found
@@ -77,13 +77,13 @@ CartItem* CartModel::getItems() {
 }
 
 // Display a specific item in the catalog.
+
 CartItem* CartModel::getItem(string name) {
     short int idis = findItem(name);
-//    cout << "index pos: " << idis << "\n"; //DEBUG
+    //    cout << "index pos: " << idis << "\n"; //DEBUG
     if (idis > -1) {//item found
         return &catalog[idis];
-    }
-    else {
+    } else {
         return nullptr;
     }
 }
@@ -101,7 +101,7 @@ short unsigned int CartModel::addItem(const CartItem &item) {
 
 short unsigned int CartModel::repItem(string name, const CartItem& new_item) {
     short int irep = findItem(name);
-//    cout << "index: " << irep << "\n";  //DEBUG
+    //    cout << "index: " << irep << "\n";  //DEBUG
     if (irep > -1) { //item found
         catalog[irep] = new_item;
     } else {
@@ -123,8 +123,13 @@ short unsigned int CartModel::delItem(string name) {
     return 0;
 }
 
+void CartModel::clear() {
+    num_items = 0;
+    return;
+}
+
 short unsigned int CartModel::save() {
-    
+
     fstream file;
 
     // check file existence
@@ -138,17 +143,17 @@ short unsigned int CartModel::save() {
 
         CartItem temp_item;
         for (int i = 0; i < num_items; i++) {
-//            cout << "Write record " << i << endl;
+            //            cout << "Write record " << i << endl;
             strncpy(temp_item.name, catalog[i].name, MAXNAME - 1);
-//            cout << "NAME: " << temp_item.name << endl;
+            //            cout << "NAME: " << temp_item.name << endl;
             temp_item.quant = catalog[i].quant;
-//            cout << "QUANT: " << temp_item.quant << endl;
+            //            cout << "QUANT: " << temp_item.quant << endl;
             file.write(reinterpret_cast<char*> (&temp_item), sizeof (CartItem));
         }
     } else {
         return 1;
     }
-    
+
     file.close();
     return 0;
 }
