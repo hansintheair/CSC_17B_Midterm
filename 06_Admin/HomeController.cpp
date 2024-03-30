@@ -65,7 +65,7 @@ void HomeController::createUser() {
 
 void HomeController::loginUser() {
     
-    accntsModel->display();
+//    accntsModel->display();  //DEBUG
     
     string username, passw;
     homeView->userLogin(username, passw);
