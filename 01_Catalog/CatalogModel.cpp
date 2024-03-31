@@ -81,14 +81,15 @@ void CatalogModel::display() {
     }
 }
 // Display a specific item in the catalog.
-void CatalogModel::display(string name) {
+short unsigned int CatalogModel::display(string name) {
     short int idis = findItem(name);
 //    cout << "index pos: " << idis << "\n"; //DEBUG
     if (idis > -1) {//item found
         catalog[idis].display();
+        return 0;  //item found
     }
     else {
-        cout << "Item " << name << " does not exist.\n";
+        return 1;  //item not found
     }
 }
 

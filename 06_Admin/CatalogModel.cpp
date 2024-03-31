@@ -52,14 +52,18 @@ CatalogModel::CatalogModel(string catalog_db) {
 
 // Search for a catalog item and return its index position.
 
-short int CatalogModel::findItem(string name) {
+int CatalogModel::findItem(string name) {
     short unsigned int i = 0;
     short int pos = -1;
-//    cout << "Searching for " << name << "\n";  //DEBUG
+    cout << "Searching for " << name << "\n";  //DEBUG
 
     while (i < num_items) {
 //        cout << "Searching catalog item #" << i << "\n";  //DEBUG
+//        cout << "NAME_A: " << catalog[i].name << ".\n";  //DEBUG
+//        cout << "NAME_S: " << name << ".\n";  //DEBUG
+//        cout << "EXISTS: " << (catalog[i].name == name) << "\n";  //DEBUG
         if (catalog[i].name == name) {
+//            cout << "FOUND!\n";  //DEBUG
             pos = i;
             break; //item found
         }
@@ -80,6 +84,7 @@ CatalogItem* CatalogModel::getItems() {
 
 // Display a specific item in the catalog.
 CatalogItem* CatalogModel::getItem(string name) {
+//    cout << "NAME: " << name << "\n";  //DEBUG
     short int idis = findItem(name);
 //    cout << "index pos: " << idis << "\n"; //DEBUG
     if (idis > -1) {//item found
@@ -114,6 +119,17 @@ short unsigned int CatalogModel::repItem(string name, const CatalogItem& new_ite
 
 short unsigned int CatalogModel::delItem(string name) {
     short int idel = findItem(name);
+    if (idel > -1) { //item found
+        for (int i = idel; i < num_items; i++) {
+            catalog[i] = catalog[i + 1];
+        }
+        num_items--;
+    } else {
+        return 1;
+    }
+    return 0;
+}
+short unsigned int CatalogModel::delItem(int idel){
     if (idel > -1) { //item found
         for (int i = idel; i < num_items; i++) {
             catalog[i] = catalog[i + 1];

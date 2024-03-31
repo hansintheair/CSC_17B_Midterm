@@ -88,6 +88,7 @@ void AdminView::getAccountName(string& accntName) {
 void AdminView::viewCatalog(const CatalogItem* catalogItems, int size) {
     cout << "\n--Catalog\n\n";
     for (int i = 0; i < size; i++) {
+        cout << "# " << i << "\n";
         cout << "Name: " << catalogItems[i].name << "\n";
         cout << "Description: " << catalogItems[i].desc << "\n";
         cout << "Price $" << fixed << setprecision(2) << catalogItems[i].price << "\n";
@@ -99,7 +100,6 @@ void AdminView::viewCatalog(const CatalogItem* catalogItems, int size) {
 }
 
 void AdminView::getNewItem(CatalogItem& newItem) {
-//    cin.ignore();
     string temp_input;
     cout << "Item name: ";
     getline(cin, temp_input);
@@ -114,7 +114,7 @@ void AdminView::getNewItem(CatalogItem& newItem) {
     cin.ignore();
 }
 
-void AdminView::getRemItemName(string& name) {
+void AdminView::getItemName(string& name) {
     cout << "Item name: ";
     getline(cin, name);
 }

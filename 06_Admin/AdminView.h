@@ -26,7 +26,7 @@ public:
     void remAccnt();
     void viewCatalog(const CatalogItem*, int);
     void getNewItem(CatalogItem& newItem);
-    void getRemItemName(string& name);
+    void getItemName(string& name);
     void chgPasswSuccess();
     void acctDataCrrptErr();
     void acctValidtErr();

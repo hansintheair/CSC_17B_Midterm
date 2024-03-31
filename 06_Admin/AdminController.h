@@ -35,8 +35,8 @@ public:
     void showCatalog();
     void addCtlgItem();
     void remCtlgItem();
-
-
+    void remCtlgItemI();
+    void repCtlgItem();
 };
 
 #endif /* ADMINCONTROLLER_H */

@@ -50,7 +50,11 @@ void AdminController::main() {
             case 'g':  //Remove catalog item
                 remCtlgItem();
                 break;
-            case 'h':
+            case 'h':  //Update catalog item
+                repCtlgItem();
+                break;
+            case 'i':  // DEBUG
+                remCtlgItemI();
                 break;
             case 'q': //Logout
                 cout << "\n";
@@ -157,7 +161,7 @@ void AdminController::remCtlgItem() {
     cout << "--Remove item from Catalog\n";
     
     string item_name;
-    adminView->getRemItemName(item_name);
+    adminView->getItemName(item_name);
     
     short unsigned int code;
     code = catalogModel->delItem(item_name);
@@ -168,4 +172,46 @@ void AdminController::remCtlgItem() {
     
     catalogModel->save();
     cout << "Item removed\n";
+}
+
+void AdminController::remCtlgItemI() {
+    cout << "--Remove item from Catalog\n";
+    
+    int i;
+    cout << "Index position of item: ";
+    cin >> i;
+    
+    short unsigned int code;
+    code = catalogModel->delItem(i);
+    if (code > 0) {
+        cout << "Error: That item does not exist.\n";
+        return;
+    }
+    
+    catalogModel->save();
+    cout << "Item removed\n";
+    cin.ignore();
+}
+
+void AdminController::repCtlgItem() {
+    cout << "--Update item in Catalog\n";
+       
+//    cout << "NAME: " << item_name << "\n";  //DEBUG
+    
+    string item_name;
+    adminView->getItemName(item_name);
+    
+    CatalogItem* item = catalogModel->getItem(item_name);
+    if (item == nullptr) {
+        cout << "Item " << item_name << " does not exist.\n";
+        return;
+    }
+    
+    cout << "NAME: " << item->name << "\n";  //DEBUG
+    
+    cout << "\nEnter new values for the item.\n";
+    adminView->getNewItem(*item);
+    
+    catalogModel->repItem(item_name, *item);
+    catalogModel->save();    
 }

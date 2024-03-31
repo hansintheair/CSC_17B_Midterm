@@ -21,16 +21,17 @@ private:
     string catalog_db;
     CatalogItem catalog[MAXITEMS];
     unsigned short int num_items;
-    short int findItem(string);
 public:
     CatalogModel(string);
 //    CatalogModel(const CatalogModel& orig);
+    int findItem(string);
     CatalogItem* getItems();
     CatalogItem* getItem(string);
     short unsigned int getSize();
     short unsigned int addItem(const CatalogItem&);
     short unsigned int repItem(string, const CatalogItem&);
     short unsigned int delItem(string);
+    short unsigned int delItem(int);
 
     short unsigned int save();
     static void createDB(string);
