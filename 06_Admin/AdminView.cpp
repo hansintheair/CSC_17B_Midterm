@@ -16,6 +16,27 @@ using namespace std;
 
 #include "AdminView.h"
 
+// Generic functions
+
+void getNumeric(unsigned int& num) {
+    cin >> num;
+    while (cin.fail()) {
+        cout << "Not a valid number, please try again\n";
+        cin.clear();
+        cin.ignore();
+        cin >> num;
+    }
+}
+void getNumeric(float& num) {
+    cin >> num;
+    while (cin.fail()) {
+        cout << "Not a valid number, please try again\n";
+        cin.clear();
+        cin.ignore();
+        cin >> num;
+    }
+}
+
 AdminView::AdminView() {
 }
 
@@ -108,9 +129,11 @@ void AdminView::getNewItem(CatalogItem& newItem) {
     getline(cin, temp_input);
     strncpy(newItem.desc, temp_input.c_str(), MAXDESC - 1);
     cout << "Item price: ";
-    cin >> newItem.price;
+    getNumeric(newItem.price);
+//    cout << "ENTERED: " << newItem.price << "\n";  //DEBUG
     cout << "Item quantity: ";
-    cin >> newItem.quant;
+    getNumeric(newItem.quant);
+//    cout << "ENTERED: " << newItem.quant << "\n";  //DEBUG
     cin.ignore();
 }
 
@@ -138,3 +161,4 @@ void AdminView::acctSaveErr() {
 void AdminView::accntExistErr() {
     cout << "Error: That account does not exist.\n";
 }
+
