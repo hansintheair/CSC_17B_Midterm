@@ -13,6 +13,7 @@
 using namespace std;
 
 #include "AdminController.h"
+#include "CartModel.h"
 
 AdminController::AdminController(Account* adminAcct, UsrAccntsModel *acctsModel, CatalogModel *catalogModel, AdminView *adminView) {
     this->adminAcct = adminAcct;
@@ -28,25 +29,26 @@ void AdminController::main() {
         input = adminView->mainMenu(adminAcct->name);
         input = tolower(input);
         switch (input) {
-            case 'a':
-//                profileMenu();
+            case 'a':  //Change password
+                changePassw();
                 break;
-            case 'b':
-//                showCatalog();
+            case 'b':  //List accounts
+                acctsModel->display();
                 break;
-            case 'c':
-//                shopCatalog();
+            case 'c':  //Add account
+                newAccount();
                 break;
-            case 'd':
-//                showCart();
+            case 'd':  //Delete account
+                delAccount();
                 break;
-            case 'e':
-//                removeFrmCrt();
+            case 'e':  //View catalog
+                showCatalog();
                 break;
-            case 'f':
-//                placeOrder();
+            case 'f':  //Add catalog item
+                addCtlgItem();
                 break;
-            case 'g':
+            case 'g':  //Remove catalog item
+                remCtlgItem();
                 break;
             case 'h':
                 break;
@@ -61,3 +63,109 @@ void AdminController::main() {
     cout << "Logging out\n";
 }
 
+void AdminController::changePassw() {
+
+    string oldPassw, newPassw;
+
+    adminView->getPassw(adminAcct->name, oldPassw, "old");
+    if (!validatePassw(oldPassw)) {
+        adminView->acctValidtErr();
+        return;
+    }
+
+    adminView->getPassw(adminAcct->name, newPassw, "new");
+
+    strncpy(adminAcct->passw, newPassw.c_str(), MAXFLD - 1);
+
+    short unsigned int code;
+    code = acctsModel->repAcct(adminAcct->name, *adminAcct);
+    if (code == 1) {
+        adminView->acctDataCrrptErr();
+    } else {
+        code = acctsModel->save();
+        if (code == 1) {
+            adminView->acctSaveErr();
+        }
+    }
+}
+
+bool AdminController::validatePassw(string& passw) {
+    if (passw == adminAcct->passw) {
+        return true;
+    }
+    return false;
+}
+
+void AdminController::newAccount(){
+    
+    string username, email, passw;
+    bool admin;
+    adminView->addAccnt(username, email, passw, admin);
+    Account temp_acct;
+    strncpy(temp_acct.name, username.c_str(), MAXFLD - 1);
+    strncpy(temp_acct.email, email.c_str(), MAXFLD - 1);
+    strncpy(temp_acct.passw, passw.c_str(), MAXFLD - 1);
+    temp_acct.admin = admin;
+
+    if (!admin) {
+        strncpy(temp_acct.cartdb, ("data/" + string(temp_acct.name) + ".bin").c_str(), MAXFLD - 1);
+        CartModel::createDB(temp_acct.cartdb);
+    }
+    else {
+        strncpy(temp_acct.cartdb, "", MAXFLD - 1);
+    }
+
+    acctsModel->addAcct(temp_acct);
+    acctsModel->save();
+}
+
+void AdminController::delAccount(){
+    string search;
+    adminView->getAccountName(search);
+
+    if (search != "admin"){
+        short unsigned int code = acctsModel->delAcct(search);
+        if (code > 0) {
+            adminView->accntExistErr();
+            return;
+        }
+        acctsModel->save();
+        cout << "Successfully deleted account.\n";
+    }
+    else {
+        cout << "admin is the primary admin account and cannot be deleted.\n";
+    }
+}
+
+void AdminController::showCatalog() {
+    adminView->viewCatalog(catalogModel->getItems(), catalogModel->getSize());
+}
+
+void AdminController::addCtlgItem() {
+    cout << "--Add item to Catalog\n";
+    
+    CatalogItem tmpItem;
+    adminView->getNewItem(tmpItem);
+    
+    catalogModel->addItem(tmpItem);
+    catalogModel->save();
+    
+    cout << "Item added\n";
+}
+
+void AdminController::remCtlgItem() {
+    cout << "--Remove item from Catalog\n";
+    
+    string item_name;
+    adminView->getRemItemName(item_name);
+    
+    short unsigned int code;
+    code = catalogModel->delItem(item_name);
+    if (code > 0) {
+        cout << "Error: That item does not exist.\n";
+        return;
+    }
+    
+    catalogModel->save();
+    cout << "Item removed\n";
+}

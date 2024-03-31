@@ -115,15 +115,16 @@ short unsigned int UsrAccntsModel::repAcct(string name, const Account& new_acct)
     }
 }
 
-void UsrAccntsModel::delAcct(string name){
+short unsigned int UsrAccntsModel::delAcct(string name){
     short int idel = findAcct(name);
     if (idel > -1) { //item found
         for (int i = idel; i < num_accts; i++) {
             accounts[i] = accounts[i + 1];
         }
         num_accts--;
+        return 0;  // Success
     } else {
-        cout << "Account " << name << " does not exist.\n";
+        return 1;  // Account not found
     }
 }
 

@@ -7,16 +7,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/UsrAccntController.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/CartItem.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/Constants.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/HomeController.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/CatalogModel.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/CatalogItem.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/UsrAccntView.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/UsrAccntController.cpp</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/CartModel.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/05_CartModelAndUserInterface/CartModel.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/UsrAccntsModel.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/UsrAccntController.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/UsrAccntView.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/AdminController.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/Account.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/HomeController.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/AdminView.h</file>
         </group>
     </open-files>
 </project-private>

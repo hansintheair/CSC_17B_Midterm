@@ -32,7 +32,7 @@ public:
     short unsigned int getSize();
     void addAcct(const Account&);
     short unsigned int repAcct(string, const Account&);
-    void delAcct(string);
+    short unsigned int delAcct(string);
 
     short unsigned int save();
     static void createDB(string);

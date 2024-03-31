@@ -28,6 +28,14 @@ private:
 public:
     AdminController(Account*, UsrAccntsModel*, CatalogModel*, AdminView*);
     void main();
+    void changePassw();
+    bool validatePassw(string&);
+    void newAccount();
+    void delAccount();
+    void showCatalog();
+    void addCtlgItem();
+    void remCtlgItem();
+
 
 };
 

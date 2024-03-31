@@ -13,11 +13,24 @@
 #ifndef ADMINVIEW_H
 #define ADMINVIEW_H
 
+#include "CatalogItem.h"
+
 class AdminView {
 public:
     AdminView();
     char mainMenu(const string&);
-
+    void addAccnt(string&, string&, string&, bool&);
+    void getPassw(const string&, string&, string);
+    void getAccountName(string&);
+    void accntExistErr();
+    void remAccnt();
+    void viewCatalog(const CatalogItem*, int);
+    void getNewItem(CatalogItem& newItem);
+    void getRemItemName(string& name);
+    void chgPasswSuccess();
+    void acctDataCrrptErr();
+    void acctValidtErr();
+    void acctSaveErr();
 private:
 
 };
