@@ -7,13 +7,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/UsrAccntsModel.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/UsrAccntController.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/UsrAccntView.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/AdminController.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/Account.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/HomeController.h</file>
-            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/06_Admin/AdminView.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/HomeView.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/CartModel.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/HomeController.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/AdminController.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/UsrAccntView.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/AdminController.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/Constants.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/UsrAccntsModel.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/Generics.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/HomeController.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/HomeView.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/UsrAccntsModel.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/UsrAccntController.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/AdminView.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/CartItem.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/CatalogModel.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/Account.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/CatalogItem.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/CatalogModel.cpp</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/AdminView.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/UsrAccntController.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/Generics.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/UsrAccntView.h</file>
+            <file>file:/C:/Users/hanne/OneDrive/_Professional/RCC_CIS17B/Midterm/CSC_17B_Midterm/07_Clanup/CartModel.cpp</file>
         </group>
     </open-files>
 </project-private>
