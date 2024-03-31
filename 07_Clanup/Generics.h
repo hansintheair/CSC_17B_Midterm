@@ -17,6 +17,7 @@
 using namespace std;
 
 void getNumeric(unsigned int&);
+void getNumeric(int&);
 void getNumeric(float&);
 
 #endif /* GENERICS_H */

@@ -13,6 +13,15 @@
 #include "Generics.h"
 
 
+void getNumeric(int& num) {
+    cin >> num;
+    while (cin.fail()) {
+        cout << "Not a valid number, please try again\n";
+        cin.clear();
+        cin.ignore();
+        cin >> num;
+    }
+}
 void getNumeric(unsigned int& num) {
     cin >> num;
     while (cin.fail()) {

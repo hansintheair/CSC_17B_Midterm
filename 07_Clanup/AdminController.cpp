@@ -14,6 +14,7 @@ using namespace std;
 
 #include "AdminController.h"
 #include "CartModel.h"
+#include "Generics.h"
 
 AdminController::AdminController(Account* adminAcct, UsrAccntsModel *acctsModel, CatalogModel *catalogModel, AdminView *adminView) {
     this->adminAcct = adminAcct;
@@ -179,7 +180,7 @@ void AdminController::remCtlgItemI() {
     
     int i;
     cout << "Index position of item: ";
-    cin >> i;
+    getNumeric(i);
     
     short unsigned int code;
     code = catalogModel->delItem(i);
