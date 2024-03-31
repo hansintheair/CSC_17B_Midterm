@@ -1,5 +1,6 @@
 build/Debug/Cygwin-Windows/AdminView.o: AdminView.cpp AdminView.h \
- CatalogItem.h Constants.h
+ CatalogItem.h Constants.h Generics.h
 AdminView.h:
 CatalogItem.h:
 Constants.h:
+Generics.h:

@@ -12,6 +12,7 @@
       <itemPath>CatalogItem.h</itemPath>
       <itemPath>CatalogModel.h</itemPath>
       <itemPath>Constants.h</itemPath>
+      <itemPath>Generics.h</itemPath>
       <itemPath>HomeController.h</itemPath>
       <itemPath>HomeView.h</itemPath>
       <itemPath>UsrAccntController.h</itemPath>
@@ -29,6 +30,7 @@
       <itemPath>AdminView.cpp</itemPath>
       <itemPath>CartModel.cpp</itemPath>
       <itemPath>CatalogModel.cpp</itemPath>
+      <itemPath>Generics.cpp</itemPath>
       <itemPath>HomeController.cpp</itemPath>
       <itemPath>HomeView.cpp</itemPath>
       <itemPath>UsrAccntController.cpp</itemPath>
@@ -81,6 +83,10 @@
       <item path="CatalogModel.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Constants.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Generics.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Generics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HomeController.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -148,6 +154,10 @@
       <item path="CatalogModel.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Constants.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Generics.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Generics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HomeController.cpp" ex="false" tool="1" flavor2="0">
       </item>

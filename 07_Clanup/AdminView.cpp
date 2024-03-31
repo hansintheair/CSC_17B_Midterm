@@ -15,27 +15,28 @@
 using namespace std;
 
 #include "AdminView.h"
+#include "Generics.h"
 
 // Generic functions
 
-void getNumeric(unsigned int& num) {
-    cin >> num;
-    while (cin.fail()) {
-        cout << "Not a valid number, please try again\n";
-        cin.clear();
-        cin.ignore();
-        cin >> num;
-    }
-}
-void getNumeric(float& num) {
-    cin >> num;
-    while (cin.fail()) {
-        cout << "Not a valid number, please try again\n";
-        cin.clear();
-        cin.ignore();
-        cin >> num;
-    }
-}
+//void getNumeric(unsigned int& num) {
+//    cin >> num;
+//    while (cin.fail()) {
+//        cout << "Not a valid number, please try again\n";
+//        cin.clear();
+//        cin.ignore();
+//        cin >> num;
+//    }
+//}
+//void getNumeric(float& num) {
+//    cin >> num;
+//    while (cin.fail()) {
+//        cout << "Not a valid number, please try again\n";
+//        cin.clear();
+//        cin.ignore();
+//        cin >> num;
+//    }
+//}
 
 AdminView::AdminView() {
 }

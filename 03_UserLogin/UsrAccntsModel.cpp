@@ -142,17 +142,17 @@ void UsrAccntsModel::save(){
 
         Account temp_acct;
         for (int i = 0; i < num_accts; i++) {
-            cout << "Write record " << i << "\n";  //DEBUG
+            // cout << "Write record " << i << "\n";  //DEBUG
             strncpy(temp_acct.name, accounts[i].name, MAXFLD - 1);
-            cout << "NAME: " << temp_acct.name << "\n";  //DEBUG
+            // cout << "NAME: " << temp_acct.name << "\n";  //DEBUG
             strncpy(temp_acct.email, accounts[i].email, MAXFLD - 1);
-            cout << "EMAIL: " << temp_acct.email << "\n";  //DEBUG
+            // cout << "EMAIL: " << temp_acct.email << "\n";  //DEBUG
             strncpy(temp_acct.passw, accounts[i].passw, MAXFLD - 1);
-            cout << "PASSWORD: " << temp_acct.passw << "\n";  //DEBUG
+            // cout << "PASSWORD: " << temp_acct.passw << "\n";  //DEBUG
             strncpy(temp_acct.cartdb, accounts[i].cartdb, MAXFLD -1);
-            cout << "CART DATABASE: " << temp_acct.cartdb << "\n";  //DEBUG
+            // cout << "CART DATABASE: " << temp_acct.cartdb << "\n";  //DEBUG
             temp_acct.admin = accounts[i].admin;
-            cout << "ADMIN: " << string(temp_acct.admin?"Yes":"No") << "\n";  //DEBUG
+            // cout << "ADMIN: " << string(temp_acct.admin?"Yes":"No") << "\n";  //DEBUG
             file.write(reinterpret_cast<char*> (&temp_acct), sizeof (Account));
         }
     } else {

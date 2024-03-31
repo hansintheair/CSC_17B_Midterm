@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/AdminView.o \
 	${OBJECTDIR}/CartModel.o \
 	${OBJECTDIR}/CatalogModel.o \
+	${OBJECTDIR}/Generics.o \
 	${OBJECTDIR}/HomeController.o \
 	${OBJECTDIR}/HomeView.o \
 	${OBJECTDIR}/UsrAccntController.o \
@@ -65,11 +66,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/06_admin.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/07_clanup.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/06_admin.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/07_clanup.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/06_admin ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/07_clanup ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/AdminController.o: AdminController.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -90,6 +91,11 @@ ${OBJECTDIR}/CatalogModel.o: CatalogModel.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CatalogModel.o CatalogModel.cpp
+
+${OBJECTDIR}/Generics.o: Generics.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Generics.o Generics.cpp
 
 ${OBJECTDIR}/HomeController.o: HomeController.cpp
 	${MKDIR} -p ${OBJECTDIR}

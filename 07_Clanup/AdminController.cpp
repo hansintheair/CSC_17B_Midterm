@@ -207,7 +207,7 @@ void AdminController::repCtlgItem() {
         return;
     }
     
-    cout << "NAME: " << item->name << "\n";  //DEBUG
+//    cout << "NAME: " << item->name << "\n";  //DEBUG
     
     cout << "\nEnter new values for the item.\n";
     adminView->getNewItem(*item);
