@@ -4,10 +4,10 @@
  */
 
 /* 
- * File:   CatalogModel.cpp
+ * File:   CartModel.cpp
  * Author: hanne
  * 
- * Created on March 16, 2024, 3:40 PM
+ * Created on March 24, 2024, 4:01 PM
  */
 
 #include <string>
@@ -17,9 +17,9 @@
 #include <cstring>
 using namespace std;
 
-#include "CatalogModel.h"
+#include "CartModel.h"
 
-CatalogModel::CatalogModel(string catalog_db) {
+CartModel::CartModel(string catalog_db) {
 
     // open file
     fstream file;
@@ -32,33 +32,31 @@ CatalogModel::CatalogModel(string catalog_db) {
     // get size of catalog database
     file.read(reinterpret_cast<char*> (&num_items), sizeof (num_items));
 
-    CatalogItem temp_item;
+    CartItem temp_item;
     for (int i = 0; i < num_items; i++) {
-        file.read(reinterpret_cast<char*> (&temp_item), sizeof (CatalogItem));
+        file.read(reinterpret_cast<char*> (&temp_item), sizeof (CartItem));
         strncpy(catalog[i].name, temp_item.name, MAXNAME - 1);
-        strncpy(catalog[i].desc, temp_item.desc, MAXDESC - 1);
         catalog[i].quant = temp_item.quant;
-        catalog[i].price = temp_item.price;
     }
 
     this->catalog_db = catalog_db;
 }
 
-//CatalogModel::CatalogModel(const CatalogModel& orig) {
+//CartModel::CartModel(const CartModel& orig) {
 //}
 //
-//CatalogModel::~CatalogModel() {
+//CartModel::~CartModel() {
 //}
 
 // Search for a catalog item and return its index position.
 
-short int CatalogModel::findItem(string name) {
+short int CartModel::findItem(string name) {
     short unsigned int i = 0;
     short int pos = -1;
-//    cout << "Searching for " << name << "\n";  //DEBUG
+    //    cout << "Searching for " << name << "\n";  //DEBUG
 
     while (i < num_items) {
-//        cout << "Searching catalog item #" << i << "\n";  //DEBUG
+        //        cout << "Searching catalog item #" << i << "\n";  //DEBUG
         if (catalog[i].name == name) {
             pos = i;
             break; //item found
@@ -68,49 +66,51 @@ short int CatalogModel::findItem(string name) {
     return pos;
 }
 
-short unsigned int CatalogModel::getSize() {
+short unsigned int CartModel::getSize() {
     return num_items;
 }
 
 // Display all items in the catalog.
 
-void CatalogModel::display() {
-    for (int i = 0; i < num_items; i++) {
-        catalog[i].display();
-        cout << "\n";
-    }
+CartItem* CartModel::getItems() {
+    return catalog;
 }
+
 // Display a specific item in the catalog.
-short unsigned int CatalogModel::display(string name) {
+
+CartItem* CartModel::getItem(string name) {
     short int idis = findItem(name);
-//    cout << "index pos: " << idis << "\n"; //DEBUG
+    //    cout << "index pos: " << idis << "\n"; //DEBUG
     if (idis > -1) {//item found
-        catalog[idis].display();
-        return 0;  //item found
-    }
-    else {
-        return 1;  //item not found
+        return &catalog[idis];
+    } else {
+        return nullptr;
     }
 }
 
 // Add an item to the end of the catalog.
 
-void CatalogModel::addItem(const CatalogItem &item) {
-    catalog[num_items] = item;
-    num_items++;
+short unsigned int CartModel::addItem(const CartItem &item) {
+    if (num_items < MAXITEMS) {
+        catalog[num_items] = item;
+        num_items++;
+        return 0;
+    }
+    return 1;
 }
 
-void CatalogModel::repItem(string name, const CatalogItem& new_item) {
+short unsigned int CartModel::repItem(string name, const CartItem& new_item) {
     short int irep = findItem(name);
-//    cout << "index: " << irep << "\n";  //DEBUG
+    //    cout << "index: " << irep << "\n";  //DEBUG
     if (irep > -1) { //item found
         catalog[irep] = new_item;
     } else {
-        cout << "Item " << name << " does not exist.\n";
+        return 1;
     }
+    return 0;
 }
 
-void CatalogModel::delItem(string name) {
+short unsigned int CartModel::delItem(string name) {
     short int idel = findItem(name);
     if (idel > -1) { //item found
         for (int i = idel; i < num_items; i++) {
@@ -118,11 +118,17 @@ void CatalogModel::delItem(string name) {
         }
         num_items--;
     } else {
-        cout << "Item " << name << " does not exist.\n";
+        return 1;
     }
+    return 0;
 }
 
-void CatalogModel::save() {
+void CartModel::clear() {
+    num_items = 0;
+    return;
+}
+
+short unsigned int CartModel::save() {
 
     fstream file;
 
@@ -135,27 +141,24 @@ void CatalogModel::save() {
         // get size of catalog database
         file.write(reinterpret_cast<char*> (&num_items), sizeof (num_items));
 
-        CatalogItem temp_item;
+        CartItem temp_item;
         for (int i = 0; i < num_items; i++) {
             //            cout << "Write record " << i << endl;
             strncpy(temp_item.name, catalog[i].name, MAXNAME - 1);
             //            cout << "NAME: " << temp_item.name << endl;
-            strncpy(temp_item.desc, catalog[i].desc, MAXDESC - 1);
-            //            cout << "DESC: " << temp_item.desc << endl;
-            temp_item.price = catalog[i].price;
-            //            cout << "PRICE: " << temp_item.price << endl;
             temp_item.quant = catalog[i].quant;
             //            cout << "QUANT: " << temp_item.quant << endl;
-            file.write(reinterpret_cast<char*> (&temp_item), sizeof (CatalogItem));
+            file.write(reinterpret_cast<char*> (&temp_item), sizeof (CartItem));
         }
     } else {
-        cout << "Cannot save, file " << catalog_db << " does not exist.\n";
+        return 1;
     }
 
     file.close();
+    return 0;
 }
 
-void CatalogModel::createDB(string catalog_db) {
+void CartModel::createDB(string catalog_db) {
 
     fstream file;
 
