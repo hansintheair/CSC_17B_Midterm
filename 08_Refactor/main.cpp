@@ -15,9 +15,7 @@
 
 using namespace std;
 
-#include "Generics.h"
-#include "DBModel.h"
-#include "Account.h"
+#include "Home.h"
 
 /*
  * 
@@ -26,17 +24,21 @@ int main() {
     
     string dbpath = "testdb.bin";
     DBModel<Account>::create(dbpath);
-    DBModel<Account> db = DBModel<Account>(dbpath);
-    db.open();
-    db.delAll();
+    DBModel<Account> accounts = DBModel<Account>(dbpath);
+   accounts.open();
+   accounts.delAll();
 
-    Account user1 = Account("Hannes", "hannesz1@gmail.com", "hannes", "", 0);
-    Account user2 = Account("Merari", "merari@gmail.com", "merari", "", 0);
+   Account admin = Account("admin", "admin@company.com", "admin", "", 0);
+   Account user1 = Account("hannes", "hannesz1@gmail.com", "hannes", "", 0);
+   Account user2 = Account("merari", "merari@gmail.com", "merari", "", 0);
+   
+   accounts.add(&user1);
+   accounts.add(&user2);
+   accounts.display();
+   accounts.close();
     
-    db.add(&user1);
-    db.add(&user2);
-    db.display();
-    db.close();
+    Home home = Home(&accounts);
+    home.main();
     
     return 0;
 }

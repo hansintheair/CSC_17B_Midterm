@@ -20,15 +20,19 @@ using namespace std;
 #include "DBModel.h"
 #include "Account.h"
 #include "Generics.h"
+#include "Constants.h"
 
 class Home {
 
     private:
-        DBModel<Account> accounts;
+        DBModel<Account>* accounts;
+        Account* authGetUser(string name, string passw);
 
     public:
-        Home();
+        Home(DBModel<Account>*);
         void main();
+        void createUser();
+        void loginUser();
 
 };
 

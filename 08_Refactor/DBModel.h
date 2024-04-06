@@ -107,7 +107,7 @@ class DBModel {
         /// @brief Find a record in the database.
         /// @param id The id of the record to find.
         /// @return The index position of the record in the database.
-        int find(string id)
+        int find(string name)
         {
             int i = 0;
             int pos = -1;
@@ -118,7 +118,7 @@ class DBModel {
             while (i < end) {
         //        cout << "Searching record #" << i << "\n";  //DEBUG
                 record = get(i);
-                if (record->id == id) {  //account found
+                if (record->getName() == name) {  //account found
                     pos = i;
                     break; 
                 }
