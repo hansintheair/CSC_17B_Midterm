@@ -24,8 +24,21 @@
 
 // Generic helper methods
 
+#include <iostream>
+#include <type_traits>
 
+using namespace std;
 
+template <typename T, typename enable_if<is_arithmetic<T>::value>::type* = nullptr>
+void getNumeric(T& num) {
+    cin >> num;
+    while (cin.fail()) {
+        cout << "Not a valid number, please try again\n";
+        cin.clear();
+        cin.ignore();
+        cin >> num;
+    }
+}
 
 
 #endif /* GENERICS_H */

@@ -11,14 +11,31 @@
  */
 
 #include <cstdlib>
+#include <string>
 
 using namespace std;
+
+#include "Generics.h"
+#include "DBModel.h"
+#include "Account.h"
 
 /*
  * 
  */
 int main() {
+    
+    string dbpath = "testdb.bin";
+    DBModel<Account>::create(dbpath);
+    DBModel<Account> db = DBModel<Account>(dbpath);
+    db.open();
+    db.delAll();
 
+    Account user = Account("Hannes", "hannesz1@gmail.com", "hannes", dbpath, 0);
+    
+    db.add(&user);
+    db.display();
+    db.close();
+    
     return 0;
 }
 
