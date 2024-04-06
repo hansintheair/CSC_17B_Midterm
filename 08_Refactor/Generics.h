@@ -17,15 +17,14 @@
 #define GENERICS_H
 
 #include <type_traits>
+#include <cstring>
+#include <iostream>
 
 // Constants
 
 // Data Abstracts
 
 // Generic helper methods
-
-#include <iostream>
-#include <type_traits>
 
 using namespace std;
 
@@ -38,6 +37,11 @@ void getNumeric(T& num) {
         cin.ignore();
         cin >> num;
     }
+}
+
+inline void safeCStrNCpy(char* dest, string src, int max_len) {
+    strncpy(dest, src.c_str(), max_len-1);
+    dest[max_len-1] = '\0';
 }
 
 

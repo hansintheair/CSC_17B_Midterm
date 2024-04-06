@@ -11,32 +11,33 @@
  */
 
 #include "Account.h"
+#include "Generics.h"
 
 using namespace std;
 
 Account::Account() {
-    strncpy(this->name, "", MAXFLD-1);
-    strncpy(this->email, "", MAXFLD-1);
-    strncpy(this->passw, "", MAXFLD-1);
-    strncpy(this->cartdb, "", MAXFLD-1);
+    safeCStrNCpy(this->name, "", MAXFLD);
+    safeCStrNCpy(this->email, "", MAXFLD);
+    safeCStrNCpy(this->passw, "", MAXFLD);
+    safeCStrNCpy(this->cartdb, "", MAXFLD);
     this->is_admin = 0;
 }
 Account::Account(string name, string email, string passw, string cartdb, bool is_admin) {
-    strncpy(this->name, name.c_str(), MAXFLD-1);
-    strncpy(this->email, email.c_str(), MAXFLD-1);
-    strncpy(this->passw, passw.c_str(), MAXFLD-1);
-    strncpy(this->cartdb, cartdb.c_str(), MAXFLD-1);
+    safeCStrNCpy(this->name, name, MAXFLD);
+    safeCStrNCpy(this->email, email, MAXFLD);
+    safeCStrNCpy(this->passw, passw, MAXFLD);
+    safeCStrNCpy(this->cartdb, cartdb, MAXFLD);
     this->is_admin = is_admin;
 }
 
 void Account::setName(string name){
-    strncpy(this->name, name.c_str(), MAXFLD-1);
+    safeCStrNCpy(this->name, name, MAXFLD);
 }
 void Account::setEmail(string email){
-    strncpy(this->email, email.c_str(), MAXFLD-1);
+    safeCStrNCpy(this->email, email, MAXFLD);
 }
 void Account::setPassw(string passw){
-    strncpy(this->passw, passw.c_str(), MAXFLD-1);
+    safeCStrNCpy(this->passw, passw, MAXFLD);
 }
 
 string Account::getName(){
