@@ -30,9 +30,11 @@ int main() {
     db.open();
     db.delAll();
 
-    Account user = Account("Hannes", "hannesz1@gmail.com", "hannes", dbpath, 0);
+    Account user1 = Account("Hannes", "hannesz1@gmail.com", "hannes", "", 0);
+    Account user2 = Account("Merari", "merari@gmail.com", "merari", "", 0);
     
-    db.add(&user);
+    db.add(&user1);
+    db.add(&user2);
     db.display();
     db.close();
     
