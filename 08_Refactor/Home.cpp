@@ -97,19 +97,34 @@ void Home::loginUser() {
     // Log in (open user or admin account menu)
 //    account->display();  //DEBUG
 //    cout << "Is Admin: " << user->isAdmin() << "\n";  //DEBUG
+    Status status;
     if (account->isAdmin()) {
         Admin admin = Admin(account);
-        admin.main();
+        status = admin.main();
     } else {
         User user = User(account);
-        user.main();
+        status = user.main();
     }
     
-    // Update account
-    accounts->open();
-    int pos = accounts->find(account->getName());
-    accounts->set(pos, account);
-    accounts->close();
+    // Update account changes
+    switch (status) {
+        case DIRTY: {
+            accounts->open();
+            int pos = accounts->find(account->getName());
+            accounts->set(pos, account);
+            accounts->close();
+            break;
+        }
+        case DELETE: {
+            // TODO
+            break;
+        }
+        case CLEAN:
+        default: {
+            break;
+        }
+    }
+    
 
     // TODO
     

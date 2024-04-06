@@ -11,15 +11,17 @@
  */
 
 #include "Admin.h"
+#include "Constants.h"
 
 Admin::Admin(Account* account) {
     this->account = account;
 }
 
-void Admin::main() {
+Status Admin::main() {
 
     bool logout = false;
     char input;
+    Status status = CLEAN;
     while (!logout) {
         
         cout << "\n---Admin Menu\n";
@@ -73,5 +75,6 @@ void Admin::main() {
         };
     }
     cout << "Logging out\n";
+    return status;
 }
 

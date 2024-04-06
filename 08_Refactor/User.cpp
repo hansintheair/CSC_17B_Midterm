@@ -16,9 +16,10 @@ User::User(Account* account) {
     this->account = account;
 }
 
-void User::main() {
+Status User::main() {
     bool logout = false;
     char input;
+    Status status = CLEAN;
     while (!logout) {
         
         cout << "\n---User Menu--\n";
@@ -61,5 +62,6 @@ void User::main() {
         };
     }
     cout << "Logging out\n";
+    return status;
 }
 

@@ -19,6 +19,7 @@ using namespace std;
 
 #include "Account.h"
 #include "Generics.h"
+#include "Constants.h"
 
 class User {
     private:
@@ -27,7 +28,7 @@ class User {
         User(Account*);
     
         // Methods
-        void main();
+        Status main();
         
     
 

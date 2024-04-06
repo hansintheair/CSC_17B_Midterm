@@ -19,5 +19,13 @@
 
 const short unsigned int MAXFLD = 81;
 
+// Enums
+
+enum Status {
+    CLEAN,
+    DIRTY,
+    DELETE
+};
+
 #endif /* CONSTANTS_H */
 

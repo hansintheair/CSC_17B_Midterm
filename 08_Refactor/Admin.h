@@ -28,7 +28,7 @@ class Admin {
         Admin(Account*);
     
         // Methods
-        void main();
+        Status main();
 
 };
 
