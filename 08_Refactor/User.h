@@ -4,41 +4,34 @@
  */
 
 /* 
- * File:   Home.h
+ * File:   User.h
  * Author: hanne
  *
- * Created on April 6, 2024, 8:28 AM
+ * Created on April 6, 2024, 10:47 AM
  */
 
-#ifndef HOME_H
-#define HOME_H
+#ifndef USER_H
+#define USER_H
 
 #include <iostream>
 
 using namespace std;
 
-#include "DBModel.h"
 #include "Account.h"
 #include "Generics.h"
-#include "Constants.h"
 
-class Home {
-
+class User {
     private:
-        DBModel<Account>* accounts;
-    
-        // Methods
-        Account* authGetUser(string name, string passw);
-
+        Account* account;
     public:
-        Home(DBModel<Account>*);
+        User(Account*);
     
         // Methods
         void main();
-        void createUser();
-        void loginUser();
+        
+    
 
 };
 
-#endif /* HOME_H */
+#endif /* USER_H */
 

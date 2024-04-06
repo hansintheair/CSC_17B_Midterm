@@ -12,6 +12,8 @@
 
 #include "Home.h"
 #include "Cart.h"
+#include "Admin.h"
+#include "User.h"
 
 Home::Home(DBModel<Account>* accounts) {
     this->accounts = accounts;
@@ -81,18 +83,39 @@ void Home::loginUser() {
     cout << "\n-- Login\n";
     cout << "   Enter username\n";
     safeGetLine(name, MAXFLD);
+//    cout << "NAME: " << name << "\n";  //DEBUG
     cout << "   Enter password\n";
     safeGetLine(passw, MAXFLD);
     
-    Account* user = authGetUser(name, passw);
+    Account* account = authGetUser(name, passw);
     
     // Do nothing if authentication failed.
-    if (user == nullptr) {
+    if (account == nullptr) {
         return;
     }
     
-    // Log in (open user account menu)
-    // TODO    
+    // Log in (open user or admin account menu)
+//    account->display();  //DEBUG
+//    cout << "Is Admin: " << user->isAdmin() << "\n";  //DEBUG
+    if (account->isAdmin()) {
+        Admin admin = Admin(account);
+        admin.main();
+    } else {
+        User user = User(account);
+        user.main();
+    }
+    
+    // Update account
+    accounts->open();
+    int pos = accounts->find(account->getName());
+    accounts->set(pos, account);
+    accounts->close();
+
+    // TODO
+    
+    // Clean up
+    delete account;
+    account == nullptr;
 }
 
 /// @brief Authenticate the user credentials and return a user if authenticated, otherwise return nullptr.
@@ -101,26 +124,32 @@ void Home::loginUser() {
 /// @return The user account if authenticated, otherwise nullptr.
 Account* Home::authGetUser(string name, string passw) {
     
-    Account* user;
+    Account* account;
     int pos;
+    
+    accounts->open();
     
     // Check if account exists
     pos = accounts->find(name);
-    if (!(pos < -1)) {
+//    cout << "POS: " << pos << "\n";  //DEBUG
+    if (pos < 0 ) {
         cout << "\n   User not found.\n";
-        delete user;
-        user = nullptr;
+        delete account;
+        account = nullptr;
     }
     
     // Get account
-    user = accounts->get(pos);
+    account = accounts->get(pos);
+//    user->display();  //DEBUG
+    
+    accounts->close();
     
     // Check if passwords match
-    if (!(user->getPassw() == passw)) {
+    if (!(account->getPassw() == passw)) {
         cout << "\n   Invalid password.\n";
-        delete user;
-        user = nullptr;
+        delete account;
+        account = nullptr;
     }
     
-    return user;
+    return account;
 }

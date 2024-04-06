@@ -43,7 +43,7 @@ class Account {
         string getPassw();
         bool isAdmin();
         
-        // Other
+        // Other Methods
         void display();
 
 

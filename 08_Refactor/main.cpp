@@ -28,10 +28,11 @@ int main() {
    accounts.open();
    accounts.delAll();
 
-   Account admin = Account("admin", "admin@company.com", "admin", "", 0);
+   Account admin = Account("admin", "admin@company.com", "admin", "", 1);
    Account user1 = Account("hannes", "hannesz1@gmail.com", "hannes", "", 0);
    Account user2 = Account("merari", "merari@gmail.com", "merari", "", 0);
    
+   accounts.add(&admin);
    accounts.add(&user1);
    accounts.add(&user2);
    accounts.display();

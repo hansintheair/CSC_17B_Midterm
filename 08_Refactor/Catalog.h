@@ -41,7 +41,7 @@ class Catalog {
         float getPrice();
         unsigned int getQuant();
         
-        // Other
+        // Other Methods
         void display();
 
 };
