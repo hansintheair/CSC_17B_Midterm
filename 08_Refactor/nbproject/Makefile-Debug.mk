@@ -36,6 +36,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Account.o \
+	${OBJECTDIR}/Cart.o \
+	${OBJECTDIR}/Catalog.o \
+	${OBJECTDIR}/Home.o \
 	${OBJECTDIR}/main.o
 
 
@@ -67,6 +70,21 @@ ${OBJECTDIR}/Account.o: Account.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Account.o Account.cpp
+
+${OBJECTDIR}/Cart.o: Cart.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Cart.o Cart.cpp
+
+${OBJECTDIR}/Catalog.o: Catalog.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Catalog.o Catalog.cpp
+
+${OBJECTDIR}/Home.o: Home.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Home.o Home.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

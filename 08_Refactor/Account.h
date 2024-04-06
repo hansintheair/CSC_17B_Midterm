@@ -18,6 +18,7 @@
 #include <iostream>
 
 #include "DBModel.h"
+#include "Constants.h"
 
 class Account {
     
@@ -42,7 +43,7 @@ class Account {
         string getPassw();
         bool isAdmin();
         
-        // Other methods
+        // Other
         void display();
 
 

@@ -5,8 +5,12 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Account.h</itemPath>
+      <itemPath>Cart.h</itemPath>
+      <itemPath>Catalog.h</itemPath>
+      <itemPath>Constants.h</itemPath>
       <itemPath>DBModel.h</itemPath>
       <itemPath>Generics.h</itemPath>
+      <itemPath>Home.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -16,6 +20,9 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Account.cpp</itemPath>
+      <itemPath>Cart.cpp</itemPath>
+      <itemPath>Catalog.cpp</itemPath>
+      <itemPath>Home.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -44,9 +51,23 @@
       </item>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Cart.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Cart.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Catalog.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Catalog.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Constants.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DBModel.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Generics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Home.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Home.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -75,9 +96,23 @@
       </item>
       <item path="Account.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Cart.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Cart.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Catalog.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Catalog.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Constants.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="DBModel.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Generics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Home.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Home.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

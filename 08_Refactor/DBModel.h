@@ -19,10 +19,6 @@
 
 using namespace std;
 
-// Constants
-
-const short unsigned int MAXFLD = 81;
-
 template <class T>
 class DBModel {
     public:
@@ -42,6 +38,10 @@ class DBModel {
         
         // Member functions
         
+        DBModel()
+        {
+            this->fname = "";
+        }
         DBModel(string fname)
         {
             this->fname = fname;

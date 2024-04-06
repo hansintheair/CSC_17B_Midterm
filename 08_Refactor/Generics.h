@@ -19,6 +19,7 @@
 #include <type_traits>
 #include <cstring>
 #include <iostream>
+#include <limits>
 
 // Constants
 
@@ -30,6 +31,7 @@ using namespace std;
 
 template <typename T, typename enable_if<is_arithmetic<T>::value>::type* = nullptr>
 void getNumeric(T& num) {
+    cout << ">> ";
     cin >> num;
     while (cin.fail()) {
         cout << "Not a valid number, please try again\n";
@@ -37,6 +39,14 @@ void getNumeric(T& num) {
         cin.ignore();
         cin >> num;
     }
+}
+
+inline char getSingleChar() {
+    char choice;
+    cout << ">> ";
+    cin.get(choice);
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    return choice;
 }
 
 inline void safeCStrNCpy(char* dest, string src, int max_len) {
