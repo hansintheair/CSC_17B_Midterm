@@ -11,8 +11,6 @@
  */
 
 #include "Catalog.h"
-#include "Generics.h"
-#include "Constants.h"
 
 Catalog::Catalog() {
     safeCStrNCpy(this->name, "", MAXFLD);

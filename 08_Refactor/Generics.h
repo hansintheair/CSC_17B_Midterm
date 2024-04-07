@@ -20,14 +20,12 @@
 #include <cstring>
 #include <iostream>
 #include <limits>
-
-// Constants
-
-// Data Abstracts
-
-// Generic helper methods
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
+
+// Generic helper methods
 
 template <typename T, typename enable_if<is_arithmetic<T>::value>::type* = nullptr>
 void getNumeric(T& num) {
@@ -62,6 +60,23 @@ inline void safeCStrNCpy(char* dest, string src, int max_len) {
     strncpy(dest, src.c_str(), max_len-1);
     dest[max_len-1] = '\0';
 }
+
+// Random Data Generators
+
+inline float createRndmFloat(float min, float max) {
+    return min + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (max - min)));
+}
+
+inline unsigned int createRndmUnsInt(unsigned int min, unsigned int max) {
+    return min + static_cast<unsigned int>(rand()) % (max - min + 1);
+}
+
+inline void createRndmCtlg() {
+    
+    
+}
+
+
 
 
 #endif /* GENERICS_H */

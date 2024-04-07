@@ -50,13 +50,16 @@ string Account::getEmail(){
 string Account::getPassw(){
     return this->passw;
 }
+string Account::getCartDBPath() {
+    return this->cartdb;
+}
 bool Account::isAdmin(){
     return this->is_admin;
 }
 
 void Account::display() {
-    cout << "Name: " << this->name << "\n";
-    cout << "E-mail: " << this->email << "\n";
+    cout << "   Name: " << this->name << "\n";
+    cout << "   E-mail: " << this->email << "\n";    
 }
 
 

@@ -4,14 +4,14 @@
  */
 
 /* 
- * File:   Admin.h
+ * File:   ProfileBase.h
  * Author: hanne
  *
- * Created on April 6, 2024, 10:14 AM
+ * Created on April 6, 2024, 11:41 AM
  */
 
-#ifndef ADMIN_H
-#define ADMIN_H
+#ifndef PROFILEBASE_H
+#define PROFILEBASE_H
 
 #include <iostream>
 
@@ -19,19 +19,21 @@ using namespace std;
 
 #include "Account.h"
 #include "Generics.h"
-#include "ProfileBase.h"
 
-class Admin : public ProfileBase{
-    private:
+class ProfileBase {
+    protected:
+        Account* account;
+        Status status;
 
     public:
-        Admin(Account*);
+        ProfileBase(Account*);
     
         // Methods
-        Status main();
-        void viewProfile() override;
+        virtual void viewProfile();
+        void changePassw();
+        void changeEmail();
 
 };
 
-#endif /* ADMIN_H */
+#endif /* PROFILEBASE_H */
 

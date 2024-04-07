@@ -19,6 +19,12 @@
 
 using namespace std;
 
+#include "Generics.h"
+#include "Constants.h"
+
+// Constants
+const string CATALOGDBPATH = "data/catalog.bin";
+
 class Catalog {
     
     private:

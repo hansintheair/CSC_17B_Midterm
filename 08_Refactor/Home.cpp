@@ -105,6 +105,7 @@ void Home::loginUser() {
         User user = User(account);
         status = user.main();
     }
+    cout << "Status: " << status << "\n";  //DEBUG
     
     // Update account changes
     switch (status) {

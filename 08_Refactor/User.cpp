@@ -12,46 +12,59 @@
 
 #include "User.h"
 
-User::User(Account* account) {
-    this->account = account;
+User::User(Account* account) : ProfileBase(account) {
+    this->cart = new DBModel<Cart>(account->getCartDBPath());
+    this->catalog = new DBModel<Catalog>(CATALOGDBPATH);
+}
+
+User::~User(){
+    // Clean up managed memory
+    delete this->cart;
+    this->cart = nullptr;
+    delete this->catalog;
+    this->catalog = nullptr;
 }
 
 Status User::main() {
     bool logout = false;
     char input;
-    Status status = CLEAN;
     while (!logout) {
-        
-        cout << "\n---User Menu--\n";
+        cout << "\n---User Menu\n";
         cout << " - Signed in: " << account->getName() << "\n";
-        cout << "[A] User Profile\n";
-        cout << "[B] View Catalog\n";
-        cout << "[C] Shop Catalog\n";
-        cout << "[D] View Cart\n";
-        cout << "[E] Remove from Cart\n";
-        cout << "[F] Place order\n";
+        cout << "[A] View profile Info\n";
+        cout << "[B] Change e-mail\n";
+        cout << "[C] Change password\n";
+        cout << "[D] View Catalog\n";
+        cout << "[E] Shop Catalog\n";
+        cout << "[F] View Cart\n";
+        cout << "[G] Remove from Cart\n";
+        cout << "[H] Place order\n";
         cout << "[Q] Logout\n\n";
         
         input = getSingleChar();
         input = tolower(input);
         switch (input) {
             case 'a':
-//                profileMenu();
+                viewProfile();
                 break;
             case 'b':
-//                showCatalog();
+                changeEmail();
                 break;
             case 'c':
-//                shopCatalog();
+                changePassw();
                 break;
             case 'd':
-//                showCart();
+//                viewCatalog();
                 break;
             case 'e':
-//                removeFrmCrt();
                 break;
             case 'f':
-//                placeOrder();
+                viewCart();
+                break;
+            case 'g':
+//                removeFrmCrt();
+                break;
+            case 'h':
                 break;
             case 'q': //Logout
                 cout << "\n";
@@ -62,6 +75,16 @@ Status User::main() {
         };
     }
     cout << "Logging out\n";
+    cout << "STATUS: " << status << "\n";
     return status;
 }
 
+void User::viewCart() {
+    cout << "\n-- Cart\n";
+    if (cart->count() > 0) {
+        cart->display();
+    }
+    else {
+        cout << "\n   Cart is empty\n";
+    }
+}

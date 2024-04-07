@@ -41,6 +41,7 @@ class Account {
         string getName();
         string getEmail();
         string getPassw();
+        string getCartDBPath();
         bool isAdmin();
         
         // Other Methods

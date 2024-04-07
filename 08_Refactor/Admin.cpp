@@ -13,60 +13,61 @@
 #include "Admin.h"
 #include "Constants.h"
 
-Admin::Admin(Account* account) {
-    this->account = account;
+Admin::Admin(Account* account) : ProfileBase(account) {
 }
 
 Status Admin::main() {
-
     bool logout = false;
     char input;
-    Status status = CLEAN;
     while (!logout) {
-        
         cout << "\n---Admin Menu\n";
         cout << " - Account: " << account->getName() << "\n";
-        cout << "[A] Change Password\n";
-        cout << "[B] List accounts\n";
-        cout << "[C] Create new account\n";
-        cout << "[D] Remove account\n";
-        cout << "[E] View Catalog\n";
-        cout << "[F] Add item to Catalog\n";
-        cout << "[G] Remove item from Catalog\n";
-        cout << "[H] Update item in Catalog\n";
+        cout << "[A] View profile info\n";
+        cout << "[B] Change e-mail\n";
+        cout << "[C] Change Password\n";
+        cout << "[D] List accounts\n";
+        cout << "[E] Create new account\n";
+        cout << "[F] Remove account\n";
+        cout << "[G] View Catalog\n";
+        cout << "[H] Add item to Catalog\n";
+        cout << "[I] Remove item from Catalog\n";
+        cout << "[J] Update item in Catalog\n";
         cout << "[Q] Logout\n\n";
 
         input = getSingleChar();
         input = tolower(input);
         switch (input) {
-            case 'a':  //Change password
-//                changePassw();
+            case 'a':
+                viewProfile();
                 break;
-            case 'b':  //List accounts
+            case 'b':
+                changeEmail();
+                break;
+            case 'c':
+                changePassw();
+                break;
+            case 'd':
 //                acctsModel->display();
                 break;
-            case 'c':  //Add account
+            case 'e':
 //                newAccount();
                 break;
-            case 'd':  //Delete account
+            case 'f':
 //                delAccount();
                 break;
-            case 'e':  //View catalog
+            case 'g':
 //                showCatalog();
                 break;
-            case 'f':  //Add catalog item
+            case 'h':
 //                addCtlgItem();
                 break;
-            case 'g':  //Remove catalog item
+            case 'i':
 //                remCtlgItem();
                 break;
-            case 'h':  //Update catalog item
+            case 'j':
 //                repCtlgItem();
                 break;
-            case 'i':  // DEBUG
-//                remCtlgItemI();
-                break;
-            case 'q': //Logout
+            case 'q':
                 cout << "\n";
                 logout = true;
                 break;
@@ -77,4 +78,11 @@ Status Admin::main() {
     cout << "Logging out\n";
     return status;
 }
+
+void Admin::viewProfile() {
+    ProfileBase::viewProfile();
+    cout << "   Administrator\n";
+}
+
+
 

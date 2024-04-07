@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Cart.o \
 	${OBJECTDIR}/Catalog.o \
 	${OBJECTDIR}/Home.o \
+	${OBJECTDIR}/ProfileBase.o \
 	${OBJECTDIR}/User.o \
 	${OBJECTDIR}/main.o
 
@@ -92,6 +93,11 @@ ${OBJECTDIR}/Home.o: Home.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Home.o Home.cpp
+
+${OBJECTDIR}/ProfileBase.o: ProfileBase.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProfileBase.o ProfileBase.cpp
 
 ${OBJECTDIR}/User.o: User.cpp
 	${MKDIR} -p ${OBJECTDIR}

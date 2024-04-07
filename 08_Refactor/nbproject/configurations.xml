@@ -12,6 +12,7 @@
       <itemPath>DBModel.h</itemPath>
       <itemPath>Generics.h</itemPath>
       <itemPath>Home.h</itemPath>
+      <itemPath>ProfileBase.h</itemPath>
       <itemPath>User.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -26,6 +27,7 @@
       <itemPath>Cart.cpp</itemPath>
       <itemPath>Catalog.cpp</itemPath>
       <itemPath>Home.cpp</itemPath>
+      <itemPath>ProfileBase.cpp</itemPath>
       <itemPath>User.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -76,6 +78,10 @@
       <item path="Home.cpp" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Home.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ProfileBase.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ProfileBase.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="User.cpp" ex="false" tool="0" flavor2="0">
       </item>
@@ -129,6 +135,10 @@
       <item path="Home.cpp" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Home.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ProfileBase.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ProfileBase.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="User.cpp" ex="false" tool="0" flavor2="0">
       </item>

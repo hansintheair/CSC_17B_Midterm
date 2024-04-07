@@ -20,15 +20,23 @@ using namespace std;
 #include "Account.h"
 #include "Generics.h"
 #include "Constants.h"
+#include "ProfileBase.h"
+#include "Cart.h"
+#include "Catalog.h"
 
-class User {
+class User : public ProfileBase {
     private:
-        Account* account;
+    DBModel<Cart>* cart;
+    DBModel<Catalog>* catalog;
+    
     public:
         User(Account*);
+        ~User();
     
         // Methods
         Status main();
+        void viewCart();
+        
         
     
 

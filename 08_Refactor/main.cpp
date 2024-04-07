@@ -22,22 +22,24 @@ using namespace std;
  */
 int main() {
     
+    srand(static_cast<unsigned>(time(0)));  //Seed random number
+
     string dbpath = "testdb.bin";
     DBModel<Account>::create(dbpath);
     DBModel<Account> accounts = DBModel<Account>(dbpath);
-   accounts.open();
-   accounts.delAll();
+    accounts.open();
+    accounts.delAll();
 
-   Account admin = Account("admin", "admin@company.com", "admin", "", 1);
-   Account user1 = Account("hannes", "hannesz1@gmail.com", "hannes", "", 0);
-   Account user2 = Account("merari", "merari@gmail.com", "merari", "", 0);
-   
-   accounts.add(&admin);
-   accounts.add(&user1);
-   accounts.add(&user2);
-   accounts.display();
-   accounts.close();
-    
+    Account admin = Account("admin", "admin@company.com", "admin", "", 1);
+    Account user1 = Account("hannes", "hannesz1@gmail.com", "hannes", "", 0);
+    Account user2 = Account("merari", "merari@gmail.com", "merari", "", 0);
+
+    accounts.add(&admin);
+    accounts.add(&user1);
+    accounts.add(&user2);
+    accounts.display();
+    accounts.close();
+
     Home home = Home(&accounts);
     home.main();
     
