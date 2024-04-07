@@ -112,13 +112,15 @@ class DBModel {
             int i = 0;
             int pos = -1;
             int end = count();
-            T* record = nullptr;
-        //    cout << "Searching for " << email << "\n";  //DEBUG
-
+            T record;
+            file.seekg(0L, ios::beg);
+//            cout << "Searching for " << name << "\n";  //DEBUG
             while (i < end) {
-        //        cout << "Searching record #" << i << "\n";  //DEBUG
-                record = get(i);
-                if (record->getName() == name) {  //account found
+//                cout << "Searching record #" << i << "\n";  //DEBUG
+                file.read(reinterpret_cast<char*>(&record), sizeof(T));
+                if (record.getName() == name) {  //account found
+//                    cout << "NAME: " << record.getName() << "\n";
+//                    cout << "FOUND!\n";
                     pos = i;
                     break; 
                 }
@@ -171,6 +173,10 @@ class DBModel {
             file.seekp(cur, ios::beg);
             file.write(reinterpret_cast<const char*>(record), sizeof(T));
             file.flush();
+        }
+        
+        void setAll(const T* records) {
+            
         }
         
         void del(int pos)
