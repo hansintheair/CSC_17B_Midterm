@@ -25,7 +25,6 @@
 
 using namespace std;
 
-#include "Catalog.h"
 #include "DBModel.h"
 
 // Generic helper methods

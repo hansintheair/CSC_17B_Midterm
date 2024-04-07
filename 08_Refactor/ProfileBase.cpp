@@ -14,6 +14,7 @@
 
 ProfileBase::ProfileBase(Account* account) {
     this->account = account;
+    this->catalog = new DBModel<Catalog>(CATALOGDBPATH);
     this->status = CLEAN;
 }
 
@@ -65,6 +66,19 @@ void ProfileBase::changeEmail() {
     status = DIRTY;
     
     cout << "\n   E-mail has been updated.\n";
+}
+
+void ProfileBase::viewCatalog() {
+    cout << "\n-- Catalog\n";
+    catalog->open();
+    if (catalog->count() > 0) {
+        catalog->display();
+    }
+    else {
+        cout << "\n   Catalog is empty\n";
+    }
+    
+    catalog->close();
 }
 
 

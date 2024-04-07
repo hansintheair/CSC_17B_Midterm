@@ -31,14 +31,13 @@ int main() {
         
     createRndmCtlg(CATALOGDBPATH, 10);
     DBModel<Catalog> catalog = DBModel<Catalog>(CATALOGDBPATH);
-    catalog.open();
-    catalog.display();
-    catalog.close();
+//    catalog.open();  //DEBUG
+//    catalog.display();  //DEBUG
+//    catalog.close();  //DEBUG
     
 
-    string dbpath = "testdb.bin";
-    DBModel<Account>::create(dbpath);
-    DBModel<Account> accounts = DBModel<Account>(dbpath);
+    DBModel<Account>::create(ACCOUNTSDBPATH);
+    DBModel<Account> accounts = DBModel<Account>(ACCOUNTSDBPATH);
     accounts.open();
     accounts.delAll();
 

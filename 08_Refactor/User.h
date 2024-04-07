@@ -27,7 +27,6 @@ using namespace std;
 class User : public ProfileBase {
     private:
     DBModel<Cart>* cart;
-    DBModel<Catalog>* catalog;
     
     public:
         User(Account*);

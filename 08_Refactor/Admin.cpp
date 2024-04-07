@@ -56,7 +56,7 @@ Status Admin::main() {
 //                delAccount();
                 break;
             case 'g':
-//                showCatalog();
+                viewCatalog();
                 break;
             case 'h':
 //                addCtlgItem();

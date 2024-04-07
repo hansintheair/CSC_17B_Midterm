@@ -18,11 +18,13 @@
 using namespace std;
 
 #include "Account.h"
+#include "Catalog.h"
 #include "Generics.h"
 
 class ProfileBase {
     protected:
         Account* account;
+        DBModel<Catalog>* catalog;
         Status status;
 
     public:
@@ -32,6 +34,7 @@ class ProfileBase {
         virtual void viewProfile();
         void changePassw();
         void changeEmail();
+        virtual void viewCatalog();
 
 };
 

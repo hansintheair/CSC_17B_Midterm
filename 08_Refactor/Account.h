@@ -20,6 +20,9 @@
 #include "DBModel.h"
 #include "Constants.h"
 
+// Constants
+const string ACCOUNTSDBPATH = "data/accounts.bin";
+
 class Account {
     
     private:

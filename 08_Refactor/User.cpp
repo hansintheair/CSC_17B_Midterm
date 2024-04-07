@@ -14,7 +14,6 @@
 
 User::User(Account* account) : ProfileBase(account) {
     this->cart = new DBModel<Cart>(account->getCartDBPath());
-    this->catalog = new DBModel<Catalog>(CATALOGDBPATH);
 }
 
 User::~User(){
@@ -54,7 +53,7 @@ Status User::main() {
                 changePassw();
                 break;
             case 'd':
-//                viewCatalog();
+                viewCatalog();
                 break;
             case 'e':
                 break;
@@ -75,16 +74,18 @@ Status User::main() {
         };
     }
     cout << "Logging out\n";
-    cout << "STATUS: " << status << "\n";
+//    cout << "STATUS: " << status << "\n";  //DEBUG
     return status;
 }
 
 void User::viewCart() {
     cout << "\n-- Cart\n";
+    cart->open();
     if (cart->count() > 0) {
         cart->display();
     }
     else {
         cout << "\n   Cart is empty\n";
     }
+    cart->close();
 }
