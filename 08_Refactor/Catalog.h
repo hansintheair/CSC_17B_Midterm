@@ -28,10 +28,9 @@ const string CATALOGDBPATH = "data/catalog.bin";
 class Catalog {
     
     private:
-        char* name;
+        char name[MAXFLD];
         float price;
         unsigned int quant;
-
     
     public:
         Catalog();

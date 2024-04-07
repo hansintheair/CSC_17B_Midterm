@@ -175,8 +175,18 @@ class DBModel {
             file.flush();
         }
         
-        void setAll(const T* records) {
+        void setAll(T* records, unsigned int cnt) {
+
+            delAll();
+            file.seekp(0L, ios::beg);
+            for (int i = 0; i < cnt; i++){
+//                records[i].display();  //DEBUG
+                file.write(reinterpret_cast<char*>(&records[i]), sizeof(T));
+            }
             
+//            cout << "COUNT: " << count() << "\n";  //DEBUG
+            
+            file.flush();
         }
         
         void del(int pos)
@@ -230,6 +240,7 @@ class DBModel {
         
         void display() {
             int cnt = count();
+//            cout << "COUNT: " << cnt << "\n";  //DEBUG
             T record;
             file.seekg(0L, ios::beg);
             for (int i = 0; i < cnt; i++){

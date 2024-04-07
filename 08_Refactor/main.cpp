@@ -16,13 +16,25 @@
 using namespace std;
 
 #include "Home.h"
+#include "Catalog.h"
 
 /*
  * 
  */
+
+void createRndmCtlg(string, unsigned int);
+
+
 int main() {
     
     srand(static_cast<unsigned>(time(0)));  //Seed random number
+        
+    createRndmCtlg(CATALOGDBPATH, 10);
+    DBModel<Catalog> catalog = DBModel<Catalog>(CATALOGDBPATH);
+    catalog.open();
+    catalog.display();
+    catalog.close();
+    
 
     string dbpath = "testdb.bin";
     DBModel<Account>::create(dbpath);
@@ -46,3 +58,26 @@ int main() {
     return 0;
 }
 
+
+void createRndmCtlg(string path, unsigned int count) {
+    
+    // Create the database
+    DBModel<Catalog>::create(path);
+    DBModel<Catalog> catalog = DBModel<Catalog>(path);
+    
+    Catalog* records = new Catalog[count];
+
+    for (unsigned int i = 0; i < count; i++) {
+        records[i].setName("Item #"+to_string(i));
+        records[i].setPrice(randomFloat(0.49, 200));
+        records[i].setQuant(randomUnsInt(1, 100000));
+    }
+
+    catalog.open();
+    catalog.setAll(records, count);
+//    cout << "COUNT: " << catalog.count() << "\n";  //DEBUG
+    catalog.close();
+        
+    delete [] records;
+    records = nullptr;
+}

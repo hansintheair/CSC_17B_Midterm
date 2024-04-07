@@ -25,6 +25,9 @@
 
 using namespace std;
 
+#include "Catalog.h"
+#include "DBModel.h"
+
 // Generic helper methods
 
 template <typename T, typename enable_if<is_arithmetic<T>::value>::type* = nullptr>
@@ -63,18 +66,14 @@ inline void safeCStrNCpy(char* dest, string src, int max_len) {
 
 // Random Data Generators
 
-inline float createRndmFloat(float min, float max) {
+inline float randomFloat(float min, float max) {
     return min + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (max - min)));
 }
 
-inline unsigned int createRndmUnsInt(unsigned int min, unsigned int max) {
+inline unsigned int randomUnsInt(unsigned int min, unsigned int max) {
     return min + static_cast<unsigned int>(rand()) % (max - min + 1);
 }
 
-inline void createRndmCtlg() {
-    
-    
-}
 
 
 
