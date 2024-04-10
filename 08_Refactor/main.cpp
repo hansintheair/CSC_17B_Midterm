@@ -17,6 +17,7 @@ using namespace std;
 
 #include "Home.h"
 #include "Catalog.h"
+#include "Cart.h"
 
 /*
  * 
@@ -42,8 +43,10 @@ int main() {
     accounts.delAll();
 
     Account admin = Account("admin", "admin@company.com", "admin", "", 1);
-    Account user1 = Account("hannes", "hannesz1@gmail.com", "hannes", "", 0);
-    Account user2 = Account("merari", "merari@gmail.com", "merari", "", 0);
+    Account user1 = Account("hannes", "hannesz1@gmail.com", "hannes", "data/hannes.bin", 0);
+    DBModel<Cart>::create(user1.getCartDBPath());
+    Account user2 = Account("merari", "merari@gmail.com", "merari", "data/merari.bin", 0);
+    DBModel<Cart>::create(user2.getCartDBPath());
 
     accounts.add(&admin);
     accounts.add(&user1);

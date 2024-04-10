@@ -16,18 +16,19 @@
 #include <string>
 #include <iostream>
 
+#include "Constants.h"
+
 using namespace std;
 
 class Cart {
     
     private:
-        char* name;
+        char name[MAXFLD];
         unsigned int quant;
 
-    
     public:
         Cart();
-        Cart(string, float, unsigned int);
+        Cart(string, unsigned int);
         
         // Setters
         void setName(string);

@@ -104,6 +104,13 @@ class DBModel {
             return file.tellg();
         }
         
+        /// @brief Check whether an index position is valid.
+        /// @param index The index position to validate.
+        /// @return True if index position is valid, else false.
+        bool hasIndex(unsigned int index) {
+            return index < count();
+        }
+        
         /// @brief Find a record in the database.
         /// @param id The id of the record to find.
         /// @return The index position of the record in the database.
@@ -144,6 +151,10 @@ class DBModel {
         T* get(int pos)
         {
             T* record = new T;
+            
+            if (pos > count()){
+                throw out_of_range("Index out of range");
+            }
 
             long int cur = pos * sizeof(T);
             file.seekg(cur, ios::beg);

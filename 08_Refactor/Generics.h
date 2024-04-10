@@ -36,7 +36,7 @@ void getNumeric(T& num) {
     while (cin.fail()) {
         cout << "Not a valid number, please try again\n";
         cin.clear();
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cin >> num;
     }
 }
@@ -61,6 +61,15 @@ inline void safeGetLine(string& dest, unsigned int max_len) {
 inline void safeCStrNCpy(char* dest, string src, int max_len) {
     strncpy(dest, src.c_str(), max_len-1);
     dest[max_len-1] = '\0';
+}
+
+inline bool isInt(const string& value) {
+    for (char c : value) {
+        if (!isdigit(c)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 // Random Data Generators

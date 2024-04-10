@@ -44,8 +44,8 @@ unsigned int Catalog::getQuant(){
 }
 
 void Catalog::display(){
-    cout << "Name: " << this->name << "\n";
-    cout << "Price (per unit): $" << setprecision(2) << fixed << this->price << "\n";
-    cout << "Quantity: " << (this->quant > 0 ? "In stock" : "Out of stock") << "\n";
+    cout << "   Name: " << this->name << "\n";
+    cout << "   Price (per unit): $" << setprecision(2) << fixed << this->price << "\n";
+    cout << "   Quantity: " << (this->quant > 0 ? "In stock" : "Out of stock") << "\n";
 }
 

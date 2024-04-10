@@ -21,6 +21,7 @@ ProfileBase::ProfileBase(Account* account) {
 void ProfileBase::viewProfile() {
     cout << "\n-- Profile Info\n";
     account->display();
+//    cout << "CARTDBPATH: " << account->getCartDBPath() << "\n";  //DEBUG
 }
 
 void ProfileBase::changePassw() {

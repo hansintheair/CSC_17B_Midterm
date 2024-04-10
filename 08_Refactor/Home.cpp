@@ -65,7 +65,7 @@ void Home::createUser() {
     safeGetLine(passw, MAXFLD);
     
     // Create cart database for new user
-    cart = "data/" + name + ".crt";
+    cart = "data/" + name + ".bin";
     DBModel<Cart>::create(cart);
     
     // Add new user record to accounts database

@@ -18,7 +18,7 @@ Cart::Cart() {
     safeCStrNCpy(this->name, "", MAXFLD);
     this->quant = 0;
 }
-Cart::Cart(string name, float price, unsigned int quant){
+Cart::Cart(string name, unsigned int quant){
     safeCStrNCpy(this->name, name, MAXFLD);
     this->quant = quant;
 }
@@ -38,8 +38,8 @@ unsigned int Cart::getQuant(){
 }
 
 void Cart::display(){
-    cout << "Name: " << this->name << "\n";
-    cout << "Quantity: " << (this->quant > 0 ? "In stock" : "Out of stock") << "\n";
+    cout << "   Name: " << this->name << "\n";
+    cout << "   Quantity: " << this->quant << "\n";
 }
 
 

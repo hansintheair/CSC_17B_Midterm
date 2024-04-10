@@ -35,6 +35,8 @@ class User : public ProfileBase {
         // Methods
         Status main();
         void viewCart();
+        void shopCatalog();
+        void remFrmCart();
         
         
     
