@@ -63,7 +63,7 @@ Status Admin::main() {
                 addCatalogItem();
                 break;
             case 'i':
-//                remCtlgItem();
+                delCatalogItem();
                 break;
             case 'j':
                 updCatalogItem();
@@ -121,7 +121,7 @@ void Admin::viewAccounts() {
         cout << "   Cart Database: " << profile->getCartDBPath() << "\n";
         cout << "   Is admin: " << (profile->isAdmin()?"Yes":"No") << "\n";
         
-        // Main admin account "admin" has special privileges
+        // Main admin account "admin" has special privileges; can see passwords
         if (account->getName() == "admin") {
             cout << "   Password: " << (profile->getPassw()) << "\n";
         }
@@ -149,21 +149,25 @@ void Admin::createAccount() {
     safeGetLine(passw, MAXFLD);
     
     cout << "   Is this an admin account (Y/N)?\n";
-    conf = getSingleChar();
-    tolower(conf);
-    if (conf == 'y') {
-        is_admin = true;
-        cart = "";
+    while (true) {
+        conf = getSingleChar();
+        tolower(conf);
+        if (conf == 'y') {
+            is_admin = true;
+            cart = "";
+            break;
+        } else if (conf == 'n') {
+            is_admin = false;
+            // Create cart database for new user
+            cart = "data/" + name + ".bin";
+            DBModel<Cart>::create(cart);
+            break;
+
+        } else {
+            cout << "   Invalid response, must be 'Y' or 'N'\n";
+        }
     }
-    if (conf == 'n') {
-        is_admin = false;
-        // Create cart database for new user
-        cart = "data/" + name + ".bin";
-        DBModel<Cart>::create(cart);
-        
-    } else {
-        cout << "   Invalid response, must be 'Y' or 'N'\n";
-    }
+    
     
     // Add new user record to accounts database
     Account record = Account(name, email, passw, cart, is_admin);
@@ -181,6 +185,16 @@ void Admin::delAccount() {
     cout << "\n-- Delete an account\n";
     cout << "   Enter username of account to delete\n";
     safeGetLine(name, MAXFLD);
+    
+    // Cannot delete own account using this method
+    if (name == account->name) {
+        cout << "   Cannot delete your own account using this method\n";
+        return;
+    } else if (name == "admin") { // admin is special; primary admin
+        cout << "   Cannot remove the primary admin, \"admin\"\n";
+        return;
+    }
+    
     
     accounts->open();
     
@@ -288,10 +302,67 @@ void Admin::updCatalogItem() {
     catalog->close();
     
     cout << "   Item updated in catalog\n";
+    
+    delete item;
+    item = nullptr;
 }
 
 void Admin::delCatalogItem() {
     
+    string name;
+    int quant, pos;
+    float price;
+    char conf;
+    
+    Catalog* item = nullptr;
+    
+    cout << "-- Remove item from catalog\n";
+    
+    // Retrieve item
+    cout << "   Enter name of item to update\n";
+    safeGetLine(name, MAXFLD);
+    
+    catalog->open();
+    
+    // If user input is an integer, treat as index position
+    if (isInt(name)) {
+        pos = stoi(name);
+        if (!catalog->hasIndex(pos)) {
+            cout << "   Item # " << pos << " not found\n";
+            return;
+        }
+//        cout << "POS: " << pos << "\n";  //DEBUG
+    }
+    // Otherwise treat as full item name
+    else { 
+        pos = catalog->find(name);
+        if (pos < 0) {
+            cout << "   Item \"" << name << "\" not found\n";
+            return;
+        }
+//        cout << "POS: " << cat_pos << "\n";  //DEBUG
+    }
+    
+    // Display the item
+    item = catalog->get(pos);
+    cout << "   Name: " << item->getName() << "\n";
+    cout << "   Price (per unit): $" << setprecision(2) << fixed << item->getPrice() << "\n";
+    cout << "   Quantity: " << item->getQuant() << "\n\n";
+    
+    // Delete item
+    cout << "   Delete item (Y/)?\n";
+    conf = getSingleChar();
+    tolower(conf);
+    if (conf == 'y') {
+        catalog->del(pos);
+    } else {
+        cout << "   Cancelled\n";
+    }
+    
+    catalog->close();
+    
+    delete item;
+    item = nullptr;
 }
 
 
