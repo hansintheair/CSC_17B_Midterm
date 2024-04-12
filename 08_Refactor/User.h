@@ -37,8 +37,7 @@ class User : public ProfileBase {
         void viewCart();
         void shopCatalog();
         void remFrmCart();
-        
-        
+        void placeOrder();
     
 
 };

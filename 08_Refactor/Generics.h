@@ -37,8 +37,10 @@ void getNumeric(T& num) {
         cout << "Not a valid number, please try again\n";
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << ">> ";
         cin >> num;
     }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 inline char getSingleChar() {

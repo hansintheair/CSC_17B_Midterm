@@ -16,6 +16,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <cstdio>
 
 using namespace std;
 
@@ -53,7 +54,7 @@ class DBModel {
             file.open(fname, std::ios::binary | std::ios::in | std::ios::out);
             if (!file)
             {
-                cout << "Error opening file: " << fname << std::endl;
+                cout << "   Error opening file: " << fname << std::endl;
             }
         }
         
@@ -65,8 +66,7 @@ class DBModel {
         
         /// @brief Create a new database.
         /// @param fname The path to the new database.
-        static void create(string fname)
-        {
+        static void create(string fname) {
 
             // check file existence, create if doesn't exist
             fstream file;
@@ -78,9 +78,20 @@ class DBModel {
             }
             else
             {
-                cout << "File \"" << fname << "\" already exists.\n";
+                cout << "   File \"" << fname << "\" already exists.\n";
             }
             file.close();
+        }
+        
+        /// @brief Delete an existing database.
+        /// @param fname The path to the database to be deleted.
+        static void deleteDB(string fname) {
+            if (remove(fname.c_str()) != 0) {
+                cout << "   Failed to delete file \"" << fname << "\".\n";
+            }
+            else {
+                cout << "   Successfully deleted file \"" << fname << "\".\n";
+            }
         }
         
         /// @brief Get the number of records in the database.

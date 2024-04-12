@@ -99,7 +99,7 @@ void Home::loginUser() {
 //    cout << "Is Admin: " << user->isAdmin() << "\n";  //DEBUG
     Status status;
     if (account->isAdmin()) {
-        Admin admin = Admin(account);
+        Admin admin = Admin(account, accounts);
         status = admin.main();
     } else {
         User user = User(account);
@@ -125,9 +125,6 @@ void Home::loginUser() {
             break;
         }
     }
-    
-
-    // TODO
     
     // Clean up
     delete account;

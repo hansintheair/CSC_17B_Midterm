@@ -59,7 +59,7 @@ bool Account::isAdmin(){
 
 void Account::display() {
     cout << "   Name: " << this->name << "\n";
-    cout << "   E-mail: " << this->email << "\n";    
+    cout << "   E-mail: " << this->email << "\n";
 }
 
 

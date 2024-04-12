@@ -20,17 +20,25 @@ using namespace std;
 #include "Account.h"
 #include "Generics.h"
 #include "ProfileBase.h"
+#include "User.h"
 
 class Admin : public ProfileBase{
     private:
+    DBModel<Account>* accounts;
 
     public:
-        Admin(Account*);
+        Admin(Account*, DBModel<Account>*);
     
         // Methods
         Status main();
+        void viewCatalog() override;
         void viewProfile() override;
-
+        void viewAccounts();
+        void createAccount();
+        void delAccount();
+        void addCatalogItem();
+        void updCatalogItem();
+        void delCatalogItem();
 };
 
 #endif /* ADMIN_H */

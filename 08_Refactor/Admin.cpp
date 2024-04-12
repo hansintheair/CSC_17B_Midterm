@@ -13,7 +13,8 @@
 #include "Admin.h"
 #include "Constants.h"
 
-Admin::Admin(Account* account) : ProfileBase(account) {
+Admin::Admin(Account* account, DBModel<Account>* accounts) : ProfileBase(account) {
+    this->accounts = accounts;
 }
 
 Status Admin::main() {
@@ -27,7 +28,7 @@ Status Admin::main() {
         cout << "[C] Change Password\n";
         cout << "[D] List accounts\n";
         cout << "[E] Create new account\n";
-        cout << "[F] Remove account\n";
+        cout << "[F] Remove an account\n";
         cout << "[G] View Catalog\n";
         cout << "[H] Add item to Catalog\n";
         cout << "[I] Remove item from Catalog\n";
@@ -47,25 +48,25 @@ Status Admin::main() {
                 changePassw();
                 break;
             case 'd':
-//                acctsModel->display();
+                viewAccounts();
                 break;
             case 'e':
-//                newAccount();
+                createAccount();
                 break;
             case 'f':
-//                delAccount();
+                delAccount();
                 break;
             case 'g':
                 viewCatalog();
                 break;
             case 'h':
-//                addCtlgItem();
+                addCatalogItem();
                 break;
             case 'i':
 //                remCtlgItem();
                 break;
             case 'j':
-//                repCtlgItem();
+                updCatalogItem();
                 break;
             case 'q':
                 cout << "\n";
@@ -82,6 +83,215 @@ Status Admin::main() {
 void Admin::viewProfile() {
     ProfileBase::viewProfile();
     cout << "   Administrator\n";
+}
+
+void Admin::viewCatalog() {
+    
+    Catalog* cat_item = nullptr;
+    
+    cout << "\n-- Catalog\n\n";
+    
+    catalog->open();
+    if (catalog->count() > 0) {
+        for (int i = 0; i < catalog->count(); i++) {
+            cat_item = catalog->get(i);
+            cout << "   Name: " << cat_item->getName() << "\n";
+            cout << "   Price (per unit): $" << setprecision(2) << fixed << cat_item->getPrice() << "\n";
+            cout << "   Quantity: " << cat_item->getQuant() << "\n\n";
+        }
+    }
+    else {
+        cout << "\n   Catalog is empty\n";
+    }
+    
+    catalog->close();
+}
+
+void Admin::viewAccounts() {
+    
+    Account* profile = nullptr;
+    
+    cout << "\n-- Accounts\n\n";
+    
+    accounts->open();
+    for (int i = 0; i < accounts->count(); i++) {
+        profile = accounts->get(i);
+        cout << "   Name: " << profile->getName() << "\n";
+        cout << "   E-mail: " << profile->getEmail() << "\n";
+        cout << "   Cart Database: " << profile->getCartDBPath() << "\n";
+        cout << "   Is admin: " << (profile->isAdmin()?"Yes":"No") << "\n";
+        
+        // Main admin account "admin" has special privileges
+        if (account->getName() == "admin") {
+            cout << "   Password: " << (profile->getPassw()) << "\n";
+        }
+        cout << "\n";
+    }
+    accounts->close();
+        
+    delete profile;
+    profile = nullptr;    
+}
+
+void Admin::createAccount() {
+    
+    char conf;
+    string name, email, passw, cart;
+    bool is_admin;
+    
+    // Get new user data
+    cout << "\n-- Create user\n";
+    cout << "   Enter username\n";
+    safeGetLine(name, MAXFLD);
+    cout << "   Enter e-mail address\n";
+    safeGetLine(email, MAXFLD);
+    cout << "   Enter password\n";
+    safeGetLine(passw, MAXFLD);
+    
+    cout << "   Is this an admin account (Y/N)?\n";
+    conf = getSingleChar();
+    tolower(conf);
+    if (conf == 'y') {
+        is_admin = true;
+        cart = "";
+    }
+    if (conf == 'n') {
+        is_admin = false;
+        // Create cart database for new user
+        cart = "data/" + name + ".bin";
+        DBModel<Cart>::create(cart);
+        
+    } else {
+        cout << "   Invalid response, must be 'Y' or 'N'\n";
+    }
+    
+    // Add new user record to accounts database
+    Account record = Account(name, email, passw, cart, is_admin);
+    accounts->open();
+    accounts->add(&record);
+    accounts->close();
+}
+
+void Admin::delAccount() {
+    
+    string name;
+    int prof_pos;
+    Account* profile;
+    
+    cout << "\n-- Delete an account\n";
+    cout << "   Enter username of account to delete\n";
+    safeGetLine(name, MAXFLD);
+    
+    accounts->open();
+    
+    // Check if the account exists
+    prof_pos = accounts->find(name);
+    if (prof_pos < 0) {
+        cout << "   That account does not exist\n";
+        return;
+    }
+
+    // Delete the account
+    profile = accounts->get(prof_pos);
+    DBModel<Account>::deleteDB(profile->getCartDBPath());
+    accounts->del(prof_pos);
+    accounts->close();
+    
+    cout << "   Successfully deleted account\n";
+    
+    delete profile;
+    profile = nullptr;
+}
+
+void Admin::addCatalogItem() {
+    
+    string name;
+    int quant;
+    float price;
+    
+    Catalog item;
+    
+    cout << "-- Add item to catalog\n";
+    
+    // Get new user data
+    cout << "   Enter name of item\n";
+    safeGetLine(name, MAXFLD);
+    cout << "   Enter quantity of item\n";
+    getNumeric<int>(quant);
+    cout << "   Enter price of each unit\n";
+    getNumeric<float>(price);
+
+    item.setName(name);
+    item.setQuant(quant);
+    item.setPrice(price);
+    
+    catalog->open();
+    catalog->add(&item);
+    catalog->close();
+    
+    cout << "   Item added to catalog\n";
+}
+
+void Admin::updCatalogItem() {
+    
+    string name;
+    int quant, pos;
+    float price;
+    
+    Catalog* item = nullptr;
+    
+    cout << "-- Update item in catalog\n";
+    
+    // Retrieve item
+    cout << "   Enter name of item to update\n";
+    safeGetLine(name, MAXFLD);
+    
+    catalog->open();
+    
+    // If user input is an integer, treat as index position
+    if (isInt(name)) {
+        pos = stoi(name);
+        if (!catalog->hasIndex(pos)) {
+            cout << "   Item # " << pos << " not found\n";
+            return;
+        }
+//        cout << "POS: " << pos << "\n";  //DEBUG
+    }
+    // Otherwise treat as full item name
+    else { 
+        pos = catalog->find(name);
+        if (pos < 0) {
+            cout << "   Item \"" << name << "\" not found\n";
+            return;
+        }
+//        cout << "POS: " << cat_pos << "\n";  //DEBUG
+    }
+    
+    item = catalog->get(pos);
+    cout << "   Name: " << item->getName() << "\n";
+    cout << "   Price (per unit): $" << setprecision(2) << fixed << item->getPrice() << "\n";
+    cout << "   Quantity: " << item->getQuant() << "\n\n";
+    
+    // Get update item data
+    cout << "   Enter new name of item\n";
+    safeGetLine(name, MAXFLD);
+    cout << "   Enter new quantity of item\n";
+    getNumeric<int>(quant);
+    cout << "   Enter new price of each unit\n";
+    getNumeric<float>(price);
+
+    item->setName(name);
+    item->setQuant(quant);
+    item->setPrice(price);
+    
+    catalog->set(pos, item);
+    catalog->close();
+    
+    cout << "   Item updated in catalog\n";
+}
+
+void Admin::delCatalogItem() {
+    
 }
 
 
