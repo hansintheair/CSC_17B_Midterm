@@ -38,8 +38,6 @@ class User : public ProfileBase {
         void shopCatalog();
         void remFrmCart();
         void placeOrder();
-    
-
 };
 
 #endif /* USER_H */
