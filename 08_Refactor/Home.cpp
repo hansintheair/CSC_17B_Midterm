@@ -137,7 +137,7 @@ void Home::loginUser() {
 /// @return The user account if authenticated, otherwise nullptr.
 Account* Home::authGetUser(string name, string passw) {
     
-    Account* account;
+    Account* account = nullptr;
     int pos;
     
     accounts->open();
@@ -147,22 +147,16 @@ Account* Home::authGetUser(string name, string passw) {
 //    cout << "POS: " << pos << "\n";  //DEBUG
     if (pos < 0 ) {
         cout << "\n   User not found.\n";
-        delete account;
-        account = nullptr;
-    }
-    
     // Get account
-    account = accounts->get(pos);
-//    user->display();  //DEBUG
-    
-    accounts->close();
-    
-    // Check if passwords match
-    if (!(account->getPassw() == passw)) {
-        cout << "\n   Invalid password.\n";
-        delete account;
-        account = nullptr;
+    } else {
+        account = accounts->get(pos);
+        // Check if passwords match
+        if (!(account->getPassw() == passw)) {
+            cout << "\n   Invalid password.\n";
+            account = nullptr;
+        }
     }
-    
+
+    accounts->close();
     return account;
 }

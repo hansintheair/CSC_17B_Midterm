@@ -87,18 +87,20 @@ void Admin::viewProfile() {
 
 void Admin::viewCatalog() {
     
-    Catalog* cat_item = nullptr;
+    Catalog* item = nullptr;
     
     cout << "\n-- Catalog\n\n";
     
     catalog->open();
     if (catalog->count() > 0) {
         for (int i = 0; i < catalog->count(); i++) {
-            cat_item = catalog->get(i);
-            cout << "   Name: " << cat_item->getName() << "\n";
-            cout << "   Price (per unit): $" << setprecision(2) << fixed << cat_item->getPrice() << "\n";
-            cout << "   Quantity: " << cat_item->getQuant() << "\n\n";
+            item = catalog->get(i);
+            cout << "   -" << i << "-\n";
+            cout << "   Name: " << item->getName() << "\n";
+            cout << "   Price (per unit): $" << setprecision(2) << fixed << item->getPrice() << "\n";
+            cout << "   Quantity: " << item->getQuant() << "\n\n";
         }
+        cout << "   " << catalog->count() << " items in catalog\n";
     }
     else {
         cout << "\n   Catalog is empty\n";
@@ -127,8 +129,9 @@ void Admin::viewAccounts() {
         }
         cout << "\n";
     }
-    accounts->close();
+    cout << "   " << accounts->count() << " accounts in store\n";
         
+    accounts->close();
     delete profile;
     profile = nullptr;    
 }
@@ -138,11 +141,17 @@ void Admin::createAccount() {
     char conf;
     string name, email, passw, cart;
     bool is_admin;
-    
+
+    accounts->open();
+
     // Get new user data
     cout << "\n-- Create user\n";
     cout << "   Enter username\n";
     safeGetLine(name, MAXFLD);
+    if (accounts->find(name) >= 0) {
+        cout << "   That account already exists\n";
+        return;
+    } 
     cout << "   Enter e-mail address\n";
     safeGetLine(email, MAXFLD);
     cout << "   Enter password\n";
@@ -168,10 +177,8 @@ void Admin::createAccount() {
         }
     }
     
-    
     // Add new user record to accounts database
     Account record = Account(name, email, passw, cart, is_admin);
-    accounts->open();
     accounts->add(&record);
     accounts->close();
 }
@@ -187,14 +194,13 @@ void Admin::delAccount() {
     safeGetLine(name, MAXFLD);
     
     // Cannot delete own account using this method
-    if (name == account->name) {
+    if (name == account->getName()) {
         cout << "   Cannot delete your own account using this method\n";
         return;
     } else if (name == "admin") { // admin is special; primary admin
         cout << "   Cannot remove the primary admin, \"admin\"\n";
         return;
     }
-    
     
     accounts->open();
     
@@ -227,9 +233,15 @@ void Admin::addCatalogItem() {
     
     cout << "-- Add item to catalog\n";
     
+    catalog->open();
+    
     // Get new user data
     cout << "   Enter name of item\n";
     safeGetLine(name, MAXFLD);
+    if (catalog->find(name) >= 0) {
+        cout << "   That item already exists\n";
+        return;
+    } 
     cout << "   Enter quantity of item\n";
     getNumeric<int>(quant);
     cout << "   Enter price of each unit\n";
@@ -239,10 +251,8 @@ void Admin::addCatalogItem() {
     item.setQuant(quant);
     item.setPrice(price);
     
-    catalog->open();
     catalog->add(&item);
-    catalog->close();
-    
+    catalog->close();    
     cout << "   Item added to catalog\n";
 }
 
