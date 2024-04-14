@@ -13,7 +13,7 @@
 #include "User.h"
 
 User::User(Account* account) : ProfileBase(account) {
-    this->cart = new DBModel<Cart>(account->getCartDBPath());
+    this->cart = new DBModel<Catalog>(account->getCartDBPath());
 }
 
 User::~User(){
@@ -80,35 +80,35 @@ Status User::main() {
     return status;
 }
 
-void User::viewCart() {
+void User::viewCart(float& total) {
     cout << "\n-- Cart\n\n";
     
-    float total = 0.0;
     float item_total = 0.0;
-    int car_count, pos;
-    Cart* car_items = nullptr;
-    Catalog* cat_item = nullptr;
+    int cart_count;
+    Catalog* cart_item = nullptr;
+    Catalog* ctlg_item = nullptr;
     
-    // Get items from cart and store in memory
+    // Sync prices with Catalog
+    syncCart();    
+    
+    // Display each item in cart and get total
     cart->open();
-    car_items = cart->getAll();
-    car_count = cart->count();
-    cart->close();
-    
-    if (car_count > 0) {
-        // Check price of each item in cart (ignore if discontinued)
+    cart_count = cart->count();
+    if (cart_count > 0) {
         catalog->open();
-        for (int i = 0; i < car_count; i++) {
-            pos = catalog->find(car_items[i].getName());
-            if (pos >= 0) {
-                cat_item = catalog->get(pos);
-                item_total = cat_item->getPrice() * car_items[i].getQuant();
+        for (int cart_pos = 0; cart_pos < cart_count; cart_pos++) {
+            cart_item = cart->get(cart_pos);
+            cout << "   Name: " << cart_item->getName() << "\n";
+            cout << "   Quantity: " << cart_item->getQuant() << "\n";
+            cout << "   Price per unit: $" << setprecision(2) << fixed << cart_item->getPrice() << "\n";
+            // Check that catalog is not out of stock for the item
+            ctlg_item = catalog->get(catalog->find(cart_item->getName()));
+            if (ctlg_item->getQuant() > 0) {
+                item_total = cart_item->getPrice() * cart_item->getQuant();
                 total += item_total;
-
-                cout << "   Name: " << car_items[i].getName() << "\n";
-                cout << "   Quantity: " << car_items[i].getQuant() << "\n";
-                cout << "   Price per unit: $" << setprecision(2) << fixed << cat_item->getPrice() << "\n";
                 cout << "   Item total: $" << setprecision(2) << fixed << item_total << "\n\n";
+            } else {
+                cout << "   Item total: $" << setprecision(2) << fixed << 0.0 << " (Item out of stock!)\n\n";
             }
         }
         catalog->close();
@@ -118,10 +118,14 @@ void User::viewCart() {
         cout << "   Cart is empty\n";
     }
         
-    delete [] car_items;
-    car_items = nullptr;
-    delete cat_item;
-    cat_item = nullptr;
+    delete cart_item;
+    cart_item = nullptr;
+    delete ctlg_item;
+    ctlg_item = nullptr;
+}
+void User::viewCart(){
+    float total = 0.0;
+    viewCart(total);
 }
 
 void User::shopCatalog() {
@@ -132,7 +136,7 @@ void User::shopCatalog() {
     unsigned int quant;
     float total;
     Catalog* cat_item = nullptr;
-    Cart car_item;
+    Catalog car_item;
     
     cout << "\n-- Shop Catalog\n";
     cout << "   Enter item name or item number\n";
@@ -208,7 +212,7 @@ void User::shopCatalog() {
 //        cout << "FOUND: " << car_pos << "\n";  //DEBUG
         if (car_pos >= 0) {  // If item already exists, update it with new quantity
 //            cout << "UPDATE!\n";  //DEBUG
-            Cart* tmp_car_item = cart->get(car_pos);
+            Catalog* tmp_car_item = cart->get(car_pos);
             tmp_car_item->setQuant(tmp_car_item->getQuant() + car_item.getQuant());
             cart->set(car_pos, tmp_car_item);
             delete tmp_car_item;
@@ -236,7 +240,7 @@ void User::remFrmCart() {
     char conf;
     int car_pos, cat_pos;
     float total;
-    Cart* car_item = nullptr;
+    Catalog* car_item = nullptr;
     Catalog* cat_item = nullptr;
     
     cout << "\n-- Remove item from cart\n";
@@ -322,10 +326,10 @@ void User::placeOrder() {
     char conf;
     float total = 0.0;
     int car_count, cat_pos, car_pos;
-    Cart* car_items = nullptr;
+    Catalog* car_items = nullptr;
     Catalog* cat_item = nullptr;
     
-    viewCart();
+    viewCart(total);  // Implicitly syncs prices with catalog
     
     // Confirm before placing order
     cout << "\n   Proceed? (Y/)\n";
@@ -375,4 +379,36 @@ void User::placeOrder() {
     car_items = nullptr;
     delete cat_item;
     cat_item = nullptr;
+}
+
+void User::syncCart() {
+
+    int cart_count, ctlg_pos;
+    Catalog* cart_item = nullptr;
+    Catalog* ctlg_item = nullptr;
+    
+    cart->open();
+    catalog->open();
+    cart_count = cart->count();
+    for (int cart_pos = 0; cart_pos < cart_count; cart_pos++) {
+        cart_item = cart->get(cart_pos);
+        ctlg_pos = catalog->find(cart_item->getName());
+        // Item is in catalog, so sync price
+        if (ctlg_pos >= 0) {
+            ctlg_item = catalog->get(ctlg_pos);
+            cart_item->setPrice(ctlg_item->getPrice());
+            cart->set(cart_pos, cart_item);
+        // Item is not in catalog (discontinued), so remove it
+        } else {
+            cart->del(cart_pos);
+            cout << "   Item " << cart_item->getName() << " is discontinued and has been removed from your cart.\n";
+        }
+    }
+    cart->close();
+    catalog->close();
+    
+    delete cart_item;
+    cart_item = nullptr;
+    delete ctlg_item;
+    ctlg_item = nullptr;
 }

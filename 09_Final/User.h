@@ -21,12 +21,14 @@ using namespace std;
 #include "Generics.h"
 #include "Constants.h"
 #include "ProfileBase.h"
-#include "Cart.h"
 #include "Catalog.h"
 
 class User : public ProfileBase {
     private:
     DBModel<Catalog>* cart;
+    
+    // Methods
+    void syncCart();
     
     public:
         User(Account*);
@@ -34,6 +36,7 @@ class User : public ProfileBase {
     
         // Methods
         Status main();
+        void viewCart(float&);
         void viewCart();
         void shopCatalog();
         void remFrmCart();

@@ -169,7 +169,7 @@ void Admin::createAccount() {
             is_admin = false;
             // Create cart database for new user
             cart = "data/" + name + ".bin";
-            DBModel<Cart>::create(cart);
+            DBModel<Catalog>::create(cart);
             break;
 
         } else {
