@@ -26,6 +26,7 @@ using namespace std;
 class User : public ProfileBase {
     private:
     DBModel<Catalog>* cart;
+    DBModel<Catalog>* hist;
     
     // Methods
     void syncCart();
@@ -38,6 +39,7 @@ class User : public ProfileBase {
         Status main();
         void viewCart(float&);
         void viewCart();
+        void viewHist();
         void shopCatalog();
         void remFrmCart();
         void placeOrder();

@@ -14,6 +14,7 @@
 
 User::User(Account* account) : ProfileBase(account) {
     this->cart = new DBModel<Catalog>(account->getCartDBPath());
+    this->hist = new DBModel<Catalog>(account->getHistDBPath());
 }
 
 User::~User(){
@@ -38,6 +39,7 @@ Status User::main() {
         cout << "[F] View Cart\n";
         cout << "[G] Remove from Cart\n";
         cout << "[H] Place order\n";
+        cout << "[I] View order history\n";
         cout << "[Q] Logout\n\n";
         
         input = getSingleChar();
@@ -66,6 +68,9 @@ Status User::main() {
                 break;
             case 'h':
                 placeOrder();
+                break;
+            case 'i':
+                viewHist();
                 break;
             case 'q': //Logout
                 cout << "\n";
@@ -129,6 +134,42 @@ void User::viewCart(float& total) {
 void User::viewCart(){
     float total = 0.0;
     viewCart(total);
+}
+
+void User::viewHist() {
+    cout << "\n-- Order History\n\n";
+    
+    float item_total = 0.0, total = 0.0;
+    int hist_count;
+    Catalog* hist_item = nullptr;
+    
+    // Sync prices with Catalog
+    syncCart();    
+    
+    hist->open();
+    
+    // Display each item in cart and get total
+    hist_count = hist->count();
+    if (hist_count > 0) {
+        for (int hist_pos = 0; hist_pos < hist_count; hist_pos++) {
+            hist_item = cart->get(hist_pos);
+            cout << "   -" << hist_pos << "-\n";
+            cout << "   Name: " << hist_item->getName() << "\n";
+            cout << "   Quantity: " << hist_item->getQuant() << "\n";
+            cout << "   Price per unit: $" << setprecision(2) << fixed << hist_item->getPrice() << "\n";
+            item_total = hist_item->getPrice() * hist_item->getQuant();
+            cout << "   Item total: $" << setprecision(2) << fixed << item_total << "\n\n";
+            total += item_total;
+        }
+        cout << "   Grand Total: $" << setprecision(2) << fixed << total << "\n";
+    } else {
+        cout << "   History is empty\n";
+    }
+        
+    hist->close();
+    
+    delete hist_item;
+    hist_item = nullptr;
 }
 
 void User::shopCatalog() {

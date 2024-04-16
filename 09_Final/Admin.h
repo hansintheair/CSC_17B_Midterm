@@ -39,6 +39,7 @@ class Admin : public ProfileBase{
         void addCatalogItem();
         void updCatalogItem();
         void delCatalogItem();
+        void viewEarningsHist();
 };
 
 #endif /* ADMIN_H */

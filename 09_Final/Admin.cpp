@@ -33,6 +33,7 @@ Status Admin::main() {
         cout << "[H] Add item to Catalog\n";
         cout << "[I] Remove item from Catalog\n";
         cout << "[J] Update item in Catalog\n";
+        cout << "[K] View store earnings\n";
         cout << "[Q] Logout\n\n";
 
         input = getSingleChar();
@@ -67,6 +68,9 @@ Status Admin::main() {
                 break;
             case 'j':
                 updCatalogItem();
+                break;
+            case 'k':
+//                viewEarningsHist();
                 break;
             case 'q':
                 cout << "\n";
@@ -139,7 +143,7 @@ void Admin::viewAccounts() {
 void Admin::createAccount() {
     
     char conf;
-    string name, email, passw, cart;
+    string name, email, passw, cart, hist;
     bool is_admin;
 
     accounts->open();
@@ -170,6 +174,8 @@ void Admin::createAccount() {
             // Create cart database for new user
             cart = "data/" + name + ".bin";
             DBModel<Catalog>::create(cart);
+            hist = "data/" + name + "_hist.bin";
+            DBModel<Catalog>::create(hist);
             break;
 
         } else {
@@ -178,7 +184,7 @@ void Admin::createAccount() {
     }
     
     // Add new user record to accounts database
-    Account record = Account(name, email, passw, cart, is_admin);
+    Account record = Account(name, email, passw, cart, hist, is_admin);
     accounts->add(&record);
     accounts->close();
 }
@@ -373,6 +379,10 @@ void Admin::delCatalogItem() {
     
     delete item;
     item = nullptr;
+}
+
+void Admin::viewEarningsHist() {
+    
 }
 
 

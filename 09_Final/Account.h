@@ -30,11 +30,12 @@ class Account {
         char email[MAXFLD];
         char passw[MAXFLD];
         char cartdb[MAXFLD];
+        char histdb[MAXFLD];
         bool is_admin;
 
     public:
         Account();
-        Account(string, string, string, string, bool);
+        Account(string, string, string, string, string, bool);
 
         // Setters
         void setName(string);
@@ -45,6 +46,7 @@ class Account {
         string getEmail();
         string getPassw();
         string getCartDBPath();
+        string getHistDBPath();
         bool isAdmin();
         
         // Other Methods

@@ -11,7 +11,7 @@
  */
 
 #include "Home.h"
-#include "Cart.h"
+#include "Catalog.h"
 #include "Admin.h"
 #include "User.h"
 
@@ -28,7 +28,7 @@ void Home::main() {
     while (!quit) {
         cout << "\n-- Main menu\n";
         cout << "[A] Login\n";
-        cout << "[B] Create user\n";
+        cout << "[B] Register\n";
         cout << "[Q] Exit\n\n";
 
         input = getSingleChar();
@@ -55,7 +55,7 @@ void Home::main() {
 void Home::createUser() {
     
     // Get new user data
-    string name, email, passw, cart;
+    string name, email, passw, cart, hist;
     cout << "\n-- Create user\n";
     cout << "   Enter username\n";
     safeGetLine(name, MAXFLD);
@@ -66,10 +66,12 @@ void Home::createUser() {
     
     // Create cart database for new user
     cart = "data/" + name + ".bin";
-    DBModel<Cart>::create(cart);
+    DBModel<Catalog>::create(cart);
+    hist = "data/" + name + "_hist.bin";
+    DBModel<Catalog>::create(hist);
     
     // Add new user record to accounts database
-    Account record = Account(name, email, passw, cart, 0);
+    Account record = Account(name, email, passw, cart, hist, 0);
     accounts->open();
     accounts->add(&record);
     accounts->close();

@@ -21,13 +21,15 @@ Account::Account() {
     safeCStrNCpy(this->email, "", MAXFLD);
     safeCStrNCpy(this->passw, "", MAXFLD);
     safeCStrNCpy(this->cartdb, "", MAXFLD);
+    safeCStrNCpy(this->histdb, "", MAXFLD);
     this->is_admin = 0;
 }
-Account::Account(string name, string email, string passw, string cartdb, bool is_admin) {
+Account::Account(string name, string email, string passw, string cartdb, string histdb, bool is_admin) {
     safeCStrNCpy(this->name, name, MAXFLD);
     safeCStrNCpy(this->email, email, MAXFLD);
     safeCStrNCpy(this->passw, passw, MAXFLD);
     safeCStrNCpy(this->cartdb, cartdb, MAXFLD);
+    safeCStrNCpy(this->histdb, histdb, MAXFLD);
     this->is_admin = is_admin;
 }
 
@@ -52,6 +54,9 @@ string Account::getPassw(){
 }
 string Account::getCartDBPath() {
     return this->cartdb;
+}
+string Account::getHistDBPath() {
+    return this->histdb;
 }
 bool Account::isAdmin(){
     return this->is_admin;

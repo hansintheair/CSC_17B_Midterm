@@ -23,7 +23,7 @@ using namespace std;
 #include "Constants.h"
 
 // Constants
-const string CATALOGDBPATH = "data/catalog.bin";
+const string CATALOGDBPATH = "data/store_catalog.bin";
 
 class Catalog {
     
