@@ -54,16 +54,21 @@ class DBModel {
         void open()
         {
             file.open(fname, std::ios::binary | std::ios::in | std::ios::out);
-            if (!file)
-            {
-                cout << "   Error opening file: " << fname << std::endl;
+            if (file.fail()) {
+                cout << "   Error opening file: " << fname << "\n";
             }
+//            else { cout << "file " << fname << " is open\n"; }  //DEBUG
         }
         
         /// @brief Close file stream.
         void close()
         {
             file.close();
+            if (file.fail()) {
+                cout << "   Error closing file: " << fname << "\n";
+            }
+//            else { cout << "file " << fname << " is closed\n"; }  //DEBUG 
+            
         }
         
         /// @brief Create a new database.
