@@ -70,7 +70,7 @@ Status Admin::main() {
                 updCatalogItem();
                 break;
             case 'k':
-//                viewEarningsHist();
+                viewEarningsHist();
                 break;
             case 'q':
                 cout << "\n";
@@ -383,6 +383,28 @@ void Admin::delCatalogItem() {
 
 void Admin::viewEarningsHist() {
     
+    float total = 0.0;
+    int num_accnts;
+    Account* profiles = nullptr;
+    
+    cout << "\n-- Store Earnings\n\n";
+
+    accounts->open();
+    profiles = accounts->getAll();
+    num_accnts = accounts->count();
+    accounts->close();
+    
+    for (int i = 0; i < num_accnts; i++) {
+        if (!profiles[i].isAdmin()) {
+            User user = User(&profiles[i]);
+            user.getHistTotal(total);
+        }
+    }
+
+    cout << "   Total store earnings: $" << setprecision(2) << fixed << total << "\n";
+    
+    delete[] profiles;
+    profiles = nullptr;    
 }
 
 

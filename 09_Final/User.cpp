@@ -143,9 +143,6 @@ void User::viewHist() {
     int hist_count;
     Catalog* hist_item = nullptr;
     
-    // Sync prices with Catalog
-    syncCart();    
-    
     hist->open();
     
     // Display each item in cart and get total
@@ -170,6 +167,31 @@ void User::viewHist() {
     
     delete hist_item;
     hist_item = nullptr;
+}
+
+void User::getHistTotal(float& total) {
+    float item_total = 0.0, loc_total = 0.0;
+    int loc_count;
+    Catalog* hist_item = nullptr;
+    
+    hist->open();
+    
+    // Display each item in cart and get total
+    loc_count = hist->count();
+    if (loc_count > 0) {
+        for (int hist_pos = 0; hist_pos < loc_count; hist_pos++) {
+            hist_item = hist->get(hist_pos);
+            item_total = hist_item->getPrice() * hist_item->getQuant();
+            loc_total += item_total;
+        }
+        
+    hist->close();
+    
+    total += loc_total;
+    
+    delete hist_item;
+    hist_item = nullptr;
+    }
 }
 
 void User::shopCatalog() {

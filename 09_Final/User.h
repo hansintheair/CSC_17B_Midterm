@@ -40,6 +40,7 @@ class User : public ProfileBase {
         void viewCart(float&);
         void viewCart();
         void viewHist();
+        void getHistTotal(float&);
         void shopCatalog();
         void remFrmCart();
         void placeOrder();
