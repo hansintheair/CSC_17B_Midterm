@@ -54,16 +54,21 @@ class DBModel {
         void open()
         {
             file.open(fname, std::ios::binary | std::ios::in | std::ios::out);
-            if (!file)
-            {
-                cout << "   Error opening file: " << fname << std::endl;
+            if (file.fail()) {
+                cout << "   Error opening file: " << fname << "\n";
             }
+//            else { cout << "file " << fname << " is open\n"; }  //DEBUG
         }
         
         /// @brief Close file stream.
         void close()
         {
             file.close();
+            if (file.fail()) {
+                cout << "   Error closing file: " << fname << "\n";
+            }
+//            else { cout << "file " << fname << " is closed\n"; }  //DEBUG 
+            
         }
         
         /// @brief Create a new database.
@@ -99,13 +104,10 @@ class DBModel {
         /// @brief Get the number of records in the database.
         /// @return The number of records in the database.
         int count() {
-    
             // Get size of file
             int fbytes = size();
-
             // Get size of record
             int rbytes = sizeof(T);
-
             // Calculate and return number of records in database
             return fbytes / rbytes;
         }
@@ -238,7 +240,7 @@ class DBModel {
             file.write(buffer_a, sbytes);
             file.write(buffer_b, cbytes);
 
-            file.flush();    
+            file.flush();
         }
         
         /// @brief Delete the record at the given index in the database.
