@@ -152,7 +152,7 @@ void User::viewHist() {
     hist_count = hist->count();
     if (hist_count > 0) {
         for (int hist_pos = 0; hist_pos < hist_count; hist_pos++) {
-            hist_item = cart->get(hist_pos);
+            hist_item = hist->get(hist_pos);
             cout << "   -" << hist_pos << "-\n";
             cout << "   Name: " << hist_item->getName() << "\n";
             cout << "   Quantity: " << hist_item->getQuant() << "\n";
@@ -379,14 +379,13 @@ void User::placeOrder() {
     
     catalog->open();
     cart->open();
+    hist->open();
 
     // Confirm before placing order
     cout << "\n   Proceed? (Y/)\n";
     conf = getSingleChar();
     tolower(conf);
     if (conf == 'y') {
-        
-        // Get items from cart and store in memory
         cart_count = cart->count();
         // Deduct quantity from catalog
         for (int cart_pos = 0; cart_pos < cart_count; cart_pos++) {
@@ -397,8 +396,13 @@ void User::placeOrder() {
                 ctlg_item = catalog->get(ctlg_pos);
                 // Item is in stock
                 if (ctlg_item->getQuant() > 0) {
+                    // Deduct purchased quantity from catalog
                     ctlg_item->setQuant(ctlg_item->getQuant() - cart_item->getQuant());
                     catalog->set(ctlg_pos, ctlg_item);
+                    // Add purchase to history
+                    cout << "SIZE OF CTLGITEM: " << sizeof(*ctlg_item) << "\n";  //DEBUG
+                    cout << "SIZE BFORE PASS: " << sizeof(*cart_item) << "\n";  //DEBUG
+                    hist->add(cart_item);
                 // Item is out of stock
                 } else {
                     cout << "   Item << " << ctlg_item->getName() << " is out of stock and has been left in your cart.\n";
@@ -412,14 +416,14 @@ void User::placeOrder() {
             cart->del(cart_pos);
         }
         
-        
         cout << "   Order placed\n";
     } else {
         cout << "   Cancelled\n";
     }
     
-    cart->close();
     catalog->close();
+    cart->close();
+    hist->close();
     
     delete cart_item;
     cart_item = nullptr;

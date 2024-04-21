@@ -62,7 +62,7 @@ bool Account::isAdmin(){
     return this->is_admin;
 }
 
-void Account::display() {
+void Account::display() const {
     cout << "   Name: " << this->name << "\n";
     cout << "   E-mail: " << this->email << "\n";
 }

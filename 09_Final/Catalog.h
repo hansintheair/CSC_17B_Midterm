@@ -47,7 +47,7 @@ class Catalog {
         unsigned int getQuant();
         
         // Other Methods
-        void display();
+        void display() const;
 
 };
 
