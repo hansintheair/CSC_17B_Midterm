@@ -17,7 +17,6 @@ using namespace std;
 
 #include "Home.h"
 #include "Catalog.h"
-#include "Cart.h"
 
 /*
  * 
@@ -30,7 +29,7 @@ int main() {
     
     srand(static_cast<unsigned>(time(0)));  //Seed random number
         
-    createRndmCtlg(CATALOGDBPATH, 10);
+    createRndmCtlg(CATALOGDBPATH, 1000);
     DBModel<Catalog> catalog = DBModel<Catalog>(CATALOGDBPATH);
 //    catalog.open();  //DEBUG
 //    catalog.display();  //DEBUG

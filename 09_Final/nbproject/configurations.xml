@@ -6,7 +6,6 @@
                    projectFiles="true">
       <itemPath>Account.h</itemPath>
       <itemPath>Admin.h</itemPath>
-      <itemPath>Cart.h</itemPath>
       <itemPath>Catalog.h</itemPath>
       <itemPath>Constants.h</itemPath>
       <itemPath>DBModel.h</itemPath>
@@ -24,7 +23,6 @@
                    projectFiles="true">
       <itemPath>Account.cpp</itemPath>
       <itemPath>Admin.cpp</itemPath>
-      <itemPath>Cart.cpp</itemPath>
       <itemPath>Catalog.cpp</itemPath>
       <itemPath>Home.cpp</itemPath>
       <itemPath>ProfileBase.cpp</itemPath>
@@ -60,10 +58,6 @@
       <item path="Admin.cpp" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Admin.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Cart.cpp" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="Cart.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Catalog.cpp" ex="false" tool="0" flavor2="0">
       </item>
@@ -117,10 +111,6 @@
       <item path="Admin.cpp" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Admin.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Cart.cpp" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="Cart.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Catalog.cpp" ex="false" tool="0" flavor2="0">
       </item>
