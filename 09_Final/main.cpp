@@ -50,22 +50,24 @@ int main() {
 
     DBModel<Account>::create(ACCOUNTSDBPATH);
     DBModel<Account> accounts = DBModel<Account>(ACCOUNTSDBPATH);
-    accounts.open();
-    accounts.delAll();
 
-    Account admin = Account("admin", "admin@company.com", "admin", "", "", 1);
-    Account user1 = Account("hannes", "hannesz1@gmail.com", "hannes", "data/hannes.bin", "data/hannes_hist.bin", 0);
-    DBModel<Catalog>::create(user1.getCartDBPath());
-    DBModel<Catalog>::create(user1.getHistDBPath());
-    Account user2 = Account("merari", "merari@gmail.com", "merari", "data/merari.bin", "data/merari_hist.bin", 0);
-    DBModel<Catalog>::create(user2.getCartDBPath());
-    DBModel<Catalog>::create(user2.getHistDBPath());
-    
-    accounts.add(&admin);
-    accounts.add(&user1);
-    accounts.add(&user2);
-    accounts.display();
-    accounts.close();
+
+//    accounts.open();
+//    accounts.delAll();
+//
+//    Account admin = Account("admin", "admin@company.com", "admin", "", "", 1);
+//    Account user1 = Account("hannes", "hannesz1@gmail.com", "hannes", "data/hannes.bin", "data/hannes_hist.bin", 0);
+//    DBModel<Catalog>::create(user1.getCartDBPath());
+//    DBModel<Catalog>::create(user1.getHistDBPath());
+//    Account user2 = Account("merari", "merari@gmail.com", "merari", "data/merari.bin", "data/merari_hist.bin", 0);
+//    DBModel<Catalog>::create(user2.getCartDBPath());
+//    DBModel<Catalog>::create(user2.getHistDBPath());
+//    
+//    accounts.add(&admin);
+//    accounts.add(&user1);
+//    accounts.add(&user2);
+//    accounts.display();
+//    accounts.close();
 
     Home home = Home(&accounts);
     home.main();

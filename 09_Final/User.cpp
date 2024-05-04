@@ -398,6 +398,7 @@ void User::placeOrder() {
     int cart_count, ctlg_pos, cart_pos;
     Catalog* cart_item = nullptr;
     Catalog* ctlg_item = nullptr;
+    bool* del_items = nullptr;
     
     viewCart(total);  // Implicitly syncs prices with catalog
     
@@ -411,6 +412,7 @@ void User::placeOrder() {
     tolower(conf);
     if (conf == 'y') {
         cart_count = cart->count();
+        del_items = new bool[cart_count];
         // Deduct quantity from catalog
         for (int cart_pos = 0; cart_pos < cart_count; cart_pos++) {
             cart_item = cart->get(cart_pos);
@@ -424,22 +426,27 @@ void User::placeOrder() {
                     ctlg_item->setQuant(ctlg_item->getQuant() - cart_item->getQuant());
                     catalog->set(ctlg_pos, ctlg_item);
                     // Add purchase to history
-                    cout << "SIZE OF CTLGITEM: " << sizeof(*ctlg_item) << "\n";  //DEBUG
-                    cout << "SIZE BFORE PASS: " << sizeof(*cart_item) << "\n";  //DEBUG
                     hist->add(cart_item);
                 // Item is out of stock
                 } else {
+                    del_items[cart_pos] = false;
                     cout << "   Item << " << ctlg_item->getName() << " is out of stock and has been left in your cart.\n";
                     break;
                 }
             // Item is not in catalog (discontinued)
             } else {
-                cout << "   Item " << ctlg_item->getName() << " is discontinued and has been removed from your cart.\n";
+                cout << "   Item " << ctlg_item->getName() << " is discontinued and has been removed from your cart and its purchase cancelled.\n";
             }
-            // Remove item from cart
-            cart->del(cart_pos);
+            // Mark item for removal from cart
+            del_items[cart_pos] = true;
         }
         
+        // Remove items from cart
+        for (int cart_pos = cart_count; cart_pos >= 0; cart_pos--) {
+            if (del_items[cart_pos] == true) {
+                cart->del(cart_pos);
+            }
+        }
         cout << "   Order placed\n";
     } else {
         cout << "   Cancelled\n";
@@ -453,6 +460,10 @@ void User::placeOrder() {
     cart_item = nullptr;
     delete ctlg_item;
     ctlg_item = nullptr;
+    if (del_items != nullptr) {
+        delete[] del_items;
+        del_items = nullptr;
+    }
 }
 
 void User::syncCart() {
