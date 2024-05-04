@@ -220,6 +220,7 @@ void User::shopCatalog() {
         ctlg_pos = stoi(input);
         if (!catalog->hasIndex(ctlg_pos)) {
             cout << "   Item # " << ctlg_pos << " not found\n";
+            cart->close();
             return;
         }
 //        cout << "POS: " << cat_pos << "\n";  //DEBUG
@@ -229,6 +230,7 @@ void User::shopCatalog() {
         ctlg_pos = catalog->find(input);
         if (ctlg_pos < 0) {
             cout << "   Item \"" << input << "\" not found\n";
+            cart->close();
             return;
         }
 //        cout << "POS: " << cat_pos << "\n";  //DEBUG
@@ -251,12 +253,16 @@ void User::shopCatalog() {
         
         delete ctlg_item;
         ctlg_item = nullptr;
+        
+        cart->close();
         return;
     } else if (quant > ctlg_item->getQuant()) {
         cout << "   There are not enough of that item in stock\n";
         
         delete ctlg_item;
         ctlg_item = nullptr;
+        
+        cart->close();
         return;
     }
     
@@ -329,6 +335,8 @@ void User::remFrmCart() {
             cart_item = nullptr;
             delete ctlg_item;
             ctlg_item = nullptr;
+            cart->close();
+            catalog->close();
             return;
         }
 //        cout << "POS: " << car_pos << "\n";  //DEBUG
@@ -343,6 +351,8 @@ void User::remFrmCart() {
             cart_item = nullptr;
             delete ctlg_item;
             ctlg_item = nullptr;
+            cart->close();
+            catalog->close();
             return;
         }
 //        cout << "POS: " << car_pos << "\n";  //DEBUG

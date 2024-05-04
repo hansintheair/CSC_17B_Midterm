@@ -156,6 +156,7 @@ void Admin::createAccount() {
     safeGetLine(name, MAXFLD);
     if (accounts->find(name) >= 0) {
         cout << "   That account already exists\n";
+        accounts->close();
         return;
     } 
     cout << "   Enter e-mail address\n";
@@ -216,6 +217,7 @@ void Admin::delAccount() {
     prof_pos = accounts->find(name);
     if (prof_pos < 0) {
         cout << "   That account does not exist\n";
+        accounts->close();
         return;
     }
 
@@ -248,6 +250,7 @@ void Admin::addCatalogItem() {
     safeGetLine(name, MAXFLD);
     if (catalog->find(name) >= 0) {
         cout << "   That item already exists\n";
+        catalog->close();
         return;
     } 
     cout << "   Enter quantity of item\n";
@@ -285,6 +288,7 @@ void Admin::updCatalogItem() {
         pos = stoi(name);
         if (!catalog->hasIndex(pos)) {
             cout << "   Item # " << pos << " not found\n";
+            catalog->close();
             return;
         }
 //        cout << "POS: " << pos << "\n";  //DEBUG
@@ -294,6 +298,7 @@ void Admin::updCatalogItem() {
         pos = catalog->find(name);
         if (pos < 0) {
             cout << "   Item \"" << name << "\" not found\n";
+            catalog->close();
             return;
         }
 //        cout << "POS: " << cat_pos << "\n";  //DEBUG
@@ -347,6 +352,7 @@ void Admin::delCatalogItem() {
         pos = stoi(name);
         if (!catalog->hasIndex(pos)) {
             cout << "   Item # " << pos << " not found\n";
+            catalog->close();
             return;
         }
 //        cout << "POS: " << pos << "\n";  //DEBUG
@@ -356,6 +362,7 @@ void Admin::delCatalogItem() {
         pos = catalog->find(name);
         if (pos < 0) {
             cout << "   Item \"" << name << "\" not found\n";
+            catalog->close();
             return;
         }
 //        cout << "POS: " << cat_pos << "\n";  //DEBUG
