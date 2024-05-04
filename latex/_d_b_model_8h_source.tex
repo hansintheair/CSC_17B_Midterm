@@ -1,0 +1,260 @@
+\hypertarget{_d_b_model_8h_source}{}\doxysection{DBModel.\+h}
+\label{_d_b_model_8h_source}\index{09\_Final/DBModel.h@{09\_Final/DBModel.h}}
+\mbox{\hyperlink{_d_b_model_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-\/default.txt\ to\ change\ this\ license}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/cppFiles/file.h\ to\ edit\ this\ template}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ File:\ \ \ DBModel.h}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Author:\ hanne}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Created\ on\ April\ 5,\ 2024,\ 5:46\ PM}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifndef\ DBMODEL\_H}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ DBMODEL\_H}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d_b_model}{DBModel}}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Member\ variables}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}};}
+\DoxyCodeLine{00039\ \ \ \ \ fstream\ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ducktyping\ safety\ (enforce\ T\ has\ a\ `.display`\ method\ or\ don't\ compile)}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wasn't\ covered\ in\ the\ book\ or\ lessons,\ had\ to\ look\ up\ how\ to\ do\ this.}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U\ =\ T>}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_d_b_model_a6302b2676d77f7b5ac58985debc24f15}{check\_display}}(\textcolor{keywordtype}{int})\ -\/>\ \textcolor{keyword}{decltype}(declval<U>().display(),\ true\_type\{\});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U\ =\ T>}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ false\_type\ \mbox{\hyperlink{class_d_b_model_a888b89f9084f787cc1a8cae28b1ba1e7}{check\_display}}(...);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_d_b_model_a136435215882650de7338f9dbc2f06f9}{has\_display}}\ =\ \textcolor{keyword}{decltype}(\mbox{\hyperlink{class_d_b_model_a6302b2676d77f7b5ac58985debc24f15}{check\_display}}(0))::value;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Member\ functions}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a67fa9a6206c09e20096dcb3e0279b6c2}{DBModel}}()}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>fname\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a817626794e260b0c9e9064cfcff5b7c4}{DBModel}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}})}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>fname\ =\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_a9d5418bd2fa9e77da9a1c87a8e491cee}{open}}()}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.open(\mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}},\ std::ios::binary\ |\ std::ios::in\ |\ std::ios::out);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.fail())\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ Error\ opening\ file:\ "{}}\ <<\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ else\ \{\ cout\ <<\ "{}file\ "{}\ <<\ fname\ <<\ "{}\ is\ open\(\backslash\)n"{};\ \}\ \ //DEBUG}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_aa6c58f180ee5fa325f1dca840382d899}{close}}()}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.close();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.fail())\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ Error\ closing\ file:\ "{}}\ <<\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ else\ \{\ cout\ <<\ "{}file\ "{}\ <<\ fname\ <<\ "{}\ is\ closed\(\backslash\)n"{};\ \}\ \ //DEBUG\ }}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_abec74167b1578104c42a68486f39b8e5}{create}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}})\ \{}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ file\ existence,\ create\ if\ doesn't\ exist}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ fstream\ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.open(\mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}},\ ios::in\ |\ ios::binary);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}})}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.close();}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.open(\mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}},\ ios::out\ |\ ios::binary);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ File\ \(\backslash\)"{}"{}}\ <<\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\ already\ exists.\(\backslash\)n"{}};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.close();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_a2903ca6e059a3916ec5adb785c0a6e74}{deleteDB}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}})\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (remove(\mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}}.c\_str())\ !=\ 0)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ Failed\ to\ delete\ file\ \(\backslash\)"{}"{}}\ <<\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}.\(\backslash\)n"{}};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ Successfully\ deleted\ file\ \(\backslash\)"{}"{}}\ <<\ \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}.\(\backslash\)n"{}};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_d_b_model_a84cf85e72fbffb976ff6347ba528b014}{count}}()\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ size\ of\ file}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fbytes\ =\ \mbox{\hyperlink{class_d_b_model_a594c59f7bc7d07b2a886a76e2c63816e}{size}}();}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ size\ of\ record}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rbytes\ =\ \textcolor{keyword}{sizeof}(T);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ and\ return\ number\ of\ records\ in\ database}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fbytes\ /\ rbytes;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_d_b_model_a594c59f7bc7d07b2a886a76e2c63816e}{size}}()\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekg(0L,\ ios::end);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.tellg();}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_d_b_model_accd3c83f50eb393b867c848c16446300}{hasIndex}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ index\ <\ \mbox{\hyperlink{class_d_b_model_a84cf85e72fbffb976ff6347ba528b014}{count}}();}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_d_b_model_a0bb18ebcd956862cc2e50d80822caf24}{find}}(\textcolor{keywordtype}{string}\ name)}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pos\ =\ -\/1;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ end\ =\ \mbox{\hyperlink{class_d_b_model_a84cf85e72fbffb976ff6347ba528b014}{count}}();}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ T\ record;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekg(0L,\ ios::beg);}
+\DoxyCodeLine{00149\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ "{}Searching\ for\ "{}\ <<\ name\ <<\ "{}\(\backslash\)n"{};\ \ //DEBUG}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ end)\ \{}
+\DoxyCodeLine{00151\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ "{}Searching\ record\ \#"{}\ <<\ i\ <<\ "{}\(\backslash\)n"{};\ \ //DEBUG}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&record),\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (record.getName()\ ==\ name)\ \{\ \ \textcolor{comment}{//account\ found}}
+\DoxyCodeLine{00154\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ "{}NAME:\ "{}\ <<\ record.getName()\ <<\ "{}\(\backslash\)n"{};}}
+\DoxyCodeLine{00155\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ "{}FOUND!\(\backslash\)n"{};}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ i;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pos;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_a26876585097830218b1e4974aed298b8}{add}}(\textcolor{keyword}{const}\ T*\ record)}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekp(0L,\ ios::end);}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(record),\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.flush();}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_d_b_model_a09465e106c1caf09b71a97907ff4a9f4}{get}}(\textcolor{keywordtype}{int}\ pos)}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ record\ =\ \textcolor{keyword}{new}\ T;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos\ >\ \mbox{\hyperlink{class_d_b_model_a84cf85e72fbffb976ff6347ba528b014}{count}}())\{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ out\_of\_range(\textcolor{stringliteral}{"{}Index\ out\ of\ range"{}});}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ cur\ =\ pos\ *\ \textcolor{keyword}{sizeof}(T);}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekg(cur,\ ios::beg);}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(record),\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ record;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_d_b_model_aa0762ceb6fa16442f53472b685bc391c}{getAll}}()}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ \mbox{\hyperlink{class_d_b_model_a84cf85e72fbffb976ff6347ba528b014}{count}}();}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ records\ =\ \textcolor{keyword}{new}\ T[cnt];}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekg(0L,\ ios::beg);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ cnt;\ i++)\{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&records[i]),\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ records;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_a84ded118fe24b716c9f2b357ddce207c}{set}}(\textcolor{keywordtype}{int}\ pos,\ \textcolor{keyword}{const}\ T*\ record)}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ cur\ =\ pos\ *\ \textcolor{keyword}{sizeof}(T);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekp(cur,\ ios::beg);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(record),\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.flush();}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_a528f6ea0ec96c40c0df6151ac047a98b}{setAll}}(T*\ records,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ cnt)\ \{}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_ac7c4055cfcac43575654de658ef90777}{delAll}}();}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekp(0L,\ ios::beg);}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ cnt;\ i++)\{}
+\DoxyCodeLine{00219\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ records[i].display();\ \ //DEBUG}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&records[i]),\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00223\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ "{}COUNT:\ "{}\ <<\ count()\ <<\ "{}\(\backslash\)n"{};\ \ //DEBUG}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.flush();}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_a0b08d4f6d4c4a28bcefe08835f2387dc}{del}}(\textcolor{keywordtype}{int}\ pos)}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ position\ of\ chunk}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ sbytes\ =\ pos\ *\ \textcolor{keyword}{sizeof}(T);\ \ \textcolor{comment}{//Start\ byte\ of\ record\ to\ del.}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ ebytes\ =\ \mbox{\hyperlink{class_d_b_model_a594c59f7bc7d07b2a886a76e2c63816e}{size}}();\ \ \textcolor{comment}{//Size\ (bytes)\ of\ file}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ rbytes\ =\ \textcolor{keyword}{sizeof}(T);\ \ \textcolor{comment}{//Size\ (bytes)\ of\ record}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ cbytes\ =\ ebytes\ -\/\ sbytes\ -\/\ rbytes;\ \textcolor{comment}{//Size\ (bytes)\ of\ chunk\ to\ shift}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ buffer\_a[sbytes];}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ buffer\_b[cbytes];}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ the\ chunk\ of\ bytes\ up\ to\ record\ to\ be\ deleted\ into\ buffer}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekg(0L,\ ios::beg);}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.read(buffer\_a,\ sbytes);}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ the\ chunk\ of\ bytes\ after\ record\ to\ be\ deleted\ into\ the\ buffer}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekg(sbytes\ +\ rbytes,\ ios::beg);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.read(buffer\_b,\ cbytes);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clear\ file\ contents;}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_ac7c4055cfcac43575654de658ef90777}{delAll}}();}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reconstruct\ file\ contents\ (without\ deleted\ record)}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekp(0L,\ ios::end);}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.write(buffer\_a,\ sbytes);}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.write(buffer\_b,\ cbytes);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.flush();}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_ac7c4055cfcac43575654de658ef90777}{delAll}}()\{}
+\DoxyCodeLine{00259\ \ \ \ \ }
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ stream\ is\ open,\ close\ if\ open,\ remember\ initial\ state}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ opn\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.is\_open())\{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ opn\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_aa6c58f180ee5fa325f1dca840382d899}{close}}();}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clear\ all\ contents\ from\ file}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.open(\mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}},\ ios::binary\ |\ ios::out\ |\ ios::trunc);}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_aa6c58f180ee5fa325f1dca840382d899}{close}}();}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ initial\ state\ was\ open,\ reopen.}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (opn)\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a9d5418bd2fa9e77da9a1c87a8e491cee}{open}}();}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_d_b_model_acade24f4337956df14bb418e2aa0d472}{display}}()\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ \mbox{\hyperlink{class_d_b_model_a84cf85e72fbffb976ff6347ba528b014}{count}}();}
+\DoxyCodeLine{00279\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ "{}COUNT:\ "{}\ <<\ cnt\ <<\ "{}\(\backslash\)n"{};\ \ //DEBUG}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ T\ record;}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.seekg(0L,\ ios::beg);}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ cnt;\ i++)\{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&record),\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ record.display();}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \};}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DBMODEL\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00291\ }
+
+\end{DoxyCode}

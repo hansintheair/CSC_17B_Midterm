@@ -1,0 +1,361 @@
+\hypertarget{class_d_b_model}{}\doxysection{DBModel\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_d_b_model}\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+
+
+{\ttfamily \#include $<$DBModel.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_b_model_a67fa9a6206c09e20096dcb3e0279b6c2}{DBModel}} ()
+\item 
+\mbox{\hyperlink{class_d_b_model_a817626794e260b0c9e9064cfcff5b7c4}{DBModel}} (string \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}})
+\item 
+void \mbox{\hyperlink{class_d_b_model_a9d5418bd2fa9e77da9a1c87a8e491cee}{open}} ()
+\begin{DoxyCompactList}\small\item\em Open file stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_d_b_model_aa6c58f180ee5fa325f1dca840382d899}{close}} ()
+\begin{DoxyCompactList}\small\item\em Close file stream. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_d_b_model_a84cf85e72fbffb976ff6347ba528b014}{count}} ()
+\begin{DoxyCompactList}\small\item\em Get the number of records in the database. \end{DoxyCompactList}\item 
+long int \mbox{\hyperlink{class_d_b_model_a594c59f7bc7d07b2a886a76e2c63816e}{size}} ()
+\begin{DoxyCompactList}\small\item\em Get the size (in bytes) of the database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_d_b_model_accd3c83f50eb393b867c848c16446300}{has\+Index}} (unsigned int index)
+\begin{DoxyCompactList}\small\item\em Check whether an index position is valid. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_d_b_model_a0bb18ebcd956862cc2e50d80822caf24}{find}} (string name)
+\begin{DoxyCompactList}\small\item\em Find a record in the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_d_b_model_a26876585097830218b1e4974aed298b8}{add}} (const T $\ast$record)
+\begin{DoxyCompactList}\small\item\em Add a new record to the database. \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{class_d_b_model_a09465e106c1caf09b71a97907ff4a9f4}{get}} (int pos)
+\begin{DoxyCompactList}\small\item\em Get a record from the database. \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{class_d_b_model_aa0762ceb6fa16442f53472b685bc391c}{get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Get all records from the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_d_b_model_a84ded118fe24b716c9f2b357ddce207c}{set}} (int pos, const T $\ast$record)
+\begin{DoxyCompactList}\small\item\em Set the given record at the given index in the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_d_b_model_a528f6ea0ec96c40c0df6151ac047a98b}{set\+All}} (T $\ast$records, unsigned int cnt)
+\item 
+void \mbox{\hyperlink{class_d_b_model_a0b08d4f6d4c4a28bcefe08835f2387dc}{del}} (int pos)
+\item 
+void \mbox{\hyperlink{class_d_b_model_ac7c4055cfcac43575654de658ef90777}{del\+All}} ()
+\begin{DoxyCompactList}\small\item\em Delete the record at the given index in the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_d_b_model_acade24f4337956df14bb418e2aa0d472}{display}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename U  = T$>$ }\\static auto \mbox{\hyperlink{class_d_b_model_a6302b2676d77f7b5ac58985debc24f15}{check\+\_\+display}} (int) -\/$>$ decltype(declval$<$ U $>$().\mbox{\hyperlink{class_d_b_model_acade24f4337956df14bb418e2aa0d472}{display}}(), true\+\_\+type\{\})
+\item 
+{\footnotesize template$<$typename U  = T$>$ }\\static false\+\_\+type \mbox{\hyperlink{class_d_b_model_a888b89f9084f787cc1a8cae28b1ba1e7}{check\+\_\+display}} (...)
+\item 
+static void \mbox{\hyperlink{class_d_b_model_abec74167b1578104c42a68486f39b8e5}{create}} (string \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}})
+\begin{DoxyCompactList}\small\item\em Create a new database. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_d_b_model_a2903ca6e059a3916ec5adb785c0a6e74}{delete\+DB}} (string \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}})
+\begin{DoxyCompactList}\small\item\em Delete an existing database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \mbox{\hyperlink{class_d_b_model_a136435215882650de7338f9dbc2f06f9}{has\+\_\+display}} = decltype(\mbox{\hyperlink{class_d_b_model_a6302b2676d77f7b5ac58985debc24f15}{check\+\_\+display}}(0))\+::value
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}{fname}}
+\item 
+fstream \mbox{\hyperlink{class_d_b_model_a07c1120d66390786affa454abd95147d}{file}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class DBModel$<$ T $>$}
+\label{class_d_b_model_DBModel}%
+\Hypertarget{class_d_b_model_DBModel}%
+ This class provides the interface for database IO. It is implementad as a template class, and can store records of either the \mbox{\hyperlink{class_catalog}{Catalog}} or \mbox{\hyperlink{class_account}{Account}} classes. The acceptable datatypes are limited to any data type that defines a display method. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_d_b_model_a67fa9a6206c09e20096dcb3e0279b6c2}\label{class_d_b_model_a67fa9a6206c09e20096dcb3e0279b6c2}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!DBModel@{DBModel}}
+\index{DBModel@{DBModel}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DBModel()}{DBModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\mbox{\hyperlink{class_d_b_model}{\+::\+DBModel}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_d_b_model_a817626794e260b0c9e9064cfcff5b7c4}\label{class_d_b_model_a817626794e260b0c9e9064cfcff5b7c4}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!DBModel@{DBModel}}
+\index{DBModel@{DBModel}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DBModel()}{DBModel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\mbox{\hyperlink{class_d_b_model}{\+::\+DBModel}} (\begin{DoxyParamCaption}\item[{string}]{fname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_d_b_model_a26876585097830218b1e4974aed298b8}\label{class_d_b_model_a26876585097830218b1e4974aed298b8}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!add@{add}}
+\index{add@{add}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const T $\ast$}]{record }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new record to the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em record} & The record to add. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_b_model_a888b89f9084f787cc1a8cae28b1ba1e7}\label{class_d_b_model_a888b89f9084f787cc1a8cae28b1ba1e7}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!check\_display@{check\_display}}
+\index{check\_display@{check\_display}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_display()}{check\_display()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+template$<$typename U  = T$>$ \\
+static false\+\_\+type \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::check\+\_\+display (\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_d_b_model_a6302b2676d77f7b5ac58985debc24f15}\label{class_d_b_model_a6302b2676d77f7b5ac58985debc24f15}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!check\_display@{check\_display}}
+\index{check\_display@{check\_display}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{check\_display()}{check\_display()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+template$<$typename U  = T$>$ \\
+static auto \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::check\+\_\+display (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption}) -\/$>$  decltype(declval$<$ U $>$().\mbox{\hyperlink{class_d_b_model_acade24f4337956df14bb418e2aa0d472}{display}}(), true\+\_\+type\{\})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_d_b_model_aa6c58f180ee5fa325f1dca840382d899}\label{class_d_b_model_aa6c58f180ee5fa325f1dca840382d899}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!close@{close}}
+\index{close@{close}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Close file stream. 
+
+\mbox{\Hypertarget{class_d_b_model_a84cf85e72fbffb976ff6347ba528b014}\label{class_d_b_model_a84cf85e72fbffb976ff6347ba528b014}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!count@{count}}
+\index{count@{count}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of records in the database. 
+
+\begin{DoxyReturn}{Returns}
+The number of records in the database. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_b_model_abec74167b1578104c42a68486f39b8e5}\label{class_d_b_model_abec74167b1578104c42a68486f39b8e5}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!create@{create}}
+\index{create@{create}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+static void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::create (\begin{DoxyParamCaption}\item[{string}]{fname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Create a new database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & The path to the new database. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_b_model_a0b08d4f6d4c4a28bcefe08835f2387dc}\label{class_d_b_model_a0b08d4f6d4c4a28bcefe08835f2387dc}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!del@{del}}
+\index{del@{del}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{del()}{del()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::del (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_d_b_model_ac7c4055cfcac43575654de658ef90777}\label{class_d_b_model_ac7c4055cfcac43575654de658ef90777}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!delAll@{delAll}}
+\index{delAll@{delAll}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{delAll()}{delAll()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::del\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Delete the record at the given index in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The index position of the record to delete. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_b_model_a2903ca6e059a3916ec5adb785c0a6e74}\label{class_d_b_model_a2903ca6e059a3916ec5adb785c0a6e74}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!deleteDB@{deleteDB}}
+\index{deleteDB@{deleteDB}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deleteDB()}{deleteDB()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+static void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::delete\+DB (\begin{DoxyParamCaption}\item[{string}]{fname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Delete an existing database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & The path to the database to be deleted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_b_model_acade24f4337956df14bb418e2aa0d472}\label{class_d_b_model_acade24f4337956df14bb418e2aa0d472}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!display@{display}}
+\index{display@{display}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_d_b_model_a0bb18ebcd956862cc2e50d80822caf24}\label{class_d_b_model_a0bb18ebcd956862cc2e50d80822caf24}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!find@{find}}
+\index{find@{find}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find a record in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The id of the record to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index position of the record in the database. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_b_model_a09465e106c1caf09b71a97907ff4a9f4}\label{class_d_b_model_a09465e106c1caf09b71a97907ff4a9f4}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!get@{get}}
+\index{get@{get}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T $\ast$ \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::get (\begin{DoxyParamCaption}\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a record from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The index position of the record to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The found record. WARNING\+: Returns dynamically allocated memory. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_b_model_aa0762ceb6fa16442f53472b685bc391c}\label{class_d_b_model_aa0762ceb6fa16442f53472b685bc391c}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!getAll@{getAll}}
+\index{getAll@{getAll}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getAll()}{getAll()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T $\ast$ \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get all records from the database. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to an array of records. WARNING\+: Returns dynamically allocated memory. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_b_model_accd3c83f50eb393b867c848c16446300}\label{class_d_b_model_accd3c83f50eb393b867c848c16446300}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!hasIndex@{hasIndex}}
+\index{hasIndex@{hasIndex}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{hasIndex()}{hasIndex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::has\+Index (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check whether an index position is valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index position to validate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if index position is valid, else false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_d_b_model_a9d5418bd2fa9e77da9a1c87a8e491cee}\label{class_d_b_model_a9d5418bd2fa9e77da9a1c87a8e491cee}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!open@{open}}
+\index{open@{open}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Open file stream. 
+
+\mbox{\Hypertarget{class_d_b_model_a84ded118fe24b716c9f2b357ddce207c}\label{class_d_b_model_a84ded118fe24b716c9f2b357ddce207c}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!set@{set}}
+\index{set@{set}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::set (\begin{DoxyParamCaption}\item[{int}]{pos,  }\item[{const T $\ast$}]{record }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the given record at the given index in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The index position of the record to set. \\
+\hline
+{\em pos} & The record to set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_b_model_a528f6ea0ec96c40c0df6151ac047a98b}\label{class_d_b_model_a528f6ea0ec96c40c0df6151ac047a98b}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!setAll@{setAll}}
+\index{setAll@{setAll}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setAll()}{setAll()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::set\+All (\begin{DoxyParamCaption}\item[{T $\ast$}]{records,  }\item[{unsigned int}]{cnt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_d_b_model_a594c59f7bc7d07b2a886a76e2c63816e}\label{class_d_b_model_a594c59f7bc7d07b2a886a76e2c63816e}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!size@{size}}
+\index{size@{size}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+long int \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the size (in bytes) of the database. 
+
+\begin{DoxyReturn}{Returns}
+The size (in bytes) of the database. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_d_b_model_a07c1120d66390786affa454abd95147d}\label{class_d_b_model_a07c1120d66390786affa454abd95147d}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!file@{file}}
+\index{file@{file}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+fstream \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::file\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}\label{class_d_b_model_ac8ae60e0c896d283bb22efcbc3e2f367}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!fname@{fname}}
+\index{fname@{fname}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fname}{fname}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+string \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::fname\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_d_b_model_a136435215882650de7338f9dbc2f06f9}\label{class_d_b_model_a136435215882650de7338f9dbc2f06f9}} 
+\index{DBModel$<$ T $>$@{DBModel$<$ T $>$}!has\_display@{has\_display}}
+\index{has\_display@{has\_display}!DBModel$<$ T $>$@{DBModel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{has\_display}{has\_display}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+constexpr bool \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ T $>$\+::has\+\_\+display = decltype(\mbox{\hyperlink{class_d_b_model_a6302b2676d77f7b5ac58985debc24f15}{check\+\_\+display}}(0))\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_d_b_model_8h}{DBModel.\+h}}\end{DoxyCompactItemize}

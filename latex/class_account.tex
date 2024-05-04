@@ -1,0 +1,251 @@
+\hypertarget{class_account}{}\doxysection{Account Class Reference}
+\label{class_account}\index{Account@{Account}}
+
+
+{\ttfamily \#include $<$Account.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_account_a366660970b5eeb5c17436062327f1b14}{Account}} ()
+\item 
+\mbox{\hyperlink{class_account_a7c56d19000a413a5c2d03c92cfa49e19}{Account}} (string, string, string, string, string, bool)
+\item 
+void \mbox{\hyperlink{class_account_a83006e06d92b912ad0e99c9e85686878}{set\+Name}} (string \mbox{\hyperlink{class_account_a779da6a26a142a6e686a74cab48c7e54}{name}})
+\begin{DoxyCompactList}\small\item\em Setter for account name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_account_a28140f3113db9a73205323e023d5e0f9}{set\+Email}} (string \mbox{\hyperlink{class_account_a0c0e979bb847291a2cf0903f47156ddb}{email}})
+\begin{DoxyCompactList}\small\item\em Setter for account email. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_account_a38a2d2937f86d43ca3e8250fd06ea88f}{set\+Passw}} (string \mbox{\hyperlink{class_account_a6f9ee36c01168dfe4424999a2bcc5f74}{passw}})
+\begin{DoxyCompactList}\small\item\em Setter of account password. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_account_a6722bbdef2d9c316f4d40ce3663769b4}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Getter for account name. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_account_a76267f15ded99bc30a768df20c7a7470}{get\+Email}} ()
+\begin{DoxyCompactList}\small\item\em Getter for account email. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_account_a04fd47c307864a81a48d186605e8de9a}{get\+Passw}} ()
+\begin{DoxyCompactList}\small\item\em Getter for account password. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_account_a4f8e5b5fa7c902ab2ecd12fa5f58cd36}{get\+Cart\+DBPath}} ()
+\begin{DoxyCompactList}\small\item\em Getter for cart database path. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_account_ae9c3de5bd116fa4aa1576faa9bc01500}{get\+Hist\+DBPath}} ()
+\begin{DoxyCompactList}\small\item\em Getter for purchase history database path. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_account_abb5dc71ef488e5d4893cb7b21171e35e}{is\+Admin}} ()
+\begin{DoxyCompactList}\small\item\em Check if account is admin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_account_a1c695dc147302967a44a00b00ce1a4ad}{display}} () const
+\begin{DoxyCompactList}\small\item\em Display the account details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_account_a779da6a26a142a6e686a74cab48c7e54}{name}} \mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}
+\item 
+char \mbox{\hyperlink{class_account_a0c0e979bb847291a2cf0903f47156ddb}{email}} \mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}
+\item 
+char \mbox{\hyperlink{class_account_a6f9ee36c01168dfe4424999a2bcc5f74}{passw}} \mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}
+\item 
+char \mbox{\hyperlink{class_account_a906dc2d34efd6fab49c6cac519528f8f}{cartdb}} \mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}
+\item 
+char \mbox{\hyperlink{class_account_a1acf451b44ec5b054425f585cd8d76a5}{histdb}} \mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}
+\item 
+bool \mbox{\hyperlink{class_account_aad7f618de83239388c95a3ba9ae65659}{is\+\_\+admin}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\label{class_account_Account}%
+\Hypertarget{class_account_Account}%
+ This class stores \mbox{\hyperlink{class_user}{User}} and \mbox{\hyperlink{class_admin}{Admin}} account data and provides accessors for reading and manipulating user/admin attributes.
+
+\mbox{\hyperlink{class_d_b_model}{DBModel}} is used to store records of \mbox{\hyperlink{class_account}{Account}} users in a binary database file. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_account_a366660970b5eeb5c17436062327f1b14}\label{class_account_a366660970b5eeb5c17436062327f1b14}} 
+\index{Account@{Account}!Account@{Account}}
+\index{Account@{Account}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{Account()}{Account()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Account\+::\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_account_a7c56d19000a413a5c2d03c92cfa49e19}\label{class_account_a7c56d19000a413a5c2d03c92cfa49e19}} 
+\index{Account@{Account}!Account@{Account}}
+\index{Account@{Account}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{Account()}{Account()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Account\+::\+Account (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{email,  }\item[{string}]{passw,  }\item[{string}]{cartdb,  }\item[{string}]{histdb,  }\item[{bool}]{is\+\_\+admin }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_account_a1c695dc147302967a44a00b00ce1a4ad}\label{class_account_a1c695dc147302967a44a00b00ce1a4ad}} 
+\index{Account@{Account}!display@{display}}
+\index{display@{display}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Account\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Display the account details. 
+
+\mbox{\Hypertarget{class_account_a4f8e5b5fa7c902ab2ecd12fa5f58cd36}\label{class_account_a4f8e5b5fa7c902ab2ecd12fa5f58cd36}} 
+\index{Account@{Account}!getCartDBPath@{getCartDBPath}}
+\index{getCartDBPath@{getCartDBPath}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getCartDBPath()}{getCartDBPath()}}
+{\footnotesize\ttfamily string Account\+::get\+Cart\+DBPath (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for cart database path. 
+
+\begin{DoxyReturn}{Returns}
+Cart database path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_a76267f15ded99bc30a768df20c7a7470}\label{class_account_a76267f15ded99bc30a768df20c7a7470}} 
+\index{Account@{Account}!getEmail@{getEmail}}
+\index{getEmail@{getEmail}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
+{\footnotesize\ttfamily string Account\+::get\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for account email. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_account}{Account}} email 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_ae9c3de5bd116fa4aa1576faa9bc01500}\label{class_account_ae9c3de5bd116fa4aa1576faa9bc01500}} 
+\index{Account@{Account}!getHistDBPath@{getHistDBPath}}
+\index{getHistDBPath@{getHistDBPath}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getHistDBPath()}{getHistDBPath()}}
+{\footnotesize\ttfamily string Account\+::get\+Hist\+DBPath (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for purchase history database path. 
+
+\begin{DoxyReturn}{Returns}
+Purchase history database path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_a6722bbdef2d9c316f4d40ce3663769b4}\label{class_account_a6722bbdef2d9c316f4d40ce3663769b4}} 
+\index{Account@{Account}!getName@{getName}}
+\index{getName@{getName}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Account\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for account name. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_account}{Account}} name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_a04fd47c307864a81a48d186605e8de9a}\label{class_account_a04fd47c307864a81a48d186605e8de9a}} 
+\index{Account@{Account}!getPassw@{getPassw}}
+\index{getPassw@{getPassw}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getPassw()}{getPassw()}}
+{\footnotesize\ttfamily string Account\+::get\+Passw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for account password. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_account}{Account}} password 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_abb5dc71ef488e5d4893cb7b21171e35e}\label{class_account_abb5dc71ef488e5d4893cb7b21171e35e}} 
+\index{Account@{Account}!isAdmin@{isAdmin}}
+\index{isAdmin@{isAdmin}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{isAdmin()}{isAdmin()}}
+{\footnotesize\ttfamily bool Account\+::is\+Admin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if account is admin. 
+
+\begin{DoxyReturn}{Returns}
+True if admin 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_account_a28140f3113db9a73205323e023d5e0f9}\label{class_account_a28140f3113db9a73205323e023d5e0f9}} 
+\index{Account@{Account}!setEmail@{setEmail}}
+\index{setEmail@{setEmail}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{setEmail()}{setEmail()}}
+{\footnotesize\ttfamily void Account\+::set\+Email (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})}
+
+
+
+Setter for account email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & New email of user \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_account_a83006e06d92b912ad0e99c9e85686878}\label{class_account_a83006e06d92b912ad0e99c9e85686878}} 
+\index{Account@{Account}!setName@{setName}}
+\index{setName@{setName}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Account\+::set\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+Setter for account name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & New name of user \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_account_a38a2d2937f86d43ca3e8250fd06ea88f}\label{class_account_a38a2d2937f86d43ca3e8250fd06ea88f}} 
+\index{Account@{Account}!setPassw@{setPassw}}
+\index{setPassw@{setPassw}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{setPassw()}{setPassw()}}
+{\footnotesize\ttfamily void Account\+::set\+Passw (\begin{DoxyParamCaption}\item[{string}]{passw }\end{DoxyParamCaption})}
+
+
+
+Setter of account password. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em passw} & New password of user \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_account_a906dc2d34efd6fab49c6cac519528f8f}\label{class_account_a906dc2d34efd6fab49c6cac519528f8f}} 
+\index{Account@{Account}!cartdb@{cartdb}}
+\index{cartdb@{cartdb}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{cartdb}{cartdb}}
+{\footnotesize\ttfamily char Account\+::cartdb\mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_account_a0c0e979bb847291a2cf0903f47156ddb}\label{class_account_a0c0e979bb847291a2cf0903f47156ddb}} 
+\index{Account@{Account}!email@{email}}
+\index{email@{email}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{email}{email}}
+{\footnotesize\ttfamily char Account\+::email\mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_account_a1acf451b44ec5b054425f585cd8d76a5}\label{class_account_a1acf451b44ec5b054425f585cd8d76a5}} 
+\index{Account@{Account}!histdb@{histdb}}
+\index{histdb@{histdb}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{histdb}{histdb}}
+{\footnotesize\ttfamily char Account\+::histdb\mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_account_aad7f618de83239388c95a3ba9ae65659}\label{class_account_aad7f618de83239388c95a3ba9ae65659}} 
+\index{Account@{Account}!is\_admin@{is\_admin}}
+\index{is\_admin@{is\_admin}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{is\_admin}{is\_admin}}
+{\footnotesize\ttfamily bool Account\+::is\+\_\+admin\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_account_a779da6a26a142a6e686a74cab48c7e54}\label{class_account_a779da6a26a142a6e686a74cab48c7e54}} 
+\index{Account@{Account}!name@{name}}
+\index{name@{name}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily char Account\+::name\mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_account_a6f9ee36c01168dfe4424999a2bcc5f74}\label{class_account_a6f9ee36c01168dfe4424999a2bcc5f74}} 
+\index{Account@{Account}!passw@{passw}}
+\index{passw@{passw}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{passw}{passw}}
+{\footnotesize\ttfamily char Account\+::passw\mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_account_8h}{Account.\+h}}\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_account_8cpp}{Account.\+cpp}}\end{DoxyCompactItemize}

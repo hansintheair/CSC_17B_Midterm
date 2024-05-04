@@ -1,0 +1,63 @@
+\hypertarget{_admin_8h_source}{}\doxysection{Admin.\+h}
+\label{_admin_8h_source}\index{09\_Final/Admin.h@{09\_Final/Admin.h}}
+\mbox{\hyperlink{_admin_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-\/default.txt\ to\ change\ this\ license}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/cppFiles/class.h\ to\ edit\ this\ template}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ File:\ \ \ Admin.h}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ Author:\ hanne}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ Created\ on\ April\ 6,\ 2024,\ 10:14\ AM}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ ADMIN\_H}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ ADMIN\_H}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_account_8h}{Account.h}}"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generics_8h}{Generics.h}}"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_profile_base_8h}{ProfileBase.h}}"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_user_8h}{User.h}}"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_admin}{Admin}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_profile_base}{ProfileBase}}\{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_d_b_model}{DBModel<Account>}}*\ \mbox{\hyperlink{class_admin_a0a38a84018bfdd8a328de89489907f0d}{accounts}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_admin}{Admin}}(\mbox{\hyperlink{class_account}{Account}}*,\ \mbox{\hyperlink{class_d_b_model}{DBModel<Account>}}*);}
+\DoxyCodeLine{00048\ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_constants_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{class_admin_a631fccbb793ac35a94262899f0959bb5}{main}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_admin_a4bcb80335cb4168c664a46fcd7b1a014}{viewCatalog}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_admin_a4f88de440b9de66b639438d867cd1190}{viewProfile}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_admin_a9e6ec7dbb17db53e4c856d8be1685263}{viewAccounts}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_admin_aa71cd800f17ecae6650e5ea012ba9c8f}{createAccount}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_admin_a32f557e26b6eedcdce3c35fa124907c4}{delAccount}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_admin_ab7aab0ba076634d8e6cb089110ef4114}{addCatalogItem}}();}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_admin_a20636b5d35c86bf43b69d3212dccbb4e}{updCatalogItem}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_admin_a5cfd5123db3342b573b06e61530397dd}{delCatalogItem}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_admin_a5461d4552dceba36c0ffa7a06d0ba57b}{viewEarningsHist}}();}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ADMIN\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00084\ }
+
+\end{DoxyCode}

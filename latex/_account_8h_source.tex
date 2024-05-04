@@ -1,0 +1,78 @@
+\hypertarget{_account_8h_source}{}\doxysection{Account.\+h}
+\label{_account_8h_source}\index{09\_Final/Account.h@{09\_Final/Account.h}}
+\mbox{\hyperlink{_account_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-\/default.txt\ to\ change\ this\ license}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/cppFiles/class.h\ to\ edit\ this\ template}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ File:\ \ \ Account.h}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Author:\ hanne}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Created\ on\ April\ 5,\ 2024,\ 6:13\ PM}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifndef\ ACCOUNT\_H}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ ACCOUNT\_H}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d_b_model_8h}{DBModel.h}}"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_constants_8h}{Constants.h}}"{}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ Constants}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{_account_8h_aeeda95f869c1602d41823f36f26f87a0}{ACCOUNTSDBPATH}}\ =\ \textcolor{stringliteral}{"{}data/accounts.bin"{}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_account}{Account}}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_account_a779da6a26a142a6e686a74cab48c7e54}{name}}[\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}];}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_account_a0c0e979bb847291a2cf0903f47156ddb}{email}}[\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}];}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_account_a6f9ee36c01168dfe4424999a2bcc5f74}{passw}}[\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}];}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_account_a906dc2d34efd6fab49c6cac519528f8f}{cartdb}}[\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}];}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_account_a1acf451b44ec5b054425f585cd8d76a5}{histdb}}[\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}];}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_account_aad7f618de83239388c95a3ba9ae65659}{is\_admin}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_account_a366660970b5eeb5c17436062327f1b14}{Account}}();}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_account_a366660970b5eeb5c17436062327f1b14}{Account}}(\textcolor{keywordtype}{string},\ \textcolor{keywordtype}{string},\ \textcolor{keywordtype}{string},\ \textcolor{keywordtype}{string},\ \textcolor{keywordtype}{string},\ \textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_a83006e06d92b912ad0e99c9e85686878}{setName}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_account_a779da6a26a142a6e686a74cab48c7e54}{name}});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_a28140f3113db9a73205323e023d5e0f9}{setEmail}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_account_a0c0e979bb847291a2cf0903f47156ddb}{email}});}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_a38a2d2937f86d43ca3e8250fd06ea88f}{setPassw}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_account_a6f9ee36c01168dfe4424999a2bcc5f74}{passw}});}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_account_a6722bbdef2d9c316f4d40ce3663769b4}{getName}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_account_a76267f15ded99bc30a768df20c7a7470}{getEmail}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_account_a04fd47c307864a81a48d186605e8de9a}{getPassw}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_account_a4f8e5b5fa7c902ab2ecd12fa5f58cd36}{getCartDBPath}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_account_ae9c3de5bd116fa4aa1576faa9bc01500}{getHistDBPath}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_account_abb5dc71ef488e5d4893cb7b21171e35e}{isAdmin}}();}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Other\ Methods}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_a1c695dc147302967a44a00b00ce1a4ad}{display}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ACCOUNT\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00100\ }
+
+\end{DoxyCode}

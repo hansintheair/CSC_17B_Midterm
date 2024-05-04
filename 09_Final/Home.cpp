@@ -1,3 +1,5 @@
+/** \file */
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/cppFiles/class.cc to edit this template
@@ -51,7 +53,6 @@ void Home::main() {
     cout << "Exiting program\n";    
 }
 
-/// @brief Create a new user
 void Home::createUser() {
     
     // Get new user data
@@ -77,7 +78,6 @@ void Home::createUser() {
     accounts->close();
 }
 
-/// @brief Log in the user
 void Home::loginUser() {
     
     // Get user login credentials
@@ -133,10 +133,6 @@ void Home::loginUser() {
     account == nullptr;
 }
 
-/// @brief Authenticate the user credentials and return a user if authenticated, otherwise return nullptr.
-/// @param name The name of the account.
-/// @param passw The password for the account.
-/// @return The user account if authenticated, otherwise nullptr.
 Account* Home::authGetUser(string name, string passw) {
     
     Account* account = nullptr;

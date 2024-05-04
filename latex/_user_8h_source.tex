@@ -1,0 +1,66 @@
+\hypertarget{_user_8h_source}{}\doxysection{User.\+h}
+\label{_user_8h_source}\index{09\_Final/User.h@{09\_Final/User.h}}
+\mbox{\hyperlink{_user_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-\/default.txt\ to\ change\ this\ license}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/cppFiles/class.h\ to\ edit\ this\ template}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ File:\ \ \ User.h}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ Author:\ hanne}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ Created\ on\ April\ 6,\ 2024,\ 10:47\ AM}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ USER\_H}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ USER\_H}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_account_8h}{Account.h}}"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generics_8h}{Generics.h}}"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_constants_8h}{Constants.h}}"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_profile_base_8h}{ProfileBase.h}}"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_catalog_8h}{Catalog.h}}"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_user}{User}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_profile_base}{ProfileBase}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_d_b_model}{DBModel<Catalog>}}*\ \mbox{\hyperlink{class_user_a0f1c34778a552def64c23c55ce8ea2a5}{cart}};}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_d_b_model}{DBModel<Catalog>}}*\ \mbox{\hyperlink{class_user_a3a500e798dc1b90fa2ede61e40e51391}{hist}};}
+\DoxyCodeLine{00046\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_aa07247ff841ad3af29b8b2dc794433e1}{syncCart}}();}
+\DoxyCodeLine{00049\ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_user}{User}}(\mbox{\hyperlink{class_account}{Account}}*);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}{\string~User}}();}
+\DoxyCodeLine{00053\ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_constants_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ \mbox{\hyperlink{class_user_ae93d643024b02b2000febbe1e2621acc}{main}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a128ab4c37e392f0a12205ae5ff7d1d6c}{viewCart}}(\textcolor{keywordtype}{float}\&\ total);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a128ab4c37e392f0a12205ae5ff7d1d6c}{viewCart}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_ab5f641688983cf0ecf5c173a0e310e17}{viewHist}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a942bd1c207b1a6f7a560a8e7f5fb71c7}{getHistTotal}}(\textcolor{keywordtype}{float}\&\ total);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a6eb0a5cd006cd1d8d2b3e9e16965ac10}{shopCatalog}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a1158761f6061b0e4bb36c3165b79e147}{remFrmCart}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_ad443abd8c83807993313fbe4e91885f7}{placeOrder}}();}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USER\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00085\ }
+
+\end{DoxyCode}

@@ -1,3 +1,18 @@
+/** \file */
+
+/**
+ * \anchor User
+ * \class User
+ * This class serves as the User controller. It contains the nescessary functions 
+ * to fascilitate the user role interactions.
+ *  
+ * User accounts can shop the Catalog and place orders.
+ * 
+ * User accounts are created or logged in from the Home class main menu.
+ * 
+ * User record attributes are stored in Account objects.
+ */
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/cppFiles/class.h to edit this template
@@ -9,6 +24,7 @@
  *
  * Created on April 6, 2024, 10:47 AM
  */
+
 
 #ifndef USER_H
 #define USER_H
@@ -36,13 +52,32 @@ class User : public ProfileBase {
         ~User();
     
         // Methods
+
+        /// @brief Main menu of User
+        /// @return Action to take on AccountDB record
         Status main();
-        void viewCart(float&);
+
+        /// @brief Display cart
+        /// @param total Total price of items in cart
+        void viewCart(float& total);
+
+        /// @brief Display cart
         void viewCart();
+
+        /// @brief Display purchase history
         void viewHist();
-        void getHistTotal(float&);
+
+        /// @brief Calculate lifetime total spend at store
+        /// @param total Lifetime total spent at store
+        void getHistTotal(float& total);
+
+        /// @brief Shop catalog (place items in cart)
         void shopCatalog();
+
+        /// @brief Remove item from the cart
         void remFrmCart();
+
+        /// @brief Place (complete) an order (purchase all items in cart)
         void placeOrder();
 };
 

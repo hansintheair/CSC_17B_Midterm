@@ -1,0 +1,123 @@
+\hypertarget{class_home}{}\doxysection{Home Class Reference}
+\label{class_home}\index{Home@{Home}}
+
+
+{\ttfamily \#include $<$Home.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_home_a86d0643cd47cfc897943094ec36e1264}{Home}} (\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_account}{Account}} $>$ $\ast$)
+\item 
+void \mbox{\hyperlink{class_home_af37e6f3e876567384e5bfe8a425cd7cd}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main menu. Main entry point into the application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_home_a4058b3c5748575ca67a7e2b5c2db5dcd}{create\+User}} ()
+\begin{DoxyCompactList}\small\item\em Create a new user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_home_a2eb5f42a079fce939a0d7957139ef97b}{login\+User}} ()
+\begin{DoxyCompactList}\small\item\em Log in an existing user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_account}{Account}} $\ast$ \mbox{\hyperlink{class_home_a215672df1a94f34ecaac3ffffccf8909}{auth\+Get\+User}} (string name, string passw)
+\begin{DoxyCompactList}\small\item\em Retrieves an authenticated user from Accounts\+DB. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_account}{Account}} $>$ $\ast$ \mbox{\hyperlink{class_home_aebcfea4be6bce60a02fec15912fb6514}{accounts}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\label{class_home_Home}%
+\Hypertarget{class_home_Home}%
+ This class serves as the main entry point into the shopping store application. The {\ttfamily \mbox{\hyperlink{class_home_af37e6f3e876567384e5bfe8a425cd7cd}{Home\+::main()}}} method launches the main menu from which all other parts of the application are accessible to the user. Users and admins use this page to log in.
+
+\mbox{\hyperlink{class_user}{User}} accounts\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{class_user}{User}} accounts can shop the catalog and place orders.
+\end{DoxyItemize}
+
+\mbox{\hyperlink{class_admin}{Admin}} accounts\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{class_admin}{Admin}} accounts have the privilege to view/edit other accounts, view store earnings, or modify the store catalog.
+\item There is one primary admin account that cannot be deleted. ~\newline
+ Username\+: admin ~\newline
+ Password\+: admin ~\newline
+ 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_home_a86d0643cd47cfc897943094ec36e1264}\label{class_home_a86d0643cd47cfc897943094ec36e1264}} 
+\index{Home@{Home}!Home@{Home}}
+\index{Home@{Home}!Home@{Home}}
+\doxysubsubsection{\texorpdfstring{Home()}{Home()}}
+{\footnotesize\ttfamily Home\+::\+Home (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_account}{Account}} $>$ $\ast$}]{accounts }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_home_a215672df1a94f34ecaac3ffffccf8909}\label{class_home_a215672df1a94f34ecaac3ffffccf8909}} 
+\index{Home@{Home}!authGetUser@{authGetUser}}
+\index{authGetUser@{authGetUser}!Home@{Home}}
+\doxysubsubsection{\texorpdfstring{authGetUser()}{authGetUser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_account}{Account}} $\ast$ Home\+::auth\+Get\+User (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{passw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Retrieves an authenticated user from Accounts\+DB. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The username of the user. \\
+\hline
+{\em passw} & The password of the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the user account if authentication is successful, otherwise nullptr. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_home_a4058b3c5748575ca67a7e2b5c2db5dcd}\label{class_home_a4058b3c5748575ca67a7e2b5c2db5dcd}} 
+\index{Home@{Home}!createUser@{createUser}}
+\index{createUser@{createUser}!Home@{Home}}
+\doxysubsubsection{\texorpdfstring{createUser()}{createUser()}}
+{\footnotesize\ttfamily void Home\+::create\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a new user. 
+
+\mbox{\Hypertarget{class_home_a2eb5f42a079fce939a0d7957139ef97b}\label{class_home_a2eb5f42a079fce939a0d7957139ef97b}} 
+\index{Home@{Home}!loginUser@{loginUser}}
+\index{loginUser@{loginUser}!Home@{Home}}
+\doxysubsubsection{\texorpdfstring{loginUser()}{loginUser()}}
+{\footnotesize\ttfamily void Home\+::login\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Log in an existing user. 
+
+\mbox{\Hypertarget{class_home_af37e6f3e876567384e5bfe8a425cd7cd}\label{class_home_af37e6f3e876567384e5bfe8a425cd7cd}} 
+\index{Home@{Home}!main@{main}}
+\index{main@{main}!Home@{Home}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void Home\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main menu. Main entry point into the application. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_home_aebcfea4be6bce60a02fec15912fb6514}\label{class_home_aebcfea4be6bce60a02fec15912fb6514}} 
+\index{Home@{Home}!accounts@{accounts}}
+\index{accounts@{accounts}!Home@{Home}}
+\doxysubsubsection{\texorpdfstring{accounts}{accounts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$\mbox{\hyperlink{class_account}{Account}}$>$$\ast$ Home\+::accounts\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_home_8h}{Home.\+h}}\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_home_8cpp}{Home.\+cpp}}\end{DoxyCompactItemize}

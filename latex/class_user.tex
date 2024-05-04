@@ -1,0 +1,219 @@
+\hypertarget{class_user}{}\doxysection{User Class Reference}
+\label{class_user}\index{User@{User}}
+
+
+{\ttfamily \#include $<$User.\+h$>$}
+
+Inheritance diagram for User\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_user}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_a7714a550a140a8ba7d87aa1803530ec3}{User}} (\mbox{\hyperlink{class_account}{Account}} $\ast$)
+\item 
+\mbox{\hyperlink{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}{$\sim$\+User}} ()
+\item 
+\mbox{\hyperlink{_constants_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{class_user_ae93d643024b02b2000febbe1e2621acc}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main menu of \mbox{\hyperlink{class_user}{User}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_a438f723c24a567e778ad5116e5865574}{view\+Cart}} (float \&total)
+\begin{DoxyCompactList}\small\item\em Display cart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_a128ab4c37e392f0a12205ae5ff7d1d6c}{view\+Cart}} ()
+\begin{DoxyCompactList}\small\item\em Display cart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_ab5f641688983cf0ecf5c173a0e310e17}{view\+Hist}} ()
+\begin{DoxyCompactList}\small\item\em Display purchase history. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_a942bd1c207b1a6f7a560a8e7f5fb71c7}{get\+Hist\+Total}} (float \&total)
+\begin{DoxyCompactList}\small\item\em Calculate lifetime total spend at store. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_a6eb0a5cd006cd1d8d2b3e9e16965ac10}{shop\+Catalog}} ()
+\begin{DoxyCompactList}\small\item\em Shop catalog (place items in cart) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_a1158761f6061b0e4bb36c3165b79e147}{rem\+Frm\+Cart}} ()
+\begin{DoxyCompactList}\small\item\em Remove item from the cart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_ad443abd8c83807993313fbe4e91885f7}{place\+Order}} ()
+\begin{DoxyCompactList}\small\item\em Place (complete) an order (purchase all items in cart) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_profile_base}{Profile\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_profile_base_aba16d51bc9cdabf679c1b0b6099d98f0}{Profile\+Base}} (\mbox{\hyperlink{class_account}{Account}} $\ast$)
+\item 
+virtual void \mbox{\hyperlink{class_profile_base_a93492eafaf1c29e64a4d3e11a7e135f6}{view\+Profile}} ()
+\begin{DoxyCompactList}\small\item\em View user profile. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_profile_base_a0d53225e10b26c6d1d6ae9edbe61fe9b}{view\+Catalog}} ()
+\begin{DoxyCompactList}\small\item\em View store catalog. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_profile_base_a0ecc6ec73e954f968358bb7b6f76f714}{change\+Passw}} ()
+\begin{DoxyCompactList}\small\item\em Change user password. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_profile_base_acb541e905010558e7f9180dbfe421266}{change\+Email}} ()
+\begin{DoxyCompactList}\small\item\em Change user email. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_user_aa07247ff841ad3af29b8b2dc794433e1}{sync\+Cart}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_catalog}{Catalog}} $>$ $\ast$ \mbox{\hyperlink{class_user_a0f1c34778a552def64c23c55ce8ea2a5}{cart}}
+\item 
+\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_catalog}{Catalog}} $>$ $\ast$ \mbox{\hyperlink{class_user_a3a500e798dc1b90fa2ede61e40e51391}{hist}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_profile_base}{Profile\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_account}{Account}} $\ast$ \mbox{\hyperlink{class_profile_base_a6acbea98ed5617487ff1ead72294217a}{account}}
+\item 
+\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_catalog}{Catalog}} $>$ $\ast$ \mbox{\hyperlink{class_profile_base_af27e0dd066a8871559241d61f37bf205}{catalog}}
+\item 
+\mbox{\hyperlink{_constants_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{class_profile_base_a3f17a3b5a641880e0c3b61ef1a458b24}{status}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\label{class_user_User}%
+\Hypertarget{class_user_User}%
+ This class serves as the \mbox{\hyperlink{class_user}{User}} controller. It contains the nescessary functions to fascilitate the user role interactions.
+
+\mbox{\hyperlink{class_user}{User}} accounts can shop the \mbox{\hyperlink{class_catalog}{Catalog}} and place orders.
+
+\mbox{\hyperlink{class_user}{User}} accounts are created or logged in from the \mbox{\hyperlink{class_home}{Home}} class main menu.
+
+\mbox{\hyperlink{class_user}{User}} record attributes are stored in \mbox{\hyperlink{class_account}{Account}} objects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_user_a7714a550a140a8ba7d87aa1803530ec3}\label{class_user_a7714a550a140a8ba7d87aa1803530ec3}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_account}{Account}} $\ast$}]{account }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}\label{class_user_ac00b72ad64eb4149f7b21b9f5468c2b2}} 
+\index{User@{User}!````~User@{$\sim$User}}
+\index{````~User@{$\sim$User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{$\sim$User()}{~User()}}
+{\footnotesize\ttfamily User\+::$\sim$\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_user_a942bd1c207b1a6f7a560a8e7f5fb71c7}\label{class_user_a942bd1c207b1a6f7a560a8e7f5fb71c7}} 
+\index{User@{User}!getHistTotal@{getHistTotal}}
+\index{getHistTotal@{getHistTotal}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getHistTotal()}{getHistTotal()}}
+{\footnotesize\ttfamily void User\+::get\+Hist\+Total (\begin{DoxyParamCaption}\item[{float \&}]{total }\end{DoxyParamCaption})}
+
+
+
+Calculate lifetime total spend at store. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em total} & Lifetime total spent at store \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_ae93d643024b02b2000febbe1e2621acc}\label{class_user_ae93d643024b02b2000febbe1e2621acc}} 
+\index{User@{User}!main@{main}}
+\index{main@{main}!User@{User}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_constants_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} User\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main menu of \mbox{\hyperlink{class_user}{User}}. 
+
+\begin{DoxyReturn}{Returns}
+Action to take on Account\+DB record 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_user_ad443abd8c83807993313fbe4e91885f7}\label{class_user_ad443abd8c83807993313fbe4e91885f7}} 
+\index{User@{User}!placeOrder@{placeOrder}}
+\index{placeOrder@{placeOrder}!User@{User}}
+\doxysubsubsection{\texorpdfstring{placeOrder()}{placeOrder()}}
+{\footnotesize\ttfamily void User\+::place\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Place (complete) an order (purchase all items in cart) 
+
+\mbox{\Hypertarget{class_user_a1158761f6061b0e4bb36c3165b79e147}\label{class_user_a1158761f6061b0e4bb36c3165b79e147}} 
+\index{User@{User}!remFrmCart@{remFrmCart}}
+\index{remFrmCart@{remFrmCart}!User@{User}}
+\doxysubsubsection{\texorpdfstring{remFrmCart()}{remFrmCart()}}
+{\footnotesize\ttfamily void User\+::rem\+Frm\+Cart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove item from the cart. 
+
+\mbox{\Hypertarget{class_user_a6eb0a5cd006cd1d8d2b3e9e16965ac10}\label{class_user_a6eb0a5cd006cd1d8d2b3e9e16965ac10}} 
+\index{User@{User}!shopCatalog@{shopCatalog}}
+\index{shopCatalog@{shopCatalog}!User@{User}}
+\doxysubsubsection{\texorpdfstring{shopCatalog()}{shopCatalog()}}
+{\footnotesize\ttfamily void User\+::shop\+Catalog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Shop catalog (place items in cart) 
+
+\mbox{\Hypertarget{class_user_aa07247ff841ad3af29b8b2dc794433e1}\label{class_user_aa07247ff841ad3af29b8b2dc794433e1}} 
+\index{User@{User}!syncCart@{syncCart}}
+\index{syncCart@{syncCart}!User@{User}}
+\doxysubsubsection{\texorpdfstring{syncCart()}{syncCart()}}
+{\footnotesize\ttfamily void User\+::sync\+Cart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_user_a128ab4c37e392f0a12205ae5ff7d1d6c}\label{class_user_a128ab4c37e392f0a12205ae5ff7d1d6c}} 
+\index{User@{User}!viewCart@{viewCart}}
+\index{viewCart@{viewCart}!User@{User}}
+\doxysubsubsection{\texorpdfstring{viewCart()}{viewCart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void User\+::view\+Cart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Display cart. 
+
+\mbox{\Hypertarget{class_user_a438f723c24a567e778ad5116e5865574}\label{class_user_a438f723c24a567e778ad5116e5865574}} 
+\index{User@{User}!viewCart@{viewCart}}
+\index{viewCart@{viewCart}!User@{User}}
+\doxysubsubsection{\texorpdfstring{viewCart()}{viewCart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void User\+::view\+Cart (\begin{DoxyParamCaption}\item[{float \&}]{total }\end{DoxyParamCaption})}
+
+
+
+Display cart. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em total} & Total price of items in cart \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_user_ab5f641688983cf0ecf5c173a0e310e17}\label{class_user_ab5f641688983cf0ecf5c173a0e310e17}} 
+\index{User@{User}!viewHist@{viewHist}}
+\index{viewHist@{viewHist}!User@{User}}
+\doxysubsubsection{\texorpdfstring{viewHist()}{viewHist()}}
+{\footnotesize\ttfamily void User\+::view\+Hist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Display purchase history. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_user_a0f1c34778a552def64c23c55ce8ea2a5}\label{class_user_a0f1c34778a552def64c23c55ce8ea2a5}} 
+\index{User@{User}!cart@{cart}}
+\index{cart@{cart}!User@{User}}
+\doxysubsubsection{\texorpdfstring{cart}{cart}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$\mbox{\hyperlink{class_catalog}{Catalog}}$>$$\ast$ User\+::cart\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_user_a3a500e798dc1b90fa2ede61e40e51391}\label{class_user_a3a500e798dc1b90fa2ede61e40e51391}} 
+\index{User@{User}!hist@{hist}}
+\index{hist@{hist}!User@{User}}
+\doxysubsubsection{\texorpdfstring{hist}{hist}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$\mbox{\hyperlink{class_catalog}{Catalog}}$>$$\ast$ User\+::hist\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_user_8h}{User.\+h}}\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_user_8cpp}{User.\+cpp}}\end{DoxyCompactItemize}
