@@ -220,6 +220,7 @@ void User::shopCatalog() {
         ctlg_pos = stoi(input);
         if (!catalog->hasIndex(ctlg_pos)) {
             cout << "   Item # " << ctlg_pos << " not found\n";
+            catalog->close();
             cart->close();
             return;
         }
@@ -230,6 +231,7 @@ void User::shopCatalog() {
         ctlg_pos = catalog->find(input);
         if (ctlg_pos < 0) {
             cout << "   Item \"" << input << "\" not found\n";
+            catalog->close();
             cart->close();
             return;
         }
@@ -254,6 +256,7 @@ void User::shopCatalog() {
         delete ctlg_item;
         ctlg_item = nullptr;
         
+        catalog->close();
         cart->close();
         return;
     } else if (quant > ctlg_item->getQuant()) {
@@ -262,6 +265,7 @@ void User::shopCatalog() {
         delete ctlg_item;
         ctlg_item = nullptr;
         
+        catalog->close();
         cart->close();
         return;
     }
@@ -445,7 +449,7 @@ void User::placeOrder() {
                 }
             // Item is not in catalog (discontinued)
             } else {
-                cout << "   Item " << ctlg_item->getName() << " is discontinued and has been removed from your cart and its purchase cancelled.\n";
+                cout << "   Item \"" << ctlg_item->getName() << "\" is discontinued and has been removed from your cart and its purchase cancelled.\n";
             }
             // Mark item for removal from cart
             del_items[cart_pos] = true;
@@ -482,12 +486,15 @@ void User::syncCart() {
     bool any_discont = false;
     Catalog* cart_item = nullptr;
     Catalog* ctlg_item = nullptr;
+    bool* del_items = nullptr;
     
     cart->open();
     catalog->open();
     
     cart_count = cart->count();
+    del_items = new bool[cart_count];
     for (int cart_pos = 0; cart_pos < cart_count; cart_pos++) {
+        del_items[cart_pos] = false;
         cart_item = cart->get(cart_pos);
         ctlg_pos = catalog->find(cart_item->getName());
         // Item is in catalog, so sync price
@@ -497,12 +504,19 @@ void User::syncCart() {
             cart->set(cart_pos, cart_item);
         // Item is not in catalog (discontinued), so remove it
         } else {
-            cart->del(cart_pos);
-            cout << "   Item " << cart_item->getName() << " is discontinued and has been removed from your cart.\n";
+            cout << "   Item \"" << cart_item->getName() << "\" is discontinued and has been removed from your cart.\n";
+            del_items[cart_pos] = true;
             any_discont = true;
         }
     }
     if (any_discont) { cout << "\n"; }
+    
+    // Remove items from cart
+    for (int cart_pos = cart_count; cart_pos >= 0; cart_pos--) {
+        if (del_items[cart_pos] == true) {
+            cart->del(cart_pos);
+        }
+    }
     
     cart->close();
     catalog->close();
@@ -511,4 +525,8 @@ void User::syncCart() {
     cart_item = nullptr;
     delete ctlg_item;
     ctlg_item = nullptr;
+    if (del_items != nullptr) {
+        delete[] del_items;
+        del_items = nullptr;
+    }
 }
