@@ -1,3 +1,13 @@
+/** \file */
+
+/**
+ * \anchor DBModel
+ * \class DBModel
+ * This class provides the interface for database IO. It is implementad as a template class, and can 
+ * store records of either the Catalog or Account classes. The acceptable datatypes are limited
+ * to any data type that defines a display method.
+ */
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/cppFiles/file.h to edit this template

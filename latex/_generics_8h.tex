@@ -1,0 +1,157 @@
+\hypertarget{_generics_8h}{}\doxysection{09\+\_\+\+Final/\+Generics.h File Reference}
+\label{_generics_8h}\index{09\_Final/Generics.h@{09\_Final/Generics.h}}
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include \char`\"{}DBModel.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename enable\+\_\+if$<$ is\+\_\+arithmetic$<$ T $>$\+::value $>$\+::type $\ast$  = nullptr$>$ }\\void \mbox{\hyperlink{_generics_8h_a9920fc8afc3d4a8a9b51d3832eaf62bf}{get\+Numeric}} (T \&num)
+\begin{DoxyCompactList}\small\item\em Get a numeric value of specified numeric type from the user. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{_generics_8h_ae76dbb33265b3af3948a58b19109572d}{get\+Single\+Char}} ()
+\begin{DoxyCompactList}\small\item\em Get a single char from the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_generics_8h_a89c79ad42eb903b8ee562ce5f9472774}{safe\+Get\+Line}} (string \&dest, unsigned int max\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Get a line of text (string) from the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_generics_8h_ac9fab326d2455f58fac9939e1559fbaf}{safe\+CStr\+NCpy}} (char $\ast$dest, string src, int max\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Safely copy a string to a cstring. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_generics_8h_a9947873195a764ba39890caa126e11f9}{is\+Int}} (const string \&value)
+\begin{DoxyCompactList}\small\item\em Check whether the input string is an integer. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_generics_8h_ae3fb0a65c5d7fbeb9d97e57d237f7779}{random\+Float}} (float min, float max)
+\begin{DoxyCompactList}\small\item\em Generate a random floating point number. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{_generics_8h_ada9fdc4fb8aff1c6f52cf25e634503ba}{random\+Uns\+Int}} (unsigned int min, unsigned int max)
+\begin{DoxyCompactList}\small\item\em Generate a random integer number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_generics_8h_a9920fc8afc3d4a8a9b51d3832eaf62bf}\label{_generics_8h_a9920fc8afc3d4a8a9b51d3832eaf62bf}} 
+\index{Generics.h@{Generics.h}!getNumeric@{getNumeric}}
+\index{getNumeric@{getNumeric}!Generics.h@{Generics.h}}
+\doxysubsubsection{\texorpdfstring{getNumeric()}{getNumeric()}}
+{\footnotesize\ttfamily template$<$typename T , typename enable\+\_\+if$<$ is\+\_\+arithmetic$<$ T $>$\+::value $>$\+::type $\ast$  = nullptr$>$ \\
+void get\+Numeric (\begin{DoxyParamCaption}\item[{T \&}]{num }\end{DoxyParamCaption})}
+
+
+
+Get a numeric value of specified numeric type from the user. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Specified numeric type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em num} & variable to store user input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_generics_8h_ae76dbb33265b3af3948a58b19109572d}\label{_generics_8h_ae76dbb33265b3af3948a58b19109572d}} 
+\index{Generics.h@{Generics.h}!getSingleChar@{getSingleChar}}
+\index{getSingleChar@{getSingleChar}!Generics.h@{Generics.h}}
+\doxysubsubsection{\texorpdfstring{getSingleChar()}{getSingleChar()}}
+{\footnotesize\ttfamily char get\+Single\+Char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a single char from the user. 
+
+\begin{DoxyReturn}{Returns}
+The user input 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_generics_8h_a9947873195a764ba39890caa126e11f9}\label{_generics_8h_a9947873195a764ba39890caa126e11f9}} 
+\index{Generics.h@{Generics.h}!isInt@{isInt}}
+\index{isInt@{isInt}!Generics.h@{Generics.h}}
+\doxysubsubsection{\texorpdfstring{isInt()}{isInt()}}
+{\footnotesize\ttfamily bool is\+Int (\begin{DoxyParamCaption}\item[{const string \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check whether the input string is an integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The string to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if value is an integer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_generics_8h_ae3fb0a65c5d7fbeb9d97e57d237f7779}\label{_generics_8h_ae3fb0a65c5d7fbeb9d97e57d237f7779}} 
+\index{Generics.h@{Generics.h}!randomFloat@{randomFloat}}
+\index{randomFloat@{randomFloat}!Generics.h@{Generics.h}}
+\doxysubsubsection{\texorpdfstring{randomFloat()}{randomFloat()}}
+{\footnotesize\ttfamily float random\+Float (\begin{DoxyParamCaption}\item[{float}]{min,  }\item[{float}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a random floating point number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & Smallest number in range \\
+\hline
+{\em max} & Largest number in range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random floating point number within the specified range 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_generics_8h_ada9fdc4fb8aff1c6f52cf25e634503ba}\label{_generics_8h_ada9fdc4fb8aff1c6f52cf25e634503ba}} 
+\index{Generics.h@{Generics.h}!randomUnsInt@{randomUnsInt}}
+\index{randomUnsInt@{randomUnsInt}!Generics.h@{Generics.h}}
+\doxysubsubsection{\texorpdfstring{randomUnsInt()}{randomUnsInt()}}
+{\footnotesize\ttfamily unsigned int random\+Uns\+Int (\begin{DoxyParamCaption}\item[{unsigned int}]{min,  }\item[{unsigned int}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generate a random integer number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & Smallest number in range \\
+\hline
+{\em max} & Largest number in range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random integer number within the specified range 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_generics_8h_ac9fab326d2455f58fac9939e1559fbaf}\label{_generics_8h_ac9fab326d2455f58fac9939e1559fbaf}} 
+\index{Generics.h@{Generics.h}!safeCStrNCpy@{safeCStrNCpy}}
+\index{safeCStrNCpy@{safeCStrNCpy}!Generics.h@{Generics.h}}
+\doxysubsubsection{\texorpdfstring{safeCStrNCpy()}{safeCStrNCpy()}}
+{\footnotesize\ttfamily void safe\+CStr\+NCpy (\begin{DoxyParamCaption}\item[{char $\ast$}]{dest,  }\item[{string}]{src,  }\item[{int}]{max\+\_\+len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Safely copy a string to a cstring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & The cstring to copy the string into \\
+\hline
+{\em src} & The string to be copied to the cstring \\
+\hline
+{\em max\+\_\+len} & The maximum length that can be stored in the cstring \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_generics_8h_a89c79ad42eb903b8ee562ce5f9472774}\label{_generics_8h_a89c79ad42eb903b8ee562ce5f9472774}} 
+\index{Generics.h@{Generics.h}!safeGetLine@{safeGetLine}}
+\index{safeGetLine@{safeGetLine}!Generics.h@{Generics.h}}
+\doxysubsubsection{\texorpdfstring{safeGetLine()}{safeGetLine()}}
+{\footnotesize\ttfamily void safe\+Get\+Line (\begin{DoxyParamCaption}\item[{string \&}]{dest,  }\item[{unsigned int}]{max\+\_\+len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a line of text (string) from the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & The variable to store the user input in \\
+\hline
+{\em max\+\_\+len} & The maximum length of text to get from the user \\
+\hline
+\end{DoxyParams}

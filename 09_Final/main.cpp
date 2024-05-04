@@ -1,3 +1,14 @@
+/** \file */
+
+/**
+ * @mainpage Documentation Homepage
+ *
+ * This is the main page of the documentation for my C++ Shopping Store Application.
+ *
+ * \ref Home is the main entry point into the application.   
+ * \ref main performs some setup (creating nescessary objects) and then calls Home::main() to execute the program.
+  */
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/cppFiles/main.cc to edit this template
@@ -24,7 +35,8 @@ using namespace std;
 
 void createRndmCtlg(string, unsigned int);
 
-
+/// @brief Performs nescessary setup to run the Shopping Store Application. 
+/// Calls Home.main to launch the application.
 int main() {
     
     srand(static_cast<unsigned>(time(0)));  //Seed random number
@@ -62,6 +74,9 @@ int main() {
 }
 
 
+/// @brief Helper to create random catalog items
+/// @param path The path to the catalog database
+/// @param count The number of random items to generate
 void createRndmCtlg(string path, unsigned int count) {
     
     // Create the database

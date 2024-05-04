@@ -1,0 +1,216 @@
+\hypertarget{class_admin}{}\doxysection{Admin Class Reference}
+\label{class_admin}\index{Admin@{Admin}}
+
+
+{\ttfamily \#include $<$Admin.\+h$>$}
+
+Inheritance diagram for Admin\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_admin}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_admin_aa16f30ec5e268be033313f4c562cbfe7}{Admin}} (\mbox{\hyperlink{class_account}{Account}} $\ast$, \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_account}{Account}} $>$ $\ast$)
+\item 
+\mbox{\hyperlink{_constants_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{class_admin_a631fccbb793ac35a94262899f0959bb5}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main menu of \mbox{\hyperlink{class_admin}{Admin}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_a4bcb80335cb4168c664a46fcd7b1a014}{view\+Catalog}} () override
+\begin{DoxyCompactList}\small\item\em Display catalog. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_a4f88de440b9de66b639438d867cd1190}{view\+Profile}} () override
+\begin{DoxyCompactList}\small\item\em Display profile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_a9e6ec7dbb17db53e4c856d8be1685263}{view\+Accounts}} ()
+\begin{DoxyCompactList}\small\item\em Display accounts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_aa71cd800f17ecae6650e5ea012ba9c8f}{create\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Create a new account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_a32f557e26b6eedcdce3c35fa124907c4}{del\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Delete an existing account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_ab7aab0ba076634d8e6cb089110ef4114}{add\+Catalog\+Item}} ()
+\begin{DoxyCompactList}\small\item\em Add a new item to the catalog. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_a20636b5d35c86bf43b69d3212dccbb4e}{upd\+Catalog\+Item}} ()
+\begin{DoxyCompactList}\small\item\em Update an existing item in the catalog. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_a5cfd5123db3342b573b06e61530397dd}{del\+Catalog\+Item}} ()
+\begin{DoxyCompactList}\small\item\em Delete an item from the catalog. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_a5461d4552dceba36c0ffa7a06d0ba57b}{view\+Earnings\+Hist}} ()
+\begin{DoxyCompactList}\small\item\em View the total earnings of the store. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_profile_base}{Profile\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_profile_base_aba16d51bc9cdabf679c1b0b6099d98f0}{Profile\+Base}} (\mbox{\hyperlink{class_account}{Account}} $\ast$)
+\item 
+virtual void \mbox{\hyperlink{class_profile_base_a93492eafaf1c29e64a4d3e11a7e135f6}{view\+Profile}} ()
+\begin{DoxyCompactList}\small\item\em View user profile. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_profile_base_a0d53225e10b26c6d1d6ae9edbe61fe9b}{view\+Catalog}} ()
+\begin{DoxyCompactList}\small\item\em View store catalog. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_profile_base_a0ecc6ec73e954f968358bb7b6f76f714}{change\+Passw}} ()
+\begin{DoxyCompactList}\small\item\em Change user password. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_profile_base_acb541e905010558e7f9180dbfe421266}{change\+Email}} ()
+\begin{DoxyCompactList}\small\item\em Change user email. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_account}{Account}} $>$ $\ast$ \mbox{\hyperlink{class_admin_a0a38a84018bfdd8a328de89489907f0d}{accounts}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_profile_base}{Profile\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_account}{Account}} $\ast$ \mbox{\hyperlink{class_profile_base_a6acbea98ed5617487ff1ead72294217a}{account}}
+\item 
+\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_catalog}{Catalog}} $>$ $\ast$ \mbox{\hyperlink{class_profile_base_af27e0dd066a8871559241d61f37bf205}{catalog}}
+\item 
+\mbox{\hyperlink{_constants_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \mbox{\hyperlink{class_profile_base_a3f17a3b5a641880e0c3b61ef1a458b24}{status}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\label{class_admin_Admin}%
+\Hypertarget{class_admin_Admin}%
+ This class serves as the \mbox{\hyperlink{class_admin}{Admin}} controller. It contains the nescessary functions to fascilitate the admin user role interactions.
+
+\mbox{\hyperlink{class_admin}{Admin}} accounts have privilege to view/edit another \mbox{\hyperlink{class_account}{Account}}, view store earnings, or modify the store \mbox{\hyperlink{class_catalog}{Catalog}}.
+
+\mbox{\hyperlink{class_admin}{Admin}} accounts are created or logged in from the \mbox{\hyperlink{class_home}{Home}} class main menu.
+
+There is one primary admin that cannot be deleted, called admin.
+
+\mbox{\hyperlink{class_admin}{Admin}} record attributes are stored in \mbox{\hyperlink{class_account}{Account}} objects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_admin_aa16f30ec5e268be033313f4c562cbfe7}\label{class_admin_aa16f30ec5e268be033313f4c562cbfe7}} 
+\index{Admin@{Admin}!Admin@{Admin}}
+\index{Admin@{Admin}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{Admin()}{Admin()}}
+{\footnotesize\ttfamily Admin\+::\+Admin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_account}{Account}} $\ast$}]{account,  }\item[{\mbox{\hyperlink{class_d_b_model}{DBModel}}$<$ \mbox{\hyperlink{class_account}{Account}} $>$ $\ast$}]{accounts }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_admin_ab7aab0ba076634d8e6cb089110ef4114}\label{class_admin_ab7aab0ba076634d8e6cb089110ef4114}} 
+\index{Admin@{Admin}!addCatalogItem@{addCatalogItem}}
+\index{addCatalogItem@{addCatalogItem}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{addCatalogItem()}{addCatalogItem()}}
+{\footnotesize\ttfamily void Admin\+::add\+Catalog\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Add a new item to the catalog. 
+
+\mbox{\Hypertarget{class_admin_aa71cd800f17ecae6650e5ea012ba9c8f}\label{class_admin_aa71cd800f17ecae6650e5ea012ba9c8f}} 
+\index{Admin@{Admin}!createAccount@{createAccount}}
+\index{createAccount@{createAccount}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{createAccount()}{createAccount()}}
+{\footnotesize\ttfamily void Admin\+::create\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a new account. 
+
+\mbox{\Hypertarget{class_admin_a32f557e26b6eedcdce3c35fa124907c4}\label{class_admin_a32f557e26b6eedcdce3c35fa124907c4}} 
+\index{Admin@{Admin}!delAccount@{delAccount}}
+\index{delAccount@{delAccount}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{delAccount()}{delAccount()}}
+{\footnotesize\ttfamily void Admin\+::del\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Delete an existing account. 
+
+\mbox{\Hypertarget{class_admin_a5cfd5123db3342b573b06e61530397dd}\label{class_admin_a5cfd5123db3342b573b06e61530397dd}} 
+\index{Admin@{Admin}!delCatalogItem@{delCatalogItem}}
+\index{delCatalogItem@{delCatalogItem}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{delCatalogItem()}{delCatalogItem()}}
+{\footnotesize\ttfamily void Admin\+::del\+Catalog\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Delete an item from the catalog. 
+
+\mbox{\Hypertarget{class_admin_a631fccbb793ac35a94262899f0959bb5}\label{class_admin_a631fccbb793ac35a94262899f0959bb5}} 
+\index{Admin@{Admin}!main@{main}}
+\index{main@{main}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_constants_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} Admin\+::main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main menu of \mbox{\hyperlink{class_admin}{Admin}}. 
+
+\begin{DoxyReturn}{Returns}
+Action to take on Account\+DB record 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_admin_a20636b5d35c86bf43b69d3212dccbb4e}\label{class_admin_a20636b5d35c86bf43b69d3212dccbb4e}} 
+\index{Admin@{Admin}!updCatalogItem@{updCatalogItem}}
+\index{updCatalogItem@{updCatalogItem}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{updCatalogItem()}{updCatalogItem()}}
+{\footnotesize\ttfamily void Admin\+::upd\+Catalog\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update an existing item in the catalog. 
+
+\mbox{\Hypertarget{class_admin_a9e6ec7dbb17db53e4c856d8be1685263}\label{class_admin_a9e6ec7dbb17db53e4c856d8be1685263}} 
+\index{Admin@{Admin}!viewAccounts@{viewAccounts}}
+\index{viewAccounts@{viewAccounts}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{viewAccounts()}{viewAccounts()}}
+{\footnotesize\ttfamily void Admin\+::view\+Accounts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Display accounts. 
+
+\mbox{\Hypertarget{class_admin_a4bcb80335cb4168c664a46fcd7b1a014}\label{class_admin_a4bcb80335cb4168c664a46fcd7b1a014}} 
+\index{Admin@{Admin}!viewCatalog@{viewCatalog}}
+\index{viewCatalog@{viewCatalog}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{viewCatalog()}{viewCatalog()}}
+{\footnotesize\ttfamily void Admin\+::view\+Catalog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Display catalog. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_profile_base_a0d53225e10b26c6d1d6ae9edbe61fe9b}{Profile\+Base}}.
+
+\mbox{\Hypertarget{class_admin_a5461d4552dceba36c0ffa7a06d0ba57b}\label{class_admin_a5461d4552dceba36c0ffa7a06d0ba57b}} 
+\index{Admin@{Admin}!viewEarningsHist@{viewEarningsHist}}
+\index{viewEarningsHist@{viewEarningsHist}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{viewEarningsHist()}{viewEarningsHist()}}
+{\footnotesize\ttfamily void Admin\+::view\+Earnings\+Hist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+View the total earnings of the store. 
+
+\mbox{\Hypertarget{class_admin_a4f88de440b9de66b639438d867cd1190}\label{class_admin_a4f88de440b9de66b639438d867cd1190}} 
+\index{Admin@{Admin}!viewProfile@{viewProfile}}
+\index{viewProfile@{viewProfile}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{viewProfile()}{viewProfile()}}
+{\footnotesize\ttfamily void Admin\+::view\+Profile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Display profile. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_profile_base_a93492eafaf1c29e64a4d3e11a7e135f6}{Profile\+Base}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_admin_a0a38a84018bfdd8a328de89489907f0d}\label{class_admin_a0a38a84018bfdd8a328de89489907f0d}} 
+\index{Admin@{Admin}!accounts@{accounts}}
+\index{accounts@{accounts}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{accounts}{accounts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_d_b_model}{DBModel}}$<$\mbox{\hyperlink{class_account}{Account}}$>$$\ast$ Admin\+::accounts\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_admin_8h}{Admin.\+h}}\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_admin_8cpp}{Admin.\+cpp}}\end{DoxyCompactItemize}

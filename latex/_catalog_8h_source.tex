@@ -1,0 +1,71 @@
+\hypertarget{_catalog_8h_source}{}\doxysection{Catalog.\+h}
+\label{_catalog_8h_source}\index{09\_Final/Catalog.h@{09\_Final/Catalog.h}}
+\mbox{\hyperlink{_catalog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-\/default.txt\ to\ change\ this\ license}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ Click\ nbfs://nbhost/SystemFileSystem/Templates/cppFiles/class.h\ to\ edit\ this\ template}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ File:\ \ \ Catalog.h}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ Author:\ hanne}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ Created\ on\ April\ 6,\ 2024,\ 7:59\ AM}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#ifndef\ CATALOG\_H}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ CATALOG\_H}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_generics_8h}{Generics.h}}"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_constants_8h}{Constants.h}}"{}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Constants}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{_catalog_8h_a7c9597ceb0ac52957c11e4ea644c7882}{CATALOGDBPATH}}\ =\ \textcolor{stringliteral}{"{}data/store\_catalog.bin"{}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catalog}{Catalog}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_catalog_a47f030b14e334f7521d378807ec7d8ef}{name}}[\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}];}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_catalog_a6f8a036b39a24f1d103f7aa33d04ae48}{price}};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_catalog_a4b40bef5307ba384ab845e11c8b0f9f9}{quant}};}
+\DoxyCodeLine{00048\ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}}();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}}(\textcolor{keywordtype}{string},\ \textcolor{keywordtype}{float},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_a268a27011b5bac572f122d7d13156c78}{setName}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_catalog_a47f030b14e334f7521d378807ec7d8ef}{name}});}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_af40b86db40b03314ebff7dcb4dd7398c}{setPrice}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_catalog_a6f8a036b39a24f1d103f7aa33d04ae48}{price}});}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_ab751c658ccaab20534ffb1f8317413ec}{setQuant}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_catalog_a4b40bef5307ba384ab845e11c8b0f9f9}{quant}});}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_catalog_abf6e36828333db7109fbe13a5f8a5ba0}{getName}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_catalog_aaa264f1df4c66e91383cec4aac5fdaf1}{getPrice}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_catalog_ae4a5b2a8608cfed58485431fff2fba67}{getQuant}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Other\ Methods}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catalog_a13f9419c1f7fa85b5924f3555662f764}{display}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CATALOG\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00089\ }
+
+\end{DoxyCode}

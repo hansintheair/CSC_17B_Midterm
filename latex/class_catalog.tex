@@ -1,0 +1,184 @@
+\hypertarget{class_catalog}{}\doxysection{Catalog Class Reference}
+\label{class_catalog}\index{Catalog@{Catalog}}
+
+
+{\ttfamily \#include $<$Catalog.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}} ()
+\item 
+\mbox{\hyperlink{class_catalog_ad914065e68fd508acfa7d3e5d309ea05}{Catalog}} (string, float, unsigned int)
+\item 
+void \mbox{\hyperlink{class_catalog_a268a27011b5bac572f122d7d13156c78}{set\+Name}} (string \mbox{\hyperlink{class_catalog_a47f030b14e334f7521d378807ec7d8ef}{name}})
+\begin{DoxyCompactList}\small\item\em Setter for item name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalog_af40b86db40b03314ebff7dcb4dd7398c}{set\+Price}} (float \mbox{\hyperlink{class_catalog_a6f8a036b39a24f1d103f7aa33d04ae48}{price}})
+\begin{DoxyCompactList}\small\item\em Setter for item price. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalog_ab751c658ccaab20534ffb1f8317413ec}{set\+Quant}} (unsigned int \mbox{\hyperlink{class_catalog_a4b40bef5307ba384ab845e11c8b0f9f9}{quant}})
+\begin{DoxyCompactList}\small\item\em Setter for item quantity. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_catalog_abf6e36828333db7109fbe13a5f8a5ba0}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Getter for item name. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_catalog_aaa264f1df4c66e91383cec4aac5fdaf1}{get\+Price}} ()
+\begin{DoxyCompactList}\small\item\em Getter for item price. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_catalog_ae4a5b2a8608cfed58485431fff2fba67}{get\+Quant}} ()
+\begin{DoxyCompactList}\small\item\em Getter for item quantity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalog_a13f9419c1f7fa85b5924f3555662f764}{display}} () const
+\begin{DoxyCompactList}\small\item\em Display item details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_catalog_a47f030b14e334f7521d378807ec7d8ef}{name}} \mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}
+\item 
+float \mbox{\hyperlink{class_catalog_a6f8a036b39a24f1d103f7aa33d04ae48}{price}}
+\item 
+unsigned int \mbox{\hyperlink{class_catalog_a4b40bef5307ba384ab845e11c8b0f9f9}{quant}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\label{class_catalog_Catalog}%
+\Hypertarget{class_catalog_Catalog}%
+ This class stores catalog item data and provides accessors for reading and manipulating item attributes.
+
+It used to represent data in the store \mbox{\hyperlink{class_catalog}{Catalog}} managed by the \mbox{\hyperlink{class_admin}{Admin}} class, as well as the cart and shopping history of the \mbox{\hyperlink{class_user}{User}} class.
+
+\mbox{\hyperlink{class_d_b_model}{DBModel}} is used to store records of \mbox{\hyperlink{class_catalog}{Catalog}} items in a binary database file. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}\label{class_catalog_abe0c6f8f87460d4554a89ec7d46e2fd8}} 
+\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{Catalog()}{Catalog()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Catalog\+::\+Catalog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_catalog_ad914065e68fd508acfa7d3e5d309ea05}\label{class_catalog_ad914065e68fd508acfa7d3e5d309ea05}} 
+\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{Catalog()}{Catalog()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Catalog\+::\+Catalog (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{float}]{price,  }\item[{unsigned int}]{quant }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_catalog_a13f9419c1f7fa85b5924f3555662f764}\label{class_catalog_a13f9419c1f7fa85b5924f3555662f764}} 
+\index{Catalog@{Catalog}!display@{display}}
+\index{display@{display}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Catalog\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Display item details. 
+
+\mbox{\Hypertarget{class_catalog_abf6e36828333db7109fbe13a5f8a5ba0}\label{class_catalog_abf6e36828333db7109fbe13a5f8a5ba0}} 
+\index{Catalog@{Catalog}!getName@{getName}}
+\index{getName@{getName}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Catalog\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for item name. 
+
+\begin{DoxyReturn}{Returns}
+item name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_catalog_aaa264f1df4c66e91383cec4aac5fdaf1}\label{class_catalog_aaa264f1df4c66e91383cec4aac5fdaf1}} 
+\index{Catalog@{Catalog}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily float Catalog\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for item price. 
+
+\begin{DoxyReturn}{Returns}
+item price 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_catalog_ae4a5b2a8608cfed58485431fff2fba67}\label{class_catalog_ae4a5b2a8608cfed58485431fff2fba67}} 
+\index{Catalog@{Catalog}!getQuant@{getQuant}}
+\index{getQuant@{getQuant}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{getQuant()}{getQuant()}}
+{\footnotesize\ttfamily unsigned int Catalog\+::get\+Quant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for item quantity. 
+
+\begin{DoxyReturn}{Returns}
+item quantity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_catalog_a268a27011b5bac572f122d7d13156c78}\label{class_catalog_a268a27011b5bac572f122d7d13156c78}} 
+\index{Catalog@{Catalog}!setName@{setName}}
+\index{setName@{setName}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Catalog\+::set\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+Setter for item name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & item name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_catalog_af40b86db40b03314ebff7dcb4dd7398c}\label{class_catalog_af40b86db40b03314ebff7dcb4dd7398c}} 
+\index{Catalog@{Catalog}!setPrice@{setPrice}}
+\index{setPrice@{setPrice}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{setPrice()}{setPrice()}}
+{\footnotesize\ttfamily void Catalog\+::set\+Price (\begin{DoxyParamCaption}\item[{float}]{price }\end{DoxyParamCaption})}
+
+
+
+Setter for item price. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em price} & item price \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_catalog_ab751c658ccaab20534ffb1f8317413ec}\label{class_catalog_ab751c658ccaab20534ffb1f8317413ec}} 
+\index{Catalog@{Catalog}!setQuant@{setQuant}}
+\index{setQuant@{setQuant}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{setQuant()}{setQuant()}}
+{\footnotesize\ttfamily void Catalog\+::set\+Quant (\begin{DoxyParamCaption}\item[{unsigned int}]{quant }\end{DoxyParamCaption})}
+
+
+
+Setter for item quantity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quant} & item quantity \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_catalog_a47f030b14e334f7521d378807ec7d8ef}\label{class_catalog_a47f030b14e334f7521d378807ec7d8ef}} 
+\index{Catalog@{Catalog}!name@{name}}
+\index{name@{name}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily char Catalog\+::name\mbox{[}\mbox{\hyperlink{_constants_8h_a57b1fe7c9f558c1839ab31bd1e8f4757}{MAXFLD}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_catalog_a6f8a036b39a24f1d103f7aa33d04ae48}\label{class_catalog_a6f8a036b39a24f1d103f7aa33d04ae48}} 
+\index{Catalog@{Catalog}!price@{price}}
+\index{price@{price}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{price}{price}}
+{\footnotesize\ttfamily float Catalog\+::price\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_catalog_a4b40bef5307ba384ab845e11c8b0f9f9}\label{class_catalog_a4b40bef5307ba384ab845e11c8b0f9f9}} 
+\index{Catalog@{Catalog}!quant@{quant}}
+\index{quant@{quant}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{quant}{quant}}
+{\footnotesize\ttfamily unsigned int Catalog\+::quant\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_catalog_8h}{Catalog.\+h}}\item 
+09\+\_\+\+Final/\mbox{\hyperlink{_catalog_8cpp}{Catalog.\+cpp}}\end{DoxyCompactItemize}
