@@ -57,6 +57,9 @@ class Admin : public ProfileBase{
 
         /// @brief Display profile
         void viewProfile() override;
+        
+        /// @brief Delete user account
+        void delSelfAccount() override;
 
         /// @brief Display accounts
         void viewAccounts();

@@ -71,6 +71,25 @@ void ProfileBase::changeEmail() {
     cout << "\n   E-mail has been updated.\n";
 }
 
+void ProfileBase::delSelfAccount() {
+    
+    char conf;
+    
+    cout << "\n-- Delete account\n";
+    cout << "   Are you sure you want to delete your account (Y/)?\n";
+    cout << "   WARNING!!! This will permanently delete your account.\n";
+    
+    cout << "   Add to cart? (Y/)\n";
+    conf = getSingleChar();
+    tolower(conf);
+    if (conf == 'y') {  // Delete user
+        // Check if item is already in the cart
+        status = DELETE;
+    } else {
+        cout << "   Cancelled\n";
+    }
+}
+
 void ProfileBase::viewCatalog() {
     cout << "\n-- Catalog\n";
     catalog->open();

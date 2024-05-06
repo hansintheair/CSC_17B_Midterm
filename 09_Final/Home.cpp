@@ -119,7 +119,11 @@ void Home::loginUser() {
             break;
         }
         case DELETE: {
-            // TODO
+            accounts->open();
+            int pos = accounts->find(account->getName());
+            accounts->del(pos);
+            accounts->close();
+            cout << "   Account " << account->getName() << " has been deleted\n";
             break;
         }
         case CLEAN:

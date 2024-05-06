@@ -42,6 +42,7 @@ Status User::main() {
         cout << "[G] Remove from Cart\n";
         cout << "[H] Place order\n";
         cout << "[I] View order history\n";
+        cout << "[J] Delete Account (DANGER ZONE)\n";
         cout << "[Q] Logout\n\n";
         
         input = getSingleChar();
@@ -74,6 +75,12 @@ Status User::main() {
             case 'i':
                 viewHist();
                 break;
+            case 'j':
+                delSelfAccount();
+                if (status == DELETE) {
+                    logout = true;
+                }
+                break;
             case 'q': //Logout
                 cout << "\n";
                 logout = true;
@@ -82,7 +89,7 @@ Status User::main() {
                 cout << "Unknown input, please try again\n";
         };
     }
-    cout << "Logging out\n";
+    cout << "   Logging out\n";
 //    cout << "STATUS: " << status << "\n";  //DEBUG
     return status;
 }
@@ -302,7 +309,7 @@ void User::shopCatalog() {
                
         cout << "   Cart updated\n";
     } else {
-        cout << "   Cancelled";
+        cout << "   Cancelled\n";
     }    
 
     cart->close();
