@@ -50,13 +50,16 @@ class ProfileBase {
         /// @brief View store catalog
         virtual void viewCatalog();
 
+        /// @brief Delete user account
+        virtual void delSelfAccount();
+        
         /// @brief Change user password
         void changePassw();
 
         /// @brief Change user email
         void changeEmail();
-
-
+        
+        
 };
 
 #endif /* PROFILEBASE_H */

@@ -36,6 +36,7 @@ Status Admin::main() {
         cout << "[I] Remove item from Catalog\n";
         cout << "[J] Update item in Catalog\n";
         cout << "[K] View store earnings\n";
+        cout << "[L] Delete Account (DANGER ZONE)\n";
         cout << "[Q] Logout\n\n";
 
         input = getSingleChar();
@@ -74,15 +75,21 @@ Status Admin::main() {
             case 'k':
                 viewEarningsHist();
                 break;
+            case 'l':
+                delSelfAccount();
+                if (status == DELETE) {
+                    logout = true;
+                }
+                break;
             case 'q':
                 cout << "\n";
                 logout = true;
                 break;
             default:
-                cout << "Unknown input, please try again\n";
+                cout << "   Unknown input, please try again\n";
         };
     }
-    cout << "Logging out\n";
+    cout << "   Logging out\n";
     return status;
 }
 
@@ -231,6 +238,16 @@ void Admin::delAccount() {
     
     delete profile;
     profile = nullptr;
+}
+
+void Admin::delSelfAccount() {
+    
+    if (account->getName() == "admin") {
+        cout << "   Cannot remove the primary admin, \"admin\"\n";
+        return;
+    }
+    
+    ProfileBase::delSelfAccount();
 }
 
 void Admin::addCatalogItem() {
