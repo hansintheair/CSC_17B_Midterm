@@ -21,6 +21,8 @@ void \mbox{\hyperlink{class_admin_a4bcb80335cb4168c664a46fcd7b1a014}{view\+Catal
 \begin{DoxyCompactList}\small\item\em Display catalog. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_admin_a4f88de440b9de66b639438d867cd1190}{view\+Profile}} () override
 \begin{DoxyCompactList}\small\item\em Display profile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_admin_a696e9117148218e75e5e9fb403078ba7}{del\+Self\+Account}} () override
+\begin{DoxyCompactList}\small\item\em Delete user account. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_admin_a9e6ec7dbb17db53e4c856d8be1685263}{view\+Accounts}} ()
 \begin{DoxyCompactList}\small\item\em Display accounts. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_admin_aa71cd800f17ecae6650e5ea012ba9c8f}{create\+Account}} ()
@@ -44,6 +46,8 @@ virtual void \mbox{\hyperlink{class_profile_base_a93492eafaf1c29e64a4d3e11a7e135
 \begin{DoxyCompactList}\small\item\em View user profile. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_profile_base_a0d53225e10b26c6d1d6ae9edbe61fe9b}{view\+Catalog}} ()
 \begin{DoxyCompactList}\small\item\em View store catalog. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_profile_base_a0f0e50dbda880f7a96ad56b956837d7a}{del\+Self\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Delete user account. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_profile_base_a0ecc6ec73e954f968358bb7b6f76f714}{change\+Passw}} ()
 \begin{DoxyCompactList}\small\item\em Change user password. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_profile_base_acb541e905010558e7f9180dbfe421266}{change\+Email}} ()
@@ -127,6 +131,20 @@ Delete an existing account.
 
 
 Delete an item from the catalog. 
+
+\mbox{\Hypertarget{class_admin_a696e9117148218e75e5e9fb403078ba7}\label{class_admin_a696e9117148218e75e5e9fb403078ba7}} 
+\index{Admin@{Admin}!delSelfAccount@{delSelfAccount}}
+\index{delSelfAccount@{delSelfAccount}!Admin@{Admin}}
+\doxysubsubsection{\texorpdfstring{delSelfAccount()}{delSelfAccount()}}
+{\footnotesize\ttfamily void Admin\+::del\+Self\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Delete user account. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_profile_base_a0f0e50dbda880f7a96ad56b956837d7a}{Profile\+Base}}.
 
 \mbox{\Hypertarget{class_admin_a631fccbb793ac35a94262899f0959bb5}\label{class_admin_a631fccbb793ac35a94262899f0959bb5}} 
 \index{Admin@{Admin}!main@{main}}
