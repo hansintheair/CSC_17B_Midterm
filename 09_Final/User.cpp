@@ -86,7 +86,7 @@ Status User::main() {
                 logout = true;
                 break;
             default:
-                cout << "Unknown input, please try again\n";
+                cout << "   Unknown input, please try again\n";
         };
     }
     cout << "   Logging out\n";

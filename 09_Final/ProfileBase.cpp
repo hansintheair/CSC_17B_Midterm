@@ -79,11 +79,20 @@ void ProfileBase::delSelfAccount() {
     cout << "   Are you sure you want to delete your account (Y/)?\n";
     cout << "   WARNING!!! This will permanently delete your account.\n";
     
-    cout << "   Add to cart? (Y/)\n";
     conf = getSingleChar();
     tolower(conf);
     if (conf == 'y') {  // Delete user
-        // Check if item is already in the cart
+        
+        string pwd;
+        
+        cout << "   Please confirm your password for " << account->getName() << "\n";
+        safeGetLine(pwd, MAXFLD);
+        // Authenticate password
+        if (!(account->getPassw() == pwd)) {
+            cout << "\n   Invalid password.\n";
+            return;
+        }
+        
         status = DELETE;
     } else {
         cout << "   Cancelled\n";

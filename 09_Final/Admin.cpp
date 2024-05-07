@@ -136,6 +136,13 @@ void Admin::viewAccounts() {
         cout << "   Cart Database: " << profile->getCartDBPath() << "\n";
         cout << "   Is admin: " << (profile->isAdmin()?"Yes":"No") << "\n";
         
+        if (!profile->isAdmin()) {
+            User user = User(profile);
+            float total_spent = 0;
+            user.getHistTotal(total_spent);
+            cout << "   Total spent: $" << setprecision(2) << fixed << total_spent << "\n";
+        }
+        
         // Main admin account "admin" has special privileges; can see passwords
         if (account->getName() == "admin") {
             cout << "   Password: " << (profile->getPassw()) << "\n";
