@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['home_0',['Home',['../class_home.html',1,'']]]
+  ['generics_0',['Generics',['../class_generics.html',1,'']]]
 ];

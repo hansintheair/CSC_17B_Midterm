@@ -79,6 +79,7 @@ class User : public ProfileBase {
 
         /// @brief Place (complete) an order (purchase all items in cart)
         void placeOrder();
+        
 };
 
 #endif /* USER_H */

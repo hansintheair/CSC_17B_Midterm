@@ -112,6 +112,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ada9fdc4fb8aff1c6f52cf25e634503ba"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_generics_8h.html#ada9fdc4fb8aff1c6f52cf25e634503ba">randomUnsInt</a> (unsigned int min, unsigned int max)</td></tr>
 <tr class="memdesc:ada9fdc4fb8aff1c6f52cf25e634503ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random integer number.  <br /></td></tr>
 <tr class="separator:ada9fdc4fb8aff1c6f52cf25e634503ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af909732b3c96736a6cd20fb2b91c852a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_generics_8h.html#af909732b3c96736a6cd20fb2b91c852a">randomString</a> (string &amp;str, unsigned short int len)</td></tr>
+<tr class="memdesc:af909732b3c96736a6cd20fb2b91c852a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a random string of letters and numbers of the given length to the given input string.  <br /></td></tr>
+<tr class="separator:af909732b3c96736a6cd20fb2b91c852a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a9920fc8afc3d4a8a9b51d3832eaf62bf" name="a9920fc8afc3d4a8a9b51d3832eaf62bf"></a>
@@ -254,6 +257,51 @@ template&lt;typename T , typename enable_if&lt; is_arithmetic&lt; T &gt;::value 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A random floating point number within the specified range </dd></dl>
+
+</div>
+</div>
+<a id="af909732b3c96736a6cd20fb2b91c852a" name="af909732b3c96736a6cd20fb2b91c852a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af909732b3c96736a6cd20fb2b91c852a">&#9670;&#160;</a></span>randomString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void randomString </td>
+          <td>(</td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Append a random string of letters and numbers of the given length to the given input string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The string to be appended to </td></tr>
+    <tr><td class="paramname">len</td><td>The number of random letters and numbers to append </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

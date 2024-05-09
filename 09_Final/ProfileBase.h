@@ -59,7 +59,9 @@ class ProfileBase {
         /// @brief Change user email
         void changeEmail();
         
-        
+        /// @brief Get the user record status
+        /// @return clean, dirty, or delete status
+        Status getStatus();
 };
 
 #endif /* PROFILEBASE_H */

@@ -113,4 +113,8 @@ void ProfileBase::viewCatalog() {
 }
 
 
+Status ProfileBase::getStatus() {
+    return this->status;
+}
+
 
