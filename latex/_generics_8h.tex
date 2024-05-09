@@ -23,7 +23,9 @@ bool \mbox{\hyperlink{_generics_8h_a9947873195a764ba39890caa126e11f9}{is\+Int}} 
 float \mbox{\hyperlink{_generics_8h_ae3fb0a65c5d7fbeb9d97e57d237f7779}{random\+Float}} (float min, float max)
 \begin{DoxyCompactList}\small\item\em Generate a random floating point number. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{_generics_8h_ada9fdc4fb8aff1c6f52cf25e634503ba}{random\+Uns\+Int}} (unsigned int min, unsigned int max)
-\begin{DoxyCompactList}\small\item\em Generate a random integer number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Generate a random integer number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_generics_8h_af909732b3c96736a6cd20fb2b91c852a}{random\+String}} (string \&str, unsigned short int len)
+\begin{DoxyCompactList}\small\item\em Append a random string of letters and numbers of the given length to the given input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -99,6 +101,23 @@ Generate a random floating point number.
 \begin{DoxyReturn}{Returns}
 A random floating point number within the specified range 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_generics_8h_af909732b3c96736a6cd20fb2b91c852a}\label{_generics_8h_af909732b3c96736a6cd20fb2b91c852a}} 
+\index{Generics.h@{Generics.h}!randomString@{randomString}}
+\index{randomString@{randomString}!Generics.h@{Generics.h}}
+\doxysubsubsection{\texorpdfstring{randomString()}{randomString()}}
+{\footnotesize\ttfamily void random\+String (\begin{DoxyParamCaption}\item[{string \&}]{str,  }\item[{unsigned short int}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Append a random string of letters and numbers of the given length to the given input string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to be appended to \\
+\hline
+{\em len} & The number of random letters and numbers to append \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{_generics_8h_ada9fdc4fb8aff1c6f52cf25e634503ba}\label{_generics_8h_ada9fdc4fb8aff1c6f52cf25e634503ba}} 
 \index{Generics.h@{Generics.h}!randomUnsInt@{randomUnsInt}}
 \index{randomUnsInt@{randomUnsInt}!Generics.h@{Generics.h}}

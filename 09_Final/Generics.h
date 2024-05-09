@@ -1,5 +1,14 @@
 /** \file */
 
+/**
+ * \anchor Generics
+ * \class Generics
+ * A collection of generic functions that are broadly useful throughout the project and don't belong to any 
+ * specific class.
+ * 
+ * It is used in Admin to generate a random password.
+ */
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/cppFiles/file.h to edit this template
@@ -108,6 +117,18 @@ inline float randomFloat(float min, float max) {
 /// @return A random integer number within the specified range
 inline unsigned int randomUnsInt(unsigned int min, unsigned int max) {
     return min + static_cast<unsigned int>(rand()) % (max - min + 1);
+}
+
+/// @brief Append a random string of letters and numbers of the given length to the given input string
+/// @param str The string to be appended to
+/// @param len The number of random letters and numbers to append
+inline void randomString(string& str, unsigned short int len) {
+    char clist[] = "abcdefghijklmnopqrstuvwxyz1234567890";
+    short unsigned int size = strlen(clist);
+    
+    for (int i = 0; i < len; i++) {
+        str += clist[rand() % size];
+    }
 }
 
 #endif /* GENERICS_H */

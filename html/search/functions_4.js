@@ -11,5 +11,6 @@ var searchData=
   ['getpassw_8',['getPassw',['../class_account.html#a04fd47c307864a81a48d186605e8de9a',1,'Account']]],
   ['getprice_9',['getPrice',['../class_catalog.html#aaa264f1df4c66e91383cec4aac5fdaf1',1,'Catalog']]],
   ['getquant_10',['getQuant',['../class_catalog.html#ae4a5b2a8608cfed58485431fff2fba67',1,'Catalog']]],
-  ['getsinglechar_11',['getSingleChar',['../_generics_8h.html#ae76dbb33265b3af3948a58b19109572d',1,'Generics.h']]]
+  ['getsinglechar_11',['getSingleChar',['../_generics_8h.html#ae76dbb33265b3af3948a58b19109572d',1,'Generics.h']]],
+  ['getstatus_12',['getStatus',['../class_profile_base.html#a50d0d221825f9b1221310cbd6f6663d6',1,'ProfileBase']]]
 ];

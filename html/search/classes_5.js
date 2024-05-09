@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['user_0',['User',['../class_user.html',1,'']]]
+  ['profilebase_0',['ProfileBase',['../class_profile_base.html',1,'']]]
 ];

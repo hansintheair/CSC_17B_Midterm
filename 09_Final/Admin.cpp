@@ -29,14 +29,15 @@ Status Admin::main() {
         cout << "[B] Change e-mail\n";
         cout << "[C] Change Password\n";
         cout << "[D] List accounts\n";
-        cout << "[E] Create new account\n";
-        cout << "[F] Remove an account\n";
-        cout << "[G] View Catalog\n";
-        cout << "[H] Add item to Catalog\n";
-        cout << "[I] Remove item from Catalog\n";
-        cout << "[J] Update item in Catalog\n";
-        cout << "[K] View store earnings\n";
-        cout << "[L] Delete Account (DANGER ZONE)\n";
+        cout << "[E] Access user account\n";
+        cout << "[F] Create new account\n";
+        cout << "[G] Remove an account\n";
+        cout << "[H] View Catalog\n";
+        cout << "[I] Add item to Catalog\n";
+        cout << "[J] Remove item from Catalog\n";
+        cout << "[K] Update item in Catalog\n";
+        cout << "[L] View store earnings\n";
+        cout << "[M] Delete Account (DANGER ZONE)\n";
         cout << "[Q] Logout\n\n";
 
         input = getSingleChar();
@@ -55,27 +56,30 @@ Status Admin::main() {
                 viewAccounts();
                 break;
             case 'e':
-                createAccount();
+                viewEditUser();
                 break;
             case 'f':
-                delAccount();
+                createAccount();
                 break;
             case 'g':
-                viewCatalog();
+                delAccount();
                 break;
             case 'h':
-                addCatalogItem();
+                viewCatalog();
                 break;
             case 'i':
-                delCatalogItem();
+                addCatalogItem();
                 break;
             case 'j':
-                updCatalogItem();
+                delCatalogItem();
                 break;
             case 'k':
-                viewEarningsHist();
+                updCatalogItem();
                 break;
             case 'l':
+                viewEarningsHist();
+                break;
+            case 'm':
                 delSelfAccount();
                 if (status == DELETE) {
                     logout = true;
@@ -440,5 +444,101 @@ void Admin::viewEarningsHist() {
     profiles = nullptr;    
 }
 
+void Admin::viewEditUser(){
+    bool logout = false;
+    string name;
+    char input;
+    int prof_pos = -1;
+    Account* profile;
+    
+    // Get user
+    cout << "\n-- Access user account (as admin)\n";
+    cout << "   Enter name of user account\n";
+    safeGetLine(name, MAXFLD);
+    
+    
+    // Check if the account exists
+    accounts->open();
+    prof_pos = accounts->find(name);
+    if (prof_pos < 0) {
+        cout << "   That account does not exist\n";
+        accounts->close();
+        return;
+    }
+    profile = accounts->get(prof_pos);    
+    accounts->close();
+    
+    // Cannot access other admin accounts
+    if (profile->isAdmin()) {
+        cout << "   Impossible, the selected account is an admin\n";
+        return;
+    }
+    
+    // Display account access options
+    User user = User(profile);
+    while (!logout) {
+        user.viewProfile();
+        cout << "[A] View cart\n";
+        cout << "[B] Remove from cart\n";
+        cout << "[C] View order history\n";
+        cout << "[D] Change e-mail\n";
+        cout << "[E] Reset password\n";
+        cout << "[Q] Back\n\n";
 
+        input = getSingleChar();
+        input = tolower(input);
+        switch (input) {
+            case 'a':
+                user.viewCart();
+                break;
+            case 'b':
+                user.remFrmCart();
+                break;
+            case 'c':
+                user.viewHist();
+                break;
+            case 'd':
+                user.changeEmail();
+                break;
+            case 'e':
+            {
+                cout << "-- Reset password\n";
+                cout << "   This will reset the user's password. Are you sure (Y/)?\n";
+                char conf = getSingleChar();
+                tolower(conf);
+                if (conf != 'y') {
+                    cout << "   Cancelled\n";
+                    break;
+                }
+                
+                string new_pwd;
+                randomString(new_pwd, 12);
+                profile->setPassw(new_pwd);
+                cout << "   Password has been reset to " << new_pwd << "\n";
+                cout << "   ATTENTION! Be sure to provide this password to the user\n";
+                break;
+            }
+            case 'q':
+                cout << "\n";
+                logout = true;
+                break;
+            default:
+                cout << "   Unknown input, please try again\n";
+        };
+    }
+    
+    // Update account record if changes were made to profile
+    if (user.getStatus() == DIRTY) {
+        accounts->open();
+        prof_pos = accounts->find(profile->getName());
+        accounts->set(prof_pos, profile);
+        accounts->close();
+    }
+    
+    // Cleanup
+    delete profile;
+    profile = nullptr;
+    
+    cout << "   Exiting user\n";
+}
 

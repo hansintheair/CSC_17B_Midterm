@@ -7,6 +7,8 @@
  *
  * \ref Home is the main entry point into the application.   
  * \ref main performs some setup (creating nescessary objects) and then calls Home::main() to execute the program.
+ * 
+ * \ref Generics provides a handful of generic helper functions useful throughout the project.
   */
 
 /*

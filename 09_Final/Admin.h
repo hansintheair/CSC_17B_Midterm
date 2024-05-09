@@ -81,6 +81,9 @@ class Admin : public ProfileBase{
 
         /// @brief View the total earnings of the store
         void viewEarningsHist();
+        
+        /// @brief View and/or edit user profile, cart, and view orders history
+        void viewEditUser();
 };
 
 #endif /* ADMIN_H */
