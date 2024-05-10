@@ -36,40 +36,23 @@ using namespace std;
  */
 
 void createRndmCtlg(string, unsigned int);
+void createRndmUser(int num, bool isadmin = false);
 
 /// @brief Performs nescessary setup to run the Shopping Store Application. 
 /// Calls Home.main to launch the application.
 int main() {
     
     srand(static_cast<unsigned>(time(0)));  //Seed random number
-        
-//    createRndmCtlg(CATALOGDBPATH, 1000);
-    DBModel<Catalog> catalog = DBModel<Catalog>(CATALOGDBPATH);
-//    catalog.open();  //DEBUG
-//    catalog.display();  //DEBUG
-//    catalog.close();  //DEBUG
-    
 
+    // UNCOMMENT IF YOU WANT TO GENERATE SOME RANDOM DATA OR ACCOUNTS
+//    createRndmCtlg(CATALOGDBPATH, 1000);  //Overwrites all catalog entries with N new entries
+//    createRndmUser(1, true);  // Adds (appends) some new admin accounts to the accounts database
+//    createRndmUser(20, false);  // Adds (appends) some new user accounts to the accounts database
+    
+    DBModel<Catalog> catalog = DBModel<Catalog>(CATALOGDBPATH);
     DBModel<Account>::create(ACCOUNTSDBPATH);
     DBModel<Account> accounts = DBModel<Account>(ACCOUNTSDBPATH);
-
-
-//    accounts.open();
-//    accounts.delAll();
-//
-//    Account admin = Account("admin", "admin@company.com", "admin", "", "", 1);
-//    Account user1 = Account("hannes", "hannesz1@gmail.com", "hannes", "data/hannes.bin", "data/hannes_hist.bin", 0);
-//    DBModel<Catalog>::create(user1.getCartDBPath());
-//    DBModel<Catalog>::create(user1.getHistDBPath());
-//    Account user2 = Account("merari", "merari@gmail.com", "merari", "data/merari.bin", "data/merari_hist.bin", 0);
-//    DBModel<Catalog>::create(user2.getCartDBPath());
-//    DBModel<Catalog>::create(user2.getHistDBPath());
-//    
-//    accounts.add(&admin);
-//    accounts.add(&user1);
-//    accounts.add(&user2);
-//    accounts.display();
-//    accounts.close();
+    
 
     Home home = Home(&accounts);
     home.main();
@@ -78,9 +61,9 @@ int main() {
 }
 
 
-/// @brief Helper to create random catalog items
-/// @param path The path to the catalog database
-/// @param count The number of random items to generate
+/// @brief Helper to create random catalog items.
+/// @param path The path to the catalog database.
+/// @param count The number of random items to generate. WARNING: existing catalog will be overwritten.
 void createRndmCtlg(string path, unsigned int count) {
     
     // Create the database
@@ -102,4 +85,85 @@ void createRndmCtlg(string path, unsigned int count) {
         
     delete [] records;
     records = nullptr;
+}
+
+/// @brief Helpert to create random user or admin accounts. Generates random shopping data if user accounts.
+/// @param num Number of accounts to generate.
+/// @param isadmin Creates admin accounts if true, else creates user accounts.
+void createRndmUser(int num, bool isadmin) {
+    
+    DBModel<Account> accounts = DBModel<Account>(ACCOUNTSDBPATH);
+    DBModel<Catalog> catalog = DBModel<Catalog>(CATALOGDBPATH);
+    string prefix, name, email, cartpath = "", histpath = "";
+    int idx = 0, cnt = 0, pos = 0, cat_cnt = 0;
+    unsigned int items = 0;
+    
+    // set the correct prefix based on admin or user
+    if (isadmin) {
+        prefix = "admin";
+    } else {
+        prefix = "user";
+    }
+        
+    accounts.open();
+    catalog.open();
+    
+    cat_cnt = catalog.count();
+    
+    while (cnt < num) {
+        
+        // Generate new name and make sure it is unique, else skip it
+        name = prefix + "_" + to_string(idx);
+        pos = accounts.find(name);
+        if (pos > -1) {
+            idx += 1;  // We can't use this number, try next one
+            continue;
+        }
+        
+        cnt += 1;  // This one is unique, count up
+        
+        // Create a new user account
+        email = name + "@email.com";
+        if (!isadmin) {
+            cartpath = "data/" + name + ".bin";
+            DBModel<Catalog>::create(cartpath);
+            histpath = "data/" + name + "_hist.bin";
+            DBModel<Catalog>::create(histpath);
+        }        
+        
+        Account account = Account(name, email, name, cartpath, histpath, isadmin);
+        accounts.add(&account);
+        
+//        account.display();  // DEBUG
+        if (!isadmin) {
+            // Fill cart with items randomly chosen from store catalog
+            DBModel<Catalog> cart = DBModel<Catalog>(cartpath);
+            cart.open();
+            items = randomUnsInt(0, 6);
+            for (unsigned int i = 0; i < items; i++) {
+                Catalog* item = catalog.get(randomUnsInt(0, cat_cnt));
+                item->setQuant(randomUnsInt(1, 3));
+//                item->display();  //DEBUG
+//                cout << "   QUANT: " << item->getQuant() << "\n";  //DEBUG
+                cart.add(item);
+            }
+            cart.close();
+
+            // Fill history with items randomly chosen from store catalog
+            DBModel<Catalog> hist = DBModel<Catalog>(histpath);
+            hist.open();
+            items = randomUnsInt(0, 6);
+            for (unsigned int i = 0; i < items; i++) {
+                Catalog* item = catalog.get(randomUnsInt(0, cat_cnt));
+                item->setQuant(randomUnsInt(1, 3));
+//                item->display();  //DEBUG
+//                cout << "   QUANT: " << item->getQuant() << "\n";  //DEBUG
+                hist.add(item);
+            }
+            hist.close();
+        }
+        
+    }
+    accounts.close();
+    catalog.close();
 }

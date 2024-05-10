@@ -18,5 +18,6 @@ var searchData=
   ['create_15',['create',['../class_d_b_model.html#abec74167b1578104c42a68486f39b8e5',1,'DBModel']]],
   ['createaccount_16',['createAccount',['../class_admin.html#aa71cd800f17ecae6650e5ea012ba9c8f',1,'Admin']]],
   ['createrndmctlg_17',['createRndmCtlg',['../main_8cpp.html#a16f96e003a028de5310be50f708176e7',1,'main.cpp']]],
-  ['createuser_18',['createUser',['../class_home.html#a4058b3c5748575ca67a7e2b5c2db5dcd',1,'Home']]]
+  ['createrndmuser_18',['createRndmUser',['../main_8cpp.html#a96aebac1a763d075b7eb5cb4bf400b16',1,'main.cpp']]],
+  ['createuser_19',['createUser',['../class_home.html#a4058b3c5748575ca67a7e2b5c2db5dcd',1,'Home']]]
 ];
