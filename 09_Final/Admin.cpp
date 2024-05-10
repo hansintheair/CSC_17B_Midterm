@@ -242,6 +242,7 @@ void Admin::delAccount() {
     // Delete the account
     profile = accounts->get(prof_pos);
     DBModel<Account>::deleteDB(profile->getCartDBPath());
+    DBModel<Catalog>::deleteDB(profile->getHistDBPath());
     accounts->del(prof_pos);
     accounts->close();
     

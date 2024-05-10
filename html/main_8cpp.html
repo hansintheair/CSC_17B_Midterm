@@ -88,6 +88,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a16f96e003a028de5310be50f708176e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a16f96e003a028de5310be50f708176e7">createRndmCtlg</a> (string path, unsigned int count)</td></tr>
 <tr class="memdesc:a16f96e003a028de5310be50f708176e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to create random catalog items.  <br /></td></tr>
 <tr class="separator:a16f96e003a028de5310be50f708176e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96aebac1a763d075b7eb5cb4bf400b16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a96aebac1a763d075b7eb5cb4bf400b16">createRndmUser</a> (int num, bool isadmin)</td></tr>
+<tr class="memdesc:a96aebac1a763d075b7eb5cb4bf400b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helpert to create random user or admin accounts. Generates random shopping data if user accounts.  <br /></td></tr>
+<tr class="separator:a96aebac1a763d075b7eb5cb4bf400b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs nescessary setup to run the Shopping Store Application. Calls <a class="el" href="class_home.html#af37e6f3e876567384e5bfe8a425cd7cd" title="Main menu. Main entry point into the application.">Home.main</a> to launch the application.  <br /></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,8 +125,45 @@ Functions</h2></td></tr>
 <p>Helper to create random catalog items. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>The path to the catalog database </td></tr>
-    <tr><td class="paramname">count</td><td>The number of random items to generate </td></tr>
+    <tr><td class="paramname">path</td><td>The path to the catalog database. </td></tr>
+    <tr><td class="paramname">count</td><td>The number of random items to generate. WARNING: existing catalog will be overwritten. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a96aebac1a763d075b7eb5cb4bf400b16" name="a96aebac1a763d075b7eb5cb4bf400b16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96aebac1a763d075b7eb5cb4bf400b16">&#9670;&#160;</a></span>createRndmUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void createRndmUser </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isadmin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helpert to create random user or admin accounts. Generates random shopping data if user accounts. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>Number of accounts to generate. </td></tr>
+    <tr><td class="paramname">isadmin</td><td>Creates admin accounts if true, else creates user accounts. </td></tr>
   </table>
   </dd>
 </dl>

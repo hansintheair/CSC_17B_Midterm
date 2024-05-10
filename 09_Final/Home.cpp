@@ -122,6 +122,8 @@ void Home::loginUser() {
             accounts->open();
             int pos = accounts->find(account->getName());
             accounts->del(pos);
+            DBModel<Catalog>::deleteDB(account->getCartDBPath());
+            DBModel<Catalog>::deleteDB(account->getHistDBPath());
             accounts->close();
             cout << "   Account " << account->getName() << " has been deleted\n";
             break;

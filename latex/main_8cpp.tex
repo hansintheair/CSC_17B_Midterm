@@ -9,6 +9,8 @@
 \item 
 void \mbox{\hyperlink{main_8cpp_a16f96e003a028de5310be50f708176e7}{create\+Rndm\+Ctlg}} (string path, unsigned int count)
 \begin{DoxyCompactList}\small\item\em Helper to create random catalog items. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a96aebac1a763d075b7eb5cb4bf400b16}{create\+Rndm\+User}} (int num, bool isadmin)
+\begin{DoxyCompactList}\small\item\em Helpert to create random user or admin accounts. Generates random shopping data if user accounts. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \begin{DoxyCompactList}\small\item\em Performs nescessary setup to run the Shopping Store Application. Calls \mbox{\hyperlink{class_home_af37e6f3e876567384e5bfe8a425cd7cd}{Home.\+main}} to launch the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -26,9 +28,26 @@ Helper to create random catalog items.
 
 
 \begin{DoxyParams}{Parameters}
-{\em path} & The path to the catalog database \\
+{\em path} & The path to the catalog database. \\
 \hline
-{\em count} & The number of random items to generate \\
+{\em count} & The number of random items to generate. WARNING\+: existing catalog will be overwritten. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a96aebac1a763d075b7eb5cb4bf400b16}\label{main_8cpp_a96aebac1a763d075b7eb5cb4bf400b16}} 
+\index{main.cpp@{main.cpp}!createRndmUser@{createRndmUser}}
+\index{createRndmUser@{createRndmUser}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{createRndmUser()}{createRndmUser()}}
+{\footnotesize\ttfamily void create\+Rndm\+User (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{bool}]{isadmin }\end{DoxyParamCaption})}
+
+
+
+Helpert to create random user or admin accounts. Generates random shopping data if user accounts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Number of accounts to generate. \\
+\hline
+{\em isadmin} & Creates admin accounts if true, else creates user accounts. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
